@@ -12,10 +12,11 @@
 #include <stdbool.h>
 #include "Header.h"
 
-Pessoa* CriaPessoa(int id, bool admin, char nome[], float saldo)
+/*Pessoa* CriaPessoa()
 {
-	Pessoa* novaPessoa = (Pessoa*) malloc(sizeof(Pessoa));
+	Pessoa* novaPessoa = malloc(sizeof(Pessoa));
 
+	novaPessoa = leituraFicheiro();
 	novaPessoa->id = id;
 	novaPessoa->admin = admin;
 	strcpy(novaPessoa->nome, nome);
@@ -24,20 +25,70 @@ Pessoa* CriaPessoa(int id, bool admin, char nome[], float saldo)
 	novaPessoa->saldo = saldo;
 
 	return (novaPessoa);
+}*/
+
+void lerDados(FILE *fp, Pessoa *leituraPessoa)
+{
+	while (!feof(fp))
+	{
+		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(leituraPessoa->id), &(leituraPessoa->admin), leituraPessoa->nome, &(leituraPessoa->saldo));
+	}
 }
 
-bool InserePessoa(NoPessoa **lista, Pessoa* novaPessoa)
+Pessoa* leituraFicheiro(Pessoa *ptr)
 {
-	NoPessoa *novo = malloc(sizeof(NoPessoa));
+	// Abre o ficheiro com os dados
+	FILE* fp = fopen("pessoas.txt", "r");
+
+	// Verifica se o arquivo foi aberto com sucesso
+	if (fp == NULL)
+	{
+		printf("Erro ao abrir o ficheiro\n");
+		exit(1);
+	}
+	// Lê os dados do ficheiro
+	Pessoa *novaPessoa = (Pessoa*) malloc(sizeof(Pessoa));
+
+	lerDados(fp, novaPessoa);
+	//novo = ptr;
+	/*while (!feof(fp))
+	{
+		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo));
+	}*/
+
+	// Fecha o ficheiro
+	fclose(fp);
+	return novaPessoa;
+}
+
+
+NoPessoa* criaNoPessoa(Pessoa* nPessoa)
+{
+	NoPessoa* novo = malloc(sizeof(NoPessoa));
+	novo->p = *nPessoa;
+	novo->proxima = NULL;
+
+	return novo;
+}
+
+bool InserePessoa(NoPessoa **lista, Pessoa* nPessoa)
+{
+	//NoPessoa *novo = malloc(sizeof(NoPessoa));
 	
-	if (novo) {
-		novo->p = *novaPessoa;
-		novo->proxima = *lista;
-		*lista = novo;
-		return true;
+	if (*lista == NULL) 
+	{
+		*lista = nPessoa;
+		return false;
 	}
-	else {
-		printf("Erro ao alocar memória\n");
+	else 
+	{
+		NoPessoa* atual = *lista;
+		while (atual->proxima != NULL)
+		{
+			atual = atual->proxima;
+		}
+		atual->proxima = nPessoa;
 	}
-	return false;
+
+	return true;
 }
