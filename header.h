@@ -14,7 +14,7 @@
 typedef struct Pessoa
 {
 	int id;
-	bool admin;
+	int admin;
 	char nome[50];
 	//char nif[9];
 	//char morada[100];
@@ -27,9 +27,11 @@ typedef struct NoPessoa
 	struct NoPessoa *proxima;
 }NoPessoa, * NoPessoaPtr;
 
-Pessoa* CriaPessoa(int id, bool admin, char nome[], float saldo);
-bool InserePessoa(NoPessoa **lista, Pessoa* novaPessoa);
-
+//Pessoa* CriaPessoa();
+//void lerDados(FILE *fp, Pessoa *leituraPessoa);
+Pessoa* leituraFicheiro(Pessoa *ptr);
+NoPessoa* criaNoPessoa(Pessoa* nPessoa);
+bool InserePessoa(NoPessoa **lista, Pessoa* nPessoa);
 /*typedef struct Veiculo
 {
 	int id;
@@ -37,7 +39,7 @@ bool InserePessoa(NoPessoa **lista, Pessoa* novaPessoa);
 	int bateria;
 	char localizacao[40];
 	float custo;
-	bool disponibilidade;
+	int disponibilidade;
 	int totalViagens;
 }Veiculo, *VeiculoPtr;
 

@@ -15,19 +15,25 @@
 
 int main()
 {
-
+	/*
 	int id = 1;
-	bool admin = true;
+	int admin = 0;
 	char nome[50] = "Rui";
 	//strcpy(p.nif, "11111111");
 	//strcpy(p.morada, "Rua A, 25");
-	float saldo = 100.00;
+	float saldo = 100.00;*/
 
-	Pessoa* p = CriaPessoa(id, admin, nome, saldo);
+	//Pessoa* ptr = (Pessoa*)malloc(sizeof(Pessoa));
+	Pessoa* ptr = NULL;
+	Pessoa* p = leituraFicheiro(&ptr);
+	NoPessoa* lista = criaNoPessoa(p);
+	//Pessoa* p = CriaPessoa();
 	
-	NoPessoa* lista = NULL; 
+
+	//NoPessoa* lista = NULL; 
 
 	InserePessoa(&lista, p);
+
 
 	return (1);
 }
