@@ -23,16 +23,23 @@ int main()
 	//strcpy(p.morada, "Rua A, 25");
 	float saldo = 100.00;*/
 
-	//Pessoa* ptr = (Pessoa*)malloc(sizeof(Pessoa));
-	Pessoa* ptr = NULL;
-	Pessoa* p = leituraFicheiro(&ptr);
-	NoPessoa* lista = criaNoPessoa(p);
+	Pessoa* ptr = (Pessoa*)malloc(sizeof(Pessoa));
+	//Pessoa* ptr = NULL;
+	NoPessoa* lista = leituraFicheiro(&ptr);
+	//Pessoa* p = leituraFicheiro(&ptr);
+	//NoPessoa* lista = criaNoPessoa(p);
+	//NoPessoa* lista = criaNoPessoa(p);
 	//Pessoa* p = CriaPessoa();
 	
 
-	//NoPessoa* lista = NULL; 
+	/*NoPessoa* lista = NULL;
+	while (true)
+	{
+		InserePessoaLista(&lista, p);
+	}*/
 
-	InserePessoa(&lista, p);
+	
+	//InserePessoa(&lista, p);
 
 
 	return (1);

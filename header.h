@@ -29,9 +29,13 @@ typedef struct NoPessoa
 
 //Pessoa* CriaPessoa();
 //void lerDados(FILE *fp, Pessoa *leituraPessoa);
-Pessoa* leituraFicheiro(Pessoa *ptr);
-NoPessoa* criaNoPessoa(Pessoa* nPessoa);
+NoPessoa* leituraFicheiro(Pessoa *ptr);
+NoPessoa* InserePessoa(NoPessoa** lista, Pessoa* nPessoa);
+
+/*NoPessoa* criaNoPessoa(Pessoa* nPessoa);
 bool InserePessoa(NoPessoa **lista, Pessoa* nPessoa);
+bool InserePessoaLista(NoPessoa** lista, Pessoa* novaPessoa);*/
+
 /*typedef struct Veiculo
 {
 	int id;

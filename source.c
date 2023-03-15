@@ -27,15 +27,15 @@
 	return (novaPessoa);
 }*/
 
-void lerDados(FILE *fp, Pessoa *leituraPessoa)
+/*void lerDados(FILE* fp, Pessoa* leituraPessoa)
 {
 	while (!feof(fp))
 	{
 		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(leituraPessoa->id), &(leituraPessoa->admin), leituraPessoa->nome, &(leituraPessoa->saldo));
 	}
-}
+}*/
 
-Pessoa* leituraFicheiro(Pessoa *ptr)
+NoPessoa* leituraFicheiro(Pessoa *ptr)
 {
 	// Abre o ficheiro com os dados
 	FILE* fp = fopen("pessoas.txt", "r");
@@ -47,48 +47,63 @@ Pessoa* leituraFicheiro(Pessoa *ptr)
 		exit(1);
 	}
 	// Lê os dados do ficheiro
-	Pessoa *novaPessoa = (Pessoa*) malloc(sizeof(Pessoa));
+	NoPessoa *listaPessoa = (NoPessoa*)malloc(sizeof(NoPessoa));
 
-	lerDados(fp, novaPessoa);
+	//lerDados(fp, novaPessoa);
 	//novo = ptr;
-	/*while (!feof(fp))
+	while (!feof(fp))
 	{
-		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo));
-	}*/
+		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(ptr->id), &(ptr->admin), ptr->nome, &(ptr->saldo));
+		listaPessoa = InserePessoa(&listaPessoa, ptr);
+	}
 
 	// Fecha o ficheiro
 	fclose(fp);
-	return novaPessoa;
+	return listaPessoa;
 }
 
 
-NoPessoa* criaNoPessoa(Pessoa* nPessoa)
+/*NoPessoa* criaNoPessoa(Pessoa* nPessoa)
 {
 	NoPessoa* novo = malloc(sizeof(NoPessoa));
 	novo->p = *nPessoa;
 	novo->proxima = NULL;
 
 	return novo;
-}
+}*/
 
-bool InserePessoa(NoPessoa **lista, Pessoa* nPessoa)
+NoPessoa* InserePessoa(NoPessoa **lista, Pessoa* nPessoa)
 {
-	//NoPessoa *novo = malloc(sizeof(NoPessoa));
+	NoPessoa *novoNo = malloc(sizeof(NoPessoa));
 	
-	if (*lista == NULL) 
+	if (novoNo != NULL)
 	{
-		*lista = nPessoa;
-		return false;
+		novoNo->p = *nPessoa;
+		novoNo->proxima = *lista;
+		return novoNo;
 	}
-	else 
-	{
-		NoPessoa* atual = *lista;
-		while (atual->proxima != NULL)
+	else return(lista);
+	/* {
+		NoPessoa* listaAtual = *lista;
+		while (listaAtual->proxima != NULL)
 		{
-			atual = atual->proxima;
+			listaAtual = listaAtual->proxima;
 		}
-		atual->proxima = nPessoa;
-	}
-
-	return true;
+		listaAtual->proxima = nPessoa;
+	}*/
 }
+
+/*bool InserePessoaLista(NoPessoa** lista, Pessoa* novaPessoa)
+{
+	//Pessoa *novaPessoa;
+	bool aux = false;
+	NoPessoa* auxLista = *lista;
+	/*while (fscanf(fp, "%d;%d;%50[^;];%f;\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo) == 4)) {
+		NoPessoa* novoNo = create_node(novaPessoa);
+		aux = InserePessoa(&lista, novoNo);
+	}
+	NoPessoa* novoNo = criaNoPessoa(novaPessoa);
+	aux = InserePessoa(auxLista, novoNo);
+	
+	return aux;
+}*/
