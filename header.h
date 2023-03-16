@@ -27,14 +27,10 @@ typedef struct NoPessoa
 	struct NoPessoa *proxima;
 }NoPessoa, * NoPessoaPtr;
 
-//Pessoa* CriaPessoa();
-//void lerDados(FILE *fp, Pessoa *leituraPessoa);
-NoPessoa* leituraFicheiro(Pessoa *ptr);
-NoPessoa* InserePessoa(NoPessoa** lista, Pessoa* nPessoa);
+NoPessoa* leituraFicheiro();
+NoPessoa* InserePessoa(NoPessoa* listaPessoa, Pessoa* nPessoa);
+bool guardaListaPessoaBin(NoPessoa* listaPessoa);
 
-/*NoPessoa* criaNoPessoa(Pessoa* nPessoa);
-bool InserePessoa(NoPessoa **lista, Pessoa* nPessoa);
-bool InserePessoaLista(NoPessoa** lista, Pessoa* novaPessoa);*/
 
 /*typedef struct Veiculo
 {
