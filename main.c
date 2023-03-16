@@ -15,32 +15,10 @@
 
 int main()
 {
-	/*
-	int id = 1;
-	int admin = 0;
-	char nome[50] = "Rui";
-	//strcpy(p.nif, "11111111");
-	//strcpy(p.morada, "Rua A, 25");
-	float saldo = 100.00;*/
 
-	Pessoa* ptr = (Pessoa*)malloc(sizeof(Pessoa));
-	//Pessoa* ptr = NULL;
-	NoPessoa* lista = leituraFicheiro(&ptr);
-	//Pessoa* p = leituraFicheiro(&ptr);
-	//NoPessoa* lista = criaNoPessoa(p);
-	//NoPessoa* lista = criaNoPessoa(p);
-	//Pessoa* p = CriaPessoa();
-	
-
-	/*NoPessoa* lista = NULL;
-	while (true)
-	{
-		InserePessoaLista(&lista, p);
-	}*/
-
-	
-	//InserePessoa(&lista, p);
-
+	NoPessoa* listaPessoa = leituraFicheiro();
+	// Cria ficheiro binário e guarda os dados obtidos no ficheiro .txt
+	guardaListaPessoaBin(listaPessoa);
 
 	return (1);
 }
