@@ -30,7 +30,7 @@ typedef struct NoPessoa
 NoPessoa* leituraFicheiro();
 NoPessoa* InserePessoa(NoPessoa* listaPessoa, Pessoa* nPessoa);
 bool guardaListaPessoaBin(NoPessoa* listaPessoa);
-
+NoPessoa* lerListaPessoaBin();
 
 /*typedef struct Veiculo
 {
