@@ -26,10 +26,10 @@
  * \param listaPessoa
  * \return 
  */
-bool guardaListaPessoaBin(NoPessoa* listaPessoa)
+/*bool guardaListaPessoaBin(NoPessoa* listaPessoa)
 {
-	FILE* fp2 = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro binário
-	if (fp2 == NULL)
+	FILE* fp = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro binário
+	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
 		return (false);
@@ -40,15 +40,15 @@ bool guardaListaPessoaBin(NoPessoa* listaPessoa)
 	while (aux != NULL)
 	{
 		sprintf(buffer, "%d;%d;%s;%f;\n", aux->p.id, aux->p.admin, aux->p.nome, aux->p.saldo);
-		fwrite(buffer, sizeof(buffer), 1, fp2);
+		fwrite(buffer, sizeof(strlen(buffer)), 1, fp);
 		printf("%s", buffer);
 		aux = aux->proxima;
 	}
 
-	fclose(fp2);
+	fclose(fp);
 
 	return (true);
-}
+}*/
 
 NoPessoa* leituraFicheiro()
 {
@@ -102,4 +102,65 @@ NoPessoa* InserePessoa(NoPessoa *listaPessoa, Pessoa* nPessoa)
 
 
 	return listaPessoa;
+}
+
+bool guardaListaPessoaBin(NoPessoa* listaPessoa)
+{
+	FILE* fp = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro binário
+	if (fp == NULL)
+	{
+		printf("Erro ao abrir o ficheiro\n");
+		return (false);
+	}
+
+	NoPessoa* aux = listaPessoa;
+	while (aux != NULL)
+	{
+		Pessoa buffer = aux->p;
+		fwrite(&buffer, sizeof(Pessoa), 1, fp);
+		//printf("%d;%d;%s;%f;\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
+		aux = aux->proxima;
+	}
+
+	fclose(fp);
+
+	return (true);
+}
+
+NoPessoa* lerListaPessoaBin()
+{
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
+	if (fp == NULL)
+	{
+		printf("Erro ao abrir o ficheiro\n");
+		exit(1);
+	}
+
+	NoPessoa* listaAtual = malloc(sizeof(NoPessoa));
+	listaAtual = NULL;
+
+	while(!feof(fp))		
+	{	
+		Pessoa* p = malloc(sizeof(Pessoa));
+		fread(p, sizeof(Pessoa), 1, fp);
+
+		NoPessoa* primeiroNo = malloc(sizeof(NoPessoa)), *proximoNo;
+		primeiroNo->p = *p;
+		primeiroNo->proxima = NULL;
+		if (listaAtual == NULL)
+		{
+			listaAtual = primeiroNo;
+		}
+		else
+		{
+			proximoNo = listaAtual;
+			while (proximoNo->proxima)
+			{
+				proximoNo = proximoNo->proxima;
+			}
+			proximoNo->proxima = primeiroNo;
+		}
+
+	}
+	return listaAtual;
 }

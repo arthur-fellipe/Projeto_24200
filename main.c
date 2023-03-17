@@ -19,6 +19,6 @@ int main()
 	NoPessoa* listaPessoa = leituraFicheiro();
 	// Cria ficheiro binário e guarda os dados obtidos no ficheiro .txt
 	guardaListaPessoaBin(listaPessoa);
-
+	lerListaPessoaBin();
 	return (1);
 }
