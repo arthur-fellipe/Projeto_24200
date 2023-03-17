@@ -69,12 +69,34 @@ NoPessoa* leituraFicheiro()
 	while (!feof(fp))
 	{
 		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(ptr->id), &(ptr->admin), ptr->nome, &(ptr->saldo));
-		listaPessoa = InserePessoa(listaPessoa, ptr);
+		//listaPessoa = InserePessoa(listaPessoa, ptr);
+		if (listaPessoa == NULL)
+		{
+			listaPessoa = criaListaPessoa(listaPessoa, ptr);
+		}
+		else
+		{
+			listaPessoa = InserePessoa(listaPessoa, ptr);
+		}
+		
+		
 		count++;
 	}
 
 	// Fecha o ficheiro
 	fclose(fp);
+	
+	return listaPessoa;
+}
+
+NoPessoa* criaListaPessoa(NoPessoa* listaPessoa, Pessoa* nPessoa)
+{
+	NoPessoa *novoNo = malloc(sizeof(NoPessoa));
+
+	novoNo->p = *nPessoa;
+	novoNo->proxima = NULL;
+
+	listaPessoa = novoNo;
 	
 	return listaPessoa;
 }
@@ -86,19 +108,19 @@ NoPessoa* InserePessoa(NoPessoa *listaPessoa, Pessoa* nPessoa)
 	novoNo->p = *nPessoa;
 	novoNo->proxima = NULL;
 
-	if (listaPessoa == NULL)
+	/*if (listaPessoa == NULL)
 	{
 		listaPessoa = novoNo;
 	}
 	else
-	{
+	{*/
 		aux = listaPessoa;
 		while (aux->proxima)
 		{
 			aux = aux->proxima;
 		}
 		aux->proxima = novoNo;
-	}
+	//}
 
 
 	return listaPessoa;
