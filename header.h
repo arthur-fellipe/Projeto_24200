@@ -19,19 +19,21 @@ typedef struct Pessoa
 	//char nif[9];
 	//char morada[100];
 	float saldo;
-}Pessoa, * PessoaPtr;
+}Pessoa;
 
-typedef struct NoPessoa
+typedef struct ListaPessoa
 {
 	Pessoa p;
-	struct NoPessoa *proxima;
-}NoPessoa, * NoPessoaPtr;
+	struct ListaPessoa *proxima;
+}ListaPessoa;
 
-NoPessoa* leituraFicheiro();
-NoPessoa* InserePessoa(NoPessoa* listaPessoa, Pessoa* nPessoa);
-NoPessoa* criaListaPessoa(NoPessoa* listaPessoa, Pessoa* nPessoa);
-bool guardaListaPessoaBin(NoPessoa* listaPessoa);
-NoPessoa* lerListaPessoaBin();
+ListaPessoa* LerFicheiroTxt();
+ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* nPessoa);
+ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* nPessoa);
+bool CriarListaPessoaBin(ListaPessoa* listaPessoa);
+bool InserirListaPessoaBin(ListaPessoa* listaPessoa);
+ListaPessoa* LerListaPessoaBin();
+bool AlterarListaPessoaBin(Pessoa novosDados);
 
 /*typedef struct Veiculo
 {
