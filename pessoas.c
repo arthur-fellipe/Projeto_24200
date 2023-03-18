@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "Header.h"
+#include "header.h"
 
 /*void lerDados(FILE* fp, Pessoa* leituraPessoa)
 {
@@ -21,13 +21,13 @@
 }*/
 
 
-ListaPessoa* LerFicheiroTxt()
+ListaPessoa* LerFicheiroPessoaTxt()
 {
 
 	// Abre o ficheiro com os dados
 	FILE* fp = fopen("pessoas.txt", "r");
 
-	// Verifica se o arquivo foi aberto com sucesso
+	// Verifica se o ficheiro foi aberto com sucesso
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
