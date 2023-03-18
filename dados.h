@@ -64,10 +64,3 @@ typedef struct ListaViagem
 	struct ListaViagem* proxima;
 }ListaViagem;
 #pragma endregion
-
-/*typedef struct ViagensOrdemCrescente
-{
-	Viagem OrdemCrescente[100];
-}ViagensOrdemCrescente, *ViagensOrdemCrescente;*/
-#pragma endregion
-

@@ -1,7 +1,7 @@
 /*****************************************************************//**
  * \file   veiculos.c
- * \brief
- *
+ * \brief  Funções que modularizam o tratamento dos veículos a serem alugados
+ * 
  * \author Arthur Fellipe
  * \date   March 2023
  *********************************************************************/
@@ -13,6 +13,11 @@
 #include "pessoas.h"
 #include "veiculos.h"
 
+/**
+ *  Lê o ficheiro que contem as informações dos veículos e armazena esses dados em uma lista.
+ * 
+ * \return
+ */
 ListaVeiculo* LerFicheiroVeiculoTxt()
 {
 
@@ -28,25 +33,23 @@ ListaVeiculo* LerFicheiroVeiculoTxt()
 	// Lê os dados do ficheiro
 	Veiculo* novoVeiculo = malloc(sizeof(Veiculo));
 	ListaVeiculo* listaVeiculo = NULL;
-	//int count = 0;
 	while (!feof(fp) != NULL)
 	{
 		if (fscanf(fp, "%d;%20[^;];%d;%40[^;];%f;%d\n", &(novoVeiculo->id), novoVeiculo->tipoVeiculo, &(novoVeiculo->bateria), novoVeiculo->localizacao, &(novoVeiculo->custo), &(novoVeiculo->disponibilidade)))
 		{
 			if (listaVeiculo == NULL)
 			{
-				listaVeiculo = CriarListaVeiculo(listaVeiculo, novoVeiculo);
-				CriarListaVeiculoBin(listaVeiculo);
+				listaVeiculo = CriarListaVeiculo(listaVeiculo, novoVeiculo); //Chama função para criar a lista de veículos
+				CriarListaVeiculoBin(listaVeiculo); //Cria ficheiro binário para armazenar a lista de veículos
 			}
 			else
 			{
-				if (VerificarExisteVeiculo(listaVeiculo, novoVeiculo) == false)
+				if (VerificarExisteVeiculo(listaVeiculo, novoVeiculo) == false) //Verifica se já existe o veículo dentro da lista
 				{
-					listaVeiculo = InserirVeiculo(listaVeiculo, novoVeiculo);
+					listaVeiculo = InserirVeiculo(listaVeiculo, novoVeiculo); //Insere novo veículo em lista já existente
 				}
 			}
 		}
-		//count++;
 	}
 
 	// Fecha o ficheiro
@@ -55,6 +58,13 @@ ListaVeiculo* LerFicheiroVeiculoTxt()
 	return listaVeiculo;
 }
 
+/**
+ * Verifica se já existe o veículo dentro da lista.
+ * 
+ * \param listaVeiculo
+ * \param novoVeiculo
+ * \return 
+ */
 bool VerificarExisteVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 {
 	ListaVeiculo* aux = malloc(sizeof(ListaVeiculo));
@@ -73,6 +83,13 @@ bool VerificarExisteVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 	return false;
 }
 
+/**
+ * Cria lista de veículos.
+ * 
+ * \param listaVeiculo
+ * \param novoVeiculo
+ * \return 
+ */
 ListaVeiculo* CriarListaVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 {
 	ListaVeiculo* novoNo = malloc(sizeof(ListaVeiculo));
@@ -83,6 +100,13 @@ ListaVeiculo* CriarListaVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo
 	return novoNo;
 }
 
+/**
+ * Insere veículos na lista.
+ * 
+ * \param listaVeiculo
+ * \param novoVeiculo
+ * \return 
+ */
 ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 {
 	ListaVeiculo* novoNo = malloc(sizeof(ListaVeiculo)), * aux;
@@ -97,8 +121,7 @@ ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 	}
 	aux->proxima = novoNo;
 
-	//Insere a pessoa no ficheiro binario
-	InserirListaVeiculoBin(novoNo);
+	InserirListaVeiculoBin(novoNo);	//Insere a pessoa no ficheiro binario
 
 	return listaVeiculo;
 }
@@ -131,6 +154,12 @@ bool CriarListaVeiculoBin(ListaVeiculo* listaVeiculo)
 	return (true);
 }
 
+/**
+ * Insere veículos no fichiro binário.
+ * 
+ * \param listaVeiculo
+ * \return 
+ */
 bool InserirListaVeiculoBin(ListaVeiculo* listaVeiculo)
 {
 	FILE* fp = fopen("listaVeiculo.bin", "ab"); // Insere no ficheiro binário
@@ -153,6 +182,11 @@ bool InserirListaVeiculoBin(ListaVeiculo* listaVeiculo)
 	return (true);
 }
 
+/**
+ * Lê o ficheiro binário que armazena os veículos e retorna uma lista atualizada.
+ * 
+ * \return 
+ */
 ListaVeiculo* LerListaVeiculoBin()
 {
 	FILE* fp = fopen("listaVeiculo.bin", "rb"); // Lê ficheiro binário
@@ -194,6 +228,12 @@ ListaVeiculo* LerListaVeiculoBin()
 	return listaAtual;
 }
 
+/**
+ * Altera dados dentro do ficheiro binário.
+ * 
+ * \param novosDados
+ * \return 
+ */
 bool AlterarListaVeiculoBin(Veiculo novosDados)
 {
 	FILE* fp = fopen("listaVeiculo.bin", "rb+"); // Lê e altera ficheiro binário
@@ -219,11 +259,16 @@ bool AlterarListaVeiculoBin(Veiculo novosDados)
 	fwrite(&novosDados, sizeof(Veiculo), 1, fp);
 
 	fclose(fp);
-	//free(aux);
 
 	return true;
 }
 
+/**
+ * Remove o registo de um veículo do ficheiro binário.
+ * 
+ * \param id
+ * \return 
+ */
 bool RemoverDadosListaVeiculoBin(int id)
 {
 	FILE* fp = fopen("listaVeiculo.bin", "rb"); // Lê ficheiro binário
@@ -253,8 +298,6 @@ bool RemoverDadosListaVeiculoBin(int id)
 	fclose(fp);
 	fclose(fp2);
 
-	//free(aux);
-
 	remove("listaVeiculo.bin");
 
 	if (rename("copiaListaVeiculo.bin", "listaVeiculo.bin") != 0)
@@ -266,19 +309,30 @@ bool RemoverDadosListaVeiculoBin(int id)
 	return true;
 }
 
+/**
+ * Função auxiliar que comparar os atributos de um array e os retorna em ordem decrescente.
+ * 
+ * \param a
+ * \param b
+ * \return 
+ */
 int comparar(const void* a, const void* b)
 {
 	return (&b - &a);
 }
 
+/**
+ * Lista os veículos registados no ficheiro binário em ordem decrescente.
+ * 
+ * \return 
+ */
 bool ListarVeiculoOrdemDecrescente()
 {
 	int tamanho = 1, i = 0;
 	Veiculo* vetorVeiculo = malloc(tamanho * sizeof(Veiculo));
-	ListaVeiculo* listaAtual = LerListaVeiculoBin();
+	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
 
 	if (vetorVeiculo != NULL) {
-		//printf("Memória alocada com sucesso.\n");
 		while (listaAtual != NULL)
 		{
 			if (i >= tamanho)
@@ -312,14 +366,19 @@ bool ListarVeiculoOrdemDecrescente()
 	return true;
 }
 
+/**
+ * Lista os veículos registados no ficheiro binário localizados em determinado lugar.
+ * 
+ * \param localizacao
+ * \return 
+ */
 bool ListarVeiculoLocalizacao(char localizacao[])
 {
 	int tamanho = 1, i = 0;
 	Veiculo* vetorVeiculo = malloc(tamanho * sizeof(Veiculo));
-	ListaVeiculo* listaAtual = LerListaVeiculoBin();
+	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
 
 	if (vetorVeiculo != NULL) {
-		//printf("Memória alocada com sucesso.\n");
 		while (listaAtual != NULL)
 		{
 			if (i >= tamanho)

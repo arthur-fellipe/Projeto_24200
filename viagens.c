@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   viagens.c
- * \brief  
+ * \brief  Funções que modularizam o tratamento das viagens realizadas
  * 
  * \author Arthur Fellipe
  * \date   March 2023
@@ -14,7 +14,17 @@
 #include "viagens.h"
 #include "pessoas.h"
 
-
+/**
+ * Regista a viagem realizada por certo usuário, atualizando o seu saldo.
+ * 
+ * \param listaViagem
+ * \param id
+ * \param cliente
+ * \param veiculo
+ * \param precoViagem
+ * \param distanciaViagem
+ * \return 
+ */
 ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, Pessoa cliente, Veiculo veiculo, float precoViagem, float distanciaViagem)
 {
 	Viagem* novaViagem = malloc(sizeof(Viagem));
@@ -25,30 +35,34 @@ ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, Pessoa cliente, Ve
 	novaViagem->precoViagem = precoViagem;
 	novaViagem->distanciaViagem = distanciaViagem;
 
-	//ListaViagem* listaViagem = malloc(sizeof(ListaViagem));
-	//listaViagem = NULL;
-
 	if (listaViagem == NULL)
 	{
-		listaViagem = CriarListaViagem(listaViagem, novaViagem);
+		listaViagem = CriarListaViagem(listaViagem, novaViagem); //Chama função para criar a lista de viagens
 		//CriarListaViagemBin(listaViagem);
 	}
 	else
 	{
-		if (VerificarExisteViagem(listaViagem, novaViagem) == false)
+		if (VerificarExisteViagem(listaViagem, novaViagem) == false) //Verifica se já existe a viagem dentro da lista
 		{
-			listaViagem = InserirViagem(listaViagem, novaViagem);
+			listaViagem = InserirViagem(listaViagem, novaViagem); //Insere nova viagem em lista já existente
 		}
 	}
 
 	Pessoa clienteAtualizado = cliente;
 	clienteAtualizado.saldo = clienteAtualizado.saldo - novaViagem->precoViagem;
 	 
-	AlterarListaPessoaBin(clienteAtualizado);
+	AlterarListaPessoaBin(clienteAtualizado); //Atualiza o saldo do cliente que realizou a viagem
 
 	return listaViagem;
 }
 
+/**
+ * Verifica se já existe a viagem dentro da lista.
+ * 
+ * \param listaViagem
+ * \param novaViagem
+ * \return 
+ */
 bool VerificarExisteViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 {
 	ListaViagem* aux = malloc(sizeof(ListaViagem));
@@ -67,6 +81,13 @@ bool VerificarExisteViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 	return false;
 }
 
+/**
+ * Cria lista de viagens.
+ * 
+ * \param listaViagem
+ * \param novaViagem
+ * \return 
+ */
 ListaViagem* CriarListaViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 {
 	ListaViagem* novoNo = malloc(sizeof(ListaViagem));
@@ -77,6 +98,13 @@ ListaViagem* CriarListaViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 	return novoNo;
 }
 
+/**
+ * Insere viagens na lista.
+ * 
+ * \param listaViagem
+ * \param novaViagem
+ * \return 
+ */
 ListaViagem* InserirViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 {
 	ListaViagem* novoNo = malloc(sizeof(ListaViagem)), * aux;
@@ -91,38 +119,8 @@ ListaViagem* InserirViagem(ListaViagem* listaViagem, Viagem* novaViagem)
 	}
 	aux->proxima = novoNo;
 
-	//Insere a pessoa no ficheiro binario
-	//InserirListaPessoaBin(novoNo);
+	
+	//InserirListaViagemBin(novoNo); //Insere a pessoa no ficheiro binario
 
 	return listaViagem;
 }
-
-
-/*Aluguer* criarAluguer(Cliente* inicioC, Aluguer* inicioA, int id, int idMeio, int idCliente, float custo)
-{
-	Aluguer* novoAluguer = (Aluguer*)malloc(sizeof(Aluguer));
-
-	if (novoAluguer == NULL) return NULL;
-	novoAluguer->proximo = NULL;
-
-	novoAluguer->id = id;
-	novoAluguer->idMeio = idMeio;
-	novoAluguer->idCliente = idCliente;
-	novoAluguer->custo = custo;
-
-	if (inicioA == NULL) {
-		inicioA = novoAluguer;
-	}
-	else {
-		novoAluguer->proximo = inicioA;
-		inicioA = novoAluguer;
-	}
-
-	Cliente* clienteUtente = buscarCliente(inicioC, idCliente);
-	int identificador = clienteUtente->id;
-	float novoSaldo = clienteUtente->saldo - novoAluguer->custo;
-
-	alterarCliente(inicioC, identificador, clienteUtente->id, clienteUtente->nome, clienteUtente->nif, clienteUtente->morada, novoSaldo);
-
-	return novoAluguer;
-}*/
