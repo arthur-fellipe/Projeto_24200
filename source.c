@@ -36,7 +36,7 @@ ListaPessoa* LerFicheiroTxt()
 	// Lê os dados do ficheiro
 	Pessoa* novaPessoa = malloc(sizeof(Pessoa));
 	ListaPessoa *listaPessoa = NULL;
-	int count = 0;
+	//int count = 0;
 	while (!feof(fp) != NULL)
 	{
 		if (fscanf(fp, "%d;%d;%50[^;];%f\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo)))
@@ -44,19 +44,41 @@ ListaPessoa* LerFicheiroTxt()
 			if (listaPessoa == NULL)
 			{
 				listaPessoa = CriarListaPessoa(listaPessoa, novaPessoa);
+				CriarListaPessoaBin(listaPessoa);
 			}
 			else
 			{
-				listaPessoa = InserirPessoa(listaPessoa, novaPessoa);
+				if (VerificarExistePessoa(listaPessoa, novaPessoa) == false)
+				{
+					listaPessoa = InserirPessoa(listaPessoa, novaPessoa);
+				}
 			}
 		}
-		count++;
+		//count++;
 	}
 
 	// Fecha o ficheiro
 	fclose(fp);
 	
 	return listaPessoa;
+}
+
+bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
+{
+	ListaPessoa* aux = malloc(sizeof(ListaPessoa));
+	aux = listaPessoa;
+	while (aux != NULL)
+	{
+		if (aux->p.id == novaPessoa->id)
+		{
+			return true;
+		}
+		else
+		{
+			aux = aux->proxima;		
+		}
+	}
+	return false;
 }
 
 ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
@@ -66,11 +88,7 @@ ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 	novoNo->p = *novaPessoa;
 	novoNo->proxima = NULL;
 
-	listaPessoa = novoNo;
-
-	CriarListaPessoaBin(listaPessoa);
-	
-	return listaPessoa;
+	return novoNo;
 }
 
 ListaPessoa* InserirPessoa(ListaPessoa *listaPessoa, Pessoa* novaPessoa)
@@ -80,7 +98,6 @@ ListaPessoa* InserirPessoa(ListaPessoa *listaPessoa, Pessoa* novaPessoa)
 	novoNo->p = *novaPessoa;
 	novoNo->proxima = NULL;
 
-	//listaPessoa->proxima = novoNo;
 	aux = listaPessoa;
 	while (aux->proxima)
 	{
@@ -89,7 +106,6 @@ ListaPessoa* InserirPessoa(ListaPessoa *listaPessoa, Pessoa* novaPessoa)
 	aux->proxima = novoNo;
 
 	//Insere a pessoa no ficheiro binario
-	//InserirListaPessoaBin(listaPessoa);
 	InserirListaPessoaBin(novoNo);
 
 	return listaPessoa;
@@ -115,7 +131,7 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 	{
 		Pessoa buffer = aux->p;
 		fwrite(&buffer, sizeof(Pessoa), 1, fp);
-		printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
+		//printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
 		aux = aux->proxima;
 	}
 
@@ -138,7 +154,7 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 	{
 		Pessoa buffer = aux->p;
 		fwrite(&buffer, sizeof(Pessoa), 1, fp);
-		printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
+		//printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
 		aux = aux->proxima;
 	}
 
@@ -183,7 +199,6 @@ ListaPessoa* LerListaPessoaBin()
 			}
 		}	
 	}
-	//listaAtual->proxima = aux;
 	fclose(fp);
 
 	return listaAtual;
@@ -264,16 +279,14 @@ bool RemoverDadosListaPessoaBin(int id)
 	return true;
 }
 
-/*bool AlterarListaPessoaBin()
+bool ListarPessoaBin()
 {
-	int tamanho = 1;
+	int tamanho = 1, i = 0;
 	Pessoa* vetorPessoa = malloc(tamanho * sizeof(Pessoa));
 	ListaPessoa* listaAtual = LerListaPessoaBin();
 
 	if (vetorPessoa != NULL) {
-		printf("Memória alocada com sucesso.\n");
-		int i = 0;
-
+		//printf("Memória alocada com sucesso.\n");
 		while (listaAtual != NULL)
 		{
 			if (i >= tamanho)
@@ -295,7 +308,6 @@ bool RemoverDadosListaPessoaBin(int id)
 	{
 		printf("Erro: não foi possível alocar memória.\n");
 		return false;
-		//exit(1);
 	}
 
 	for (int j = 0; j < tamanho; j++)
@@ -303,19 +315,5 @@ bool RemoverDadosListaPessoaBin(int id)
 		printf("%d;%d;%s;%f;\n", vetorPessoa[j].id, vetorPessoa[j].admin, vetorPessoa[j].nome, vetorPessoa[j].saldo);
 	}
 
-	int idAlterar;
-	printf("Digite o id do usuário que pretende alterar: ");
-	scanf("%d", &idAlterar);
-	printf("Digite os novos dados do usuário %d:", idAlterar);
-	scanf("%d", &vetorPessoa[idAlterar - 1].admin);
-	scanf("%s", vetorPessoa[idAlterar - 1].nome);
-	scanf("%f", &vetorPessoa[idAlterar - 1].saldo);
-
-	printf("%d;%s;%f;", vetorPessoa[idAlterar - 1].admin, vetorPessoa[idAlterar - 1].nome, vetorPessoa[idAlterar - 1].saldo);
-	for (int k = 0; k < tamanho; k++)
-	{
-		printf("%d;%d;%s;%f;\n", vetorPessoa[k].id, vetorPessoa[k].admin, vetorPessoa[k].nome, vetorPessoa[k].saldo);
-	}
-
 	return true;
-}*/
+}
