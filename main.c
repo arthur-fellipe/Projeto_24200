@@ -40,7 +40,7 @@ int main()
 	novosDadosVeiculo.id = 3;
 	strcpy(novosDadosVeiculo.tipoVeiculo, "trotineta");
 	novosDadosVeiculo.bateria = 38;
-	strcpy(novosDadosVeiculo.localizacao, "barco-mar-peixe");
+	strcpy(novosDadosVeiculo.localizacao, "braga");
 	novosDadosVeiculo.custo = 2.00;
 	novosDadosVeiculo.disponibilidade = 1;
 
@@ -48,6 +48,9 @@ int main()
 	RemoverDadosListaVeiculoBin(2);
 	ListarVeiculoBin();
 	ListaVeiculo* listaVeiculoAtual = LerListaVeiculoBin();
+	ListarVeiculoOrdemDecrescente();
+	ListarVeiculoLocalizacao("braga");
+
 #pragma endregion
 
 #pragma region Viagem
