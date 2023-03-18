@@ -6,7 +6,8 @@
  * \date   March 2023
  *********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
-#include "header.h"
+#include "dados.h"
+#include "pessoas.h"
 #include "veiculos.h"
 #include <stdio.h>
 #include <stdlib.h>

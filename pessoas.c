@@ -1,5 +1,5 @@
-/*****************************************************************//**
- * \file   source.c
+ï»¿/*****************************************************************//**
+ * \file   pessoas.c
  * \brief
  *
  * \author Arthur Fellipe
@@ -10,15 +10,16 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "header.h"
+#include "dados.h"
+#include "pessoas.h"
 
-/*void lerDados(FILE* fp, Pessoa* leituraPessoa)
-{
-	while (!feof(fp))
-	{
-		fscanf(fp, "%d;%d;%50[^;];%f;\n", &(leituraPessoa->id), &(leituraPessoa->admin), leituraPessoa->nome, &(leituraPessoa->saldo));
-	}
-}*/
+ /*void lerDados(FILE* fp, Pessoa* leituraPessoa)
+ {
+	 while (!feof(fp))
+	 {
+		 fscanf(fp, "%d;%d;%50[^;];%f;\n", &(leituraPessoa->id), &(leituraPessoa->admin), leituraPessoa->nome, &(leituraPessoa->saldo));
+	 }
+ }*/
 
 
 ListaPessoa* LerFicheiroPessoaTxt()
@@ -33,9 +34,9 @@ ListaPessoa* LerFicheiroPessoaTxt()
 		printf("Erro ao abrir o ficheiro\n");
 		exit(1);
 	}
-	// Lê os dados do ficheiro
+	// Lï¿½ os dados do ficheiro
 	Pessoa* novaPessoa = malloc(sizeof(Pessoa));
-	ListaPessoa *listaPessoa = NULL;
+	ListaPessoa* listaPessoa = NULL;
 	//int count = 0;
 	while (!feof(fp) != NULL)
 	{
@@ -59,7 +60,7 @@ ListaPessoa* LerFicheiroPessoaTxt()
 
 	// Fecha o ficheiro
 	fclose(fp);
-	
+
 	return listaPessoa;
 }
 
@@ -75,7 +76,7 @@ bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 		}
 		else
 		{
-			aux = aux->proxima;		
+			aux = aux->proxima;
 		}
 	}
 	return false;
@@ -83,7 +84,7 @@ bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 
 ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
-	ListaPessoa *novoNo = malloc(sizeof(ListaPessoa));
+	ListaPessoa* novoNo = malloc(sizeof(ListaPessoa));
 
 	novoNo->p = *novaPessoa;
 	novoNo->proxima = NULL;
@@ -91,17 +92,17 @@ ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 	return novoNo;
 }
 
-ListaPessoa* InserirPessoa(ListaPessoa *listaPessoa, Pessoa* novaPessoa)
+ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
-	ListaPessoa *novoNo = malloc(sizeof(ListaPessoa)), *aux;
-	
+	ListaPessoa* novoNo = malloc(sizeof(ListaPessoa)), * aux;
+
 	novoNo->p = *novaPessoa;
 	novoNo->proxima = NULL;
 
 	aux = listaPessoa;
 	while (aux->proxima)
 	{
-			aux = aux->proxima;
+		aux = aux->proxima;
 	}
 	aux->proxima = novoNo;
 
@@ -112,14 +113,14 @@ ListaPessoa* InserirPessoa(ListaPessoa *listaPessoa, Pessoa* novaPessoa)
 }
 
 /**
- * Cria ficheiro binário e guarda os dados armazenados na lista de Pessoas
+ * Cria ficheiro binï¿½rio e guarda os dados armazenados na lista de Pessoas
  *
  * \param listaPessoa
  * \return
  */
 bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 {
-	FILE* fp = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro binário
+	FILE* fp = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro binï¿½rio
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -142,7 +143,7 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 
 bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 {
-	FILE* fp = fopen("listaPessoa.bin", "ab"); // Insere no ficheiro binário
+	FILE* fp = fopen("listaPessoa.bin", "ab"); // Insere no ficheiro binï¿½rio
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -165,20 +166,20 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 
 ListaPessoa* LerListaPessoaBin()
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lï¿½ ficheiro binï¿½rio
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
 		exit(1);
 	}
 
-	ListaPessoa* listaAtual = malloc(sizeof(ListaPessoa)), *aux = malloc(sizeof(ListaPessoa));
+	ListaPessoa* listaAtual = malloc(sizeof(ListaPessoa)), * aux = malloc(sizeof(ListaPessoa));
 	listaAtual = NULL;
 
-	while(!feof(fp) != NULL)		
-	{	
+	while (!feof(fp) != NULL)
+	{
 		Pessoa* p = malloc(sizeof(Pessoa));
-		if (fread(p, sizeof(Pessoa), 1, fp)) 
+		if (fread(p, sizeof(Pessoa), 1, fp))
 		{
 			ListaPessoa* proximoNo = malloc(sizeof(ListaPessoa));
 			proximoNo->p = *p;
@@ -197,7 +198,7 @@ ListaPessoa* LerListaPessoaBin()
 				}
 				aux->proxima = proximoNo;
 			}
-		}	
+		}
 	}
 	fclose(fp);
 
@@ -206,7 +207,7 @@ ListaPessoa* LerListaPessoaBin()
 
 bool AlterarListaPessoaBin(Pessoa novosDados)
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb+"); // Lê e altera ficheiro binário
+	FILE* fp = fopen("listaPessoa.bin", "rb+"); // Lï¿½ e altera ficheiro binï¿½rio
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -236,14 +237,14 @@ bool AlterarListaPessoaBin(Pessoa novosDados)
 
 bool RemoverDadosListaPessoaBin(int id)
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lï¿½ ficheiro binï¿½rio
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
 		exit(1);
 	}
 
-	FILE* fp2 = fopen("copiaListaPessoa.bin", "wb"); // Escreve ficheiro binário
+	FILE* fp2 = fopen("copiaListaPessoa.bin", "wb"); // Escreve ficheiro binï¿½rio
 	if (fp2 == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -269,13 +270,13 @@ bool RemoverDadosListaPessoaBin(int id)
 	//free(aux);
 
 	remove("listaPessoa.bin");
-	
+
 	if (rename("copiaListaPessoa.bin", "listaPessoa.bin") != 0)
 	{
-		printf("Erro ao renomear arquivo de saída");
+		printf("Erro ao renomear arquivo de saï¿½da");
 		return(false);
 	}
-	
+
 	return true;
 }
 
@@ -286,15 +287,15 @@ bool ListarPessoaBin()
 	ListaPessoa* listaAtual = LerListaPessoaBin();
 
 	if (vetorPessoa != NULL) {
-		//printf("Memória alocada com sucesso.\n");
+		//printf("Memï¿½ria alocada com sucesso.\n");
 		while (listaAtual != NULL)
 		{
 			if (i >= tamanho)
 			{
 				int novoTamanho = i + 1;
-				vetorPessoa = (Pessoa*) realloc(vetorPessoa, novoTamanho * sizeof(Pessoa));
+				vetorPessoa = (Pessoa*)realloc(vetorPessoa, novoTamanho * sizeof(Pessoa));
 				if (vetorPessoa == NULL) {
-					printf("Erro: não foi possível realocar memória.\n");
+					printf("Erro: nï¿½o foi possï¿½vel realocar memï¿½ria.\n");
 					exit(1);
 				}
 				tamanho = novoTamanho;
@@ -302,11 +303,11 @@ bool ListarPessoaBin()
 			vetorPessoa[i] = listaAtual->p;
 			listaAtual = listaAtual->proxima;
 			i++;
-		}	
+		}
 	}
 	else
 	{
-		printf("Erro: não foi possível alocar memória.\n");
+		printf("Erro: nï¿½o foi possï¿½vel alocar memï¿½ria.\n");
 		return false;
 	}
 

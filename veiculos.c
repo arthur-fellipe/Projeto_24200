@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "header.h"
+#include "pessoas.h"
 #include "veiculos.h"
 
 ListaVeiculo* LerFicheiroVeiculoTxt()

@@ -128,11 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="pessoas.c" />
     <ClCompile Include="veiculos.c" />
-    <ClCompile Include="source.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header.h" />
+    <ClInclude Include="dados.h" />
+    <ClInclude Include="pessoas.h" />
     <ClInclude Include="veiculos.h" />
   </ItemGroup>
   <ItemGroup>
