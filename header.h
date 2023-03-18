@@ -27,16 +27,18 @@ typedef struct ListaPessoa
 	struct ListaPessoa *proxima;
 }ListaPessoa;
 
-ListaPessoa* LerFicheiroTxt();
-ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* nPessoa);
+ListaPessoa* LerFicheiroPessoaTxt();
+bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa);
 ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* nPessoa);
+ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* nPessoa);
 bool CriarListaPessoaBin(ListaPessoa* listaPessoa);
 bool InserirListaPessoaBin(ListaPessoa* listaPessoa);
 ListaPessoa* LerListaPessoaBin();
 bool AlterarListaPessoaBin(Pessoa novosDados);
 bool RemoverDadosListaPessoaBin(int id);
+bool ListarPessoaBin();
 
-/*typedef struct Veiculo
+typedef struct Veiculo
 {
 	int id;
 	char tipoVeiculo[20];
@@ -44,10 +46,16 @@ bool RemoverDadosListaPessoaBin(int id);
 	char localizacao[40];
 	float custo;
 	int disponibilidade;
-	int totalViagens;
-}Veiculo, *VeiculoPtr;
+	//int totalViagens;
+}Veiculo;
 
-typedef struct Viagem
+typedef struct ListaVeiculo
+{
+	Veiculo v;
+	struct ListaVeiculo* proxima;
+}ListaVeiculo;
+
+/*typedef struct Viagem
 {
 	int id;
 	Pessoa cliente;

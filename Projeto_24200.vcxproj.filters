@@ -21,15 +21,22 @@
     <ClCompile Include="source.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="veiculos.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="header.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="veiculos.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="pessoas.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="veiculos.txt" />
   </ItemGroup>
 </Project>
