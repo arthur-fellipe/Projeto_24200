@@ -1,7 +1,7 @@
 ﻿/*****************************************************************//**
  * \file   pessoas.c
- * \brief
- *
+ * \brief  Funções que modularizam o tratamento dos utilizadores da aplicação 
+ * 
  * \author Arthur Fellipe
  * \date   March 2023
  *********************************************************************/
@@ -13,15 +13,11 @@
 #include "dados.h"
 #include "pessoas.h"
 
- /*void lerDados(FILE* fp, Pessoa* leituraPessoa)
- {
-	 while (!feof(fp))
-	 {
-		 fscanf(fp, "%d;%d;%50[^;];%f;\n", &(leituraPessoa->id), &(leituraPessoa->admin), leituraPessoa->nome, &(leituraPessoa->saldo));
-	 }
- }*/
-
-
+/**
+ * Lê o ficheiro que contem as informações dos utilizadores e armazena esses dados em uma lista.
+ * 
+ * \return
+ */
 ListaPessoa* LerFicheiroPessoaTxt()
 {
 
@@ -34,28 +30,26 @@ ListaPessoa* LerFicheiroPessoaTxt()
 		printf("Erro ao abrir o ficheiro\n");
 		exit(1);
 	}
-	// L� os dados do ficheiro
+	// Lê os dados do ficheiro
 	Pessoa* novaPessoa = malloc(sizeof(Pessoa));
 	ListaPessoa* listaPessoa = NULL;
-	//int count = 0;
 	while (!feof(fp) != NULL)
 	{
 		if (fscanf(fp, "%d;%d;%50[^;];%f\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo)))
 		{
 			if (listaPessoa == NULL)
 			{
-				listaPessoa = CriarListaPessoa(listaPessoa, novaPessoa);
-				CriarListaPessoaBin(listaPessoa);
+				listaPessoa = CriarListaPessoa(listaPessoa, novaPessoa); //Chama função para criar a lista de pessoas
+				CriarListaPessoaBin(listaPessoa); //Cria ficheiro binário para armazenar a lista de pessoas
 			}
 			else
 			{
-				if (VerificarExistePessoa(listaPessoa, novaPessoa) == false)
+				if (VerificarExistePessoa(listaPessoa, novaPessoa) == false) //Verifica se já existe a pessoa dentro da lista
 				{
-					listaPessoa = InserirPessoa(listaPessoa, novaPessoa);
+					listaPessoa = InserirPessoa(listaPessoa, novaPessoa); //Insere nova pessoa em lista já existente
 				}
 			}
 		}
-		//count++;
 	}
 
 	// Fecha o ficheiro
@@ -64,6 +58,13 @@ ListaPessoa* LerFicheiroPessoaTxt()
 	return listaPessoa;
 }
 
+/**
+ * Verifica se já existe a pessoa dentro da lista.
+ * 
+ * \param listaPessoa
+ * \param novaPessoa
+ * \return 
+ */
 bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
 	ListaPessoa* aux = malloc(sizeof(ListaPessoa));
@@ -82,6 +83,13 @@ bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 	return false;
 }
 
+/**
+ * Cria lista de pessoas.
+ * 
+ * \param listaPessoa
+ * \param novaPessoa
+ * \return 
+ */
 ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
 	ListaPessoa* novoNo = malloc(sizeof(ListaPessoa));
@@ -92,6 +100,13 @@ ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 	return novoNo;
 }
 
+/**
+ * Insere pessoas na lista.
+ * 
+ * \param listaPessoa
+ * \param novaPessoa
+ * \return 
+ */
 ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
 	ListaPessoa* novoNo = malloc(sizeof(ListaPessoa)), * aux;
@@ -105,15 +120,14 @@ ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 		aux = aux->proxima;
 	}
 	aux->proxima = novoNo;
-
-	//Insere a pessoa no ficheiro binario
-	InserirListaPessoaBin(novoNo);
+	
+	InserirListaPessoaBin(novoNo); //Insere a pessoa no ficheiro binario
 
 	return listaPessoa;
 }
 
 /**
- * Cria ficheiro bin�rio e guarda os dados armazenados na lista de Pessoas
+ * Cria ficheiro binário e guarda os dados armazenados na lista de Pessoas
  *
  * \param listaPessoa
  * \return
@@ -141,6 +155,12 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 	return (true);
 }
 
+/**
+ * Insere pessoas no fichiro binário.
+ * 
+ * \param listaPessoa
+ * \return 
+ */
 bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 {
 	FILE* fp = fopen("listaPessoa.bin", "ab"); // Insere no ficheiro bin�rio
@@ -155,7 +175,6 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 	{
 		Pessoa buffer = aux->p;
 		fwrite(&buffer, sizeof(Pessoa), 1, fp);
-		//printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
 		aux = aux->proxima;
 	}
 
@@ -164,6 +183,11 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 	return (true);
 }
 
+/**
+ * Lê o ficheiro binário que armazena as pessoas e retorna uma lista atualizada.
+ * 
+ * \return 
+ */
 ListaPessoa* LerListaPessoaBin()
 {
 	FILE* fp = fopen("listaPessoa.bin", "rb"); // L� ficheiro bin�rio
@@ -205,6 +229,12 @@ ListaPessoa* LerListaPessoaBin()
 	return listaAtual;
 }
 
+/**
+ * Altera dados dentro do ficheiro binário.
+ * 
+ * \param novosDados
+ * \return 
+ */
 bool AlterarListaPessoaBin(Pessoa novosDados)
 {
 	FILE* fp = fopen("listaPessoa.bin", "rb+"); // L� e altera ficheiro bin�rio
@@ -230,11 +260,16 @@ bool AlterarListaPessoaBin(Pessoa novosDados)
 	fwrite(&novosDados, sizeof(Pessoa), 1, fp);
 
 	fclose(fp);
-	//free(aux);
 
 	return true;
 }
 
+/**
+ * Remove o registo de uma pessoa do ficheiro binário.
+ * 
+ * \param id
+ * \return 
+ */
 bool RemoverDadosListaPessoaBin(int id)
 {
 	FILE* fp = fopen("listaPessoa.bin", "rb"); // L� ficheiro bin�rio
@@ -252,22 +287,17 @@ bool RemoverDadosListaPessoaBin(int id)
 	}
 
 	Pessoa* aux = malloc(sizeof(Pessoa));
-	//long int cursor;
 
 	while (fread(aux, sizeof(Pessoa), 1, fp))
 	{
 		if (aux->id != id)
 		{
 			fwrite(aux, sizeof(Pessoa), 1, fp2);
-			//printf("%d;%d;%s;%f\n", aux->id, aux->admin, aux->nome, aux->saldo);
 		}
-		//cursor = ftell(fp);
 	}
 
 	fclose(fp);
 	fclose(fp2);
-
-	//free(aux);
 
 	remove("listaPessoa.bin");
 
@@ -280,14 +310,18 @@ bool RemoverDadosListaPessoaBin(int id)
 	return true;
 }
 
+/**
+ * Lista as pessoas registadas no ficheiro binário.
+ * 
+ * \return 
+ */
 bool ListarPessoaBin()
 {
 	int tamanho = 1, i = 0;
 	Pessoa* vetorPessoa = malloc(tamanho * sizeof(Pessoa));
-	ListaPessoa* listaAtual = LerListaPessoaBin();
+	ListaPessoa* listaAtual = LerListaPessoaBin(); //Armazena as pessoas do ficheiro binário em uma lista
 
 	if (vetorPessoa != NULL) {
-		//printf("Mem�ria alocada com sucesso.\n");
 		while (listaAtual != NULL)
 		{
 			if (i >= tamanho)

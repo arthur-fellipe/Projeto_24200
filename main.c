@@ -1,6 +1,6 @@
 /*****************************************************************//**
  * \file   main.c
- * \brief  
+ * \brief  Função principal da aplicação que gerencia o aluguer de meios de mobilidade
  * 
  * \author Arthur Fellipe
  * \date   March 2023
@@ -46,7 +46,6 @@ int main()
 
 	AlterarListaVeiculoBin(novosDadosVeiculo);
 	RemoverDadosListaVeiculoBin(2);
-	ListarVeiculoBin();
 	ListaVeiculo* listaVeiculoAtual = LerListaVeiculoBin();
 	ListarVeiculoOrdemDecrescente();
 	ListarVeiculoLocalizacao("braga");

@@ -20,7 +20,6 @@ bool InserirListaVeiculoBin(ListaVeiculo* listaVeiculo);
 ListaVeiculo* LerListaVeiculoBin();
 bool AlterarListaVeiculoBin(Veiculo novosDados);
 bool RemoverDadosListaVeiculoBin(int id);
-bool ListarVeiculoBin();
 bool ListarVeiculoOrdemDecrescente();
 bool ListarVeiculoLocalizacao(char localizacao[]);
 
