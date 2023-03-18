@@ -1,4 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS
+/*****************************************************************//**
+ * \file   veiculos.h
+ * \brief  
+ * 
+ * \author Arthur Fellipe
+ * \date   March 2023
+ *********************************************************************/
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -15,3 +21,6 @@ ListaVeiculo* LerListaVeiculoBin();
 bool AlterarListaVeiculoBin(Veiculo novosDados);
 bool RemoverDadosListaVeiculoBin(int id);
 bool ListarVeiculoBin();
+bool ListarVeiculoOrdemDecrescente();
+bool ListarVeiculoLocalizacao(char localizacao[]);
+

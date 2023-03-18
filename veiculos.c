@@ -266,7 +266,12 @@ bool RemoverDadosListaVeiculoBin(int id)
 	return true;
 }
 
-bool ListarVeiculoBin()
+int comparar(const void* a, const void* b)
+{
+	return (&b - &a);
+}
+
+bool ListarVeiculoOrdemDecrescente()
 {
 	int tamanho = 1, i = 0;
 	Veiculo* vetorVeiculo = malloc(tamanho * sizeof(Veiculo));
@@ -289,6 +294,52 @@ bool ListarVeiculoBin()
 			vetorVeiculo[i] = listaAtual->v;
 			listaAtual = listaAtual->proxima;
 			i++;
+		}
+	}
+	else
+	{
+		printf("Erro: não foi possível alocar memória.\n");
+		return false;
+	}
+
+	qsort(vetorVeiculo, tamanho, sizeof(Veiculo), comparar);
+
+	for (int j = 0; j < tamanho; j++)
+	{
+		printf("%d;%s;%d;%s;%f;%d\n", vetorVeiculo[j].id, vetorVeiculo[j].tipoVeiculo, vetorVeiculo[j].bateria, vetorVeiculo[j].localizacao, vetorVeiculo[j].custo, vetorVeiculo[j].disponibilidade);
+	}
+
+	return true;
+}
+
+bool ListarVeiculoLocalizacao(char localizacao[])
+{
+	int tamanho = 1, i = 0;
+	Veiculo* vetorVeiculo = malloc(tamanho * sizeof(Veiculo));
+	ListaVeiculo* listaAtual = LerListaVeiculoBin();
+
+	if (vetorVeiculo != NULL) {
+		//printf("Memória alocada com sucesso.\n");
+		while (listaAtual != NULL)
+		{
+			if (i >= tamanho)
+			{
+				int novoTamanho = i + 1;
+				vetorVeiculo = (Veiculo*)realloc(vetorVeiculo, novoTamanho * sizeof(Veiculo));
+				if (vetorVeiculo == NULL) {
+					printf("Erro: não foi possível realocar memória.\n");
+					exit(1);
+				}
+				tamanho = novoTamanho;
+			}
+			if (strcmp(listaAtual->v.localizacao, localizacao)==0)
+			{
+				vetorVeiculo[i] = listaAtual->v;
+				i++;
+			}
+
+			listaAtual = listaAtual->proxima;
+			
 		}
 	}
 	else

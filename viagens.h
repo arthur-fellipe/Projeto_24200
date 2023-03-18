@@ -1,3 +1,10 @@
+/*****************************************************************//**
+ * \file   viagens.h
+ * \brief  
+ * 
+ * \author Arthur Fellipe
+ * \date   March 2023
+ *********************************************************************/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdbool.h>
