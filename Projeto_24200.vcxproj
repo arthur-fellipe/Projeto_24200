@@ -130,11 +130,13 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="pessoas.c" />
     <ClCompile Include="veiculos.c" />
+    <ClCompile Include="viagens.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dados.h" />
     <ClInclude Include="pessoas.h" />
     <ClInclude Include="veiculos.h" />
+    <ClInclude Include="viagens.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="veiculos.txt" />

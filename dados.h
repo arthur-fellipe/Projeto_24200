@@ -42,15 +42,23 @@ typedef struct ListaVeiculo
 #pragma endregion
 
 #pragma region Viagem
-/*typedef struct Viagem
+typedef struct Viagem
 {
 	int id;
 	Pessoa cliente;
 	Veiculo veiculo;
 	float precoViagem;
-}Viagem, *ViagemPtr;
+	float distanciaViagem;
+}Viagem;
 
-typedef struct ViagensOrdemCrescente
+typedef struct ListaViagem
+{
+	Viagem viagem;
+	struct ListaViagem* proxima;
+}ListaViagem;
+#pragma endregion
+
+/*typedef struct ViagensOrdemCrescente
 {
 	Viagem OrdemCrescente[100];
 }ViagensOrdemCrescente, *ViagensOrdemCrescente;*/

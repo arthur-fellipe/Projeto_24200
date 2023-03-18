@@ -1,5 +1,5 @@
 /*****************************************************************//**
- * \file   header.h
+ * \file   pessoas.h
  * \brief
  *
  * \author Arthur Fellipe
