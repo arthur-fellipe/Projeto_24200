@@ -9,6 +9,7 @@
 #include "dados.h"
 #include "pessoas.h"
 #include "veiculos.h"
+#include "viagens.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -17,7 +18,7 @@
 
 int main()
 {
-	#pragma region Pessoa
+#pragma region Pessoa
 	ListaPessoa* listaPessoa = LerFicheiroPessoaTxt();
 
 	Pessoa novosDadosPessoa;
@@ -27,10 +28,10 @@ int main()
 	novosDadosPessoa.saldo = 57.50;
 
 	AlterarListaPessoaBin(novosDadosPessoa);
-	LerListaPessoaBin();
-	RemoverDadosListaPessoaBin(3);
+	RemoverDadosListaPessoaBin(2);
 	ListarPessoaBin();
-	#pragma endregion
+	ListaPessoa* listaPessoaAtual = LerListaPessoaBin();
+#pragma endregion
 
 #pragma region Veiculo
 	ListaVeiculo* listaVeiculo = LerFicheiroVeiculoTxt();
@@ -44,9 +45,17 @@ int main()
 	novosDadosVeiculo.disponibilidade = 1;
 
 	AlterarListaVeiculoBin(novosDadosVeiculo);
-	LerListaVeiculoBin();
 	RemoverDadosListaVeiculoBin(2);
 	ListarVeiculoBin();
+	ListaVeiculo* listaVeiculoAtual = LerListaVeiculoBin();
+#pragma endregion
+
+#pragma region Viagem
+	ListaViagem* listaViagem = malloc(sizeof(ListaViagem));
+	listaViagem = NULL;
+	
+	listaViagem = RegistarViagem(listaViagem, 1, novosDadosPessoa, novosDadosVeiculo, 5, 3);
+	listaViagem = RegistarViagem(listaViagem, 2, novosDadosPessoa, novosDadosVeiculo, 7.50, 1.5);
 #pragma endregion
 
 
