@@ -34,6 +34,7 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa);
 bool InserirListaPessoaBin(ListaPessoa* listaPessoa);
 ListaPessoa* LerListaPessoaBin();
 bool AlterarListaPessoaBin(Pessoa novosDados);
+bool RemoverDadosListaPessoaBin(int id);
 
 /*typedef struct Veiculo
 {

@@ -156,7 +156,7 @@ ListaPessoa* LerListaPessoaBin()
 		exit(1);
 	}
 
-	ListaPessoa* listaAtual = malloc(sizeof(ListaPessoa)), *aux;
+	ListaPessoa* listaAtual = malloc(sizeof(ListaPessoa)), *aux = malloc(sizeof(ListaPessoa));
 	listaAtual = NULL;
 
 	while(!feof(fp) != NULL)		
@@ -164,13 +164,13 @@ ListaPessoa* LerListaPessoaBin()
 		Pessoa* p = malloc(sizeof(Pessoa));
 		if (fread(p, sizeof(Pessoa), 1, fp)) 
 		{
-			ListaPessoa* primeiroNo = malloc(sizeof(ListaPessoa));
-			primeiroNo->p = *p;
-			primeiroNo->proxima = NULL;
+			ListaPessoa* proximoNo = malloc(sizeof(ListaPessoa));
+			proximoNo->p = *p;
+			proximoNo->proxima = NULL;
 
 			if (listaAtual == NULL)
 			{
-				listaAtual = primeiroNo;
+				listaAtual = proximoNo;
 			}
 			else
 			{
@@ -179,10 +179,11 @@ ListaPessoa* LerListaPessoaBin()
 				{
 					aux = aux->proxima;
 				}
-				aux->proxima = primeiroNo;
+				aux->proxima = proximoNo;
 			}
 		}	
 	}
+	//listaAtual->proxima = aux;
 	fclose(fp);
 
 	return listaAtual;
@@ -197,19 +198,71 @@ bool AlterarListaPessoaBin(Pessoa novosDados)
 		return(false);
 	}
 
-	int id = novosDados.id;
-	id--;
+	Pessoa* aux = malloc(sizeof(Pessoa));
+	long int cursor = ftell(fp);
 
-	if (id >= 0)
+	while (fread(aux, sizeof(Pessoa), 1, fp))
 	{
-		fseek(fp, id * sizeof(Pessoa), SEEK_SET);
-		fwrite(&novosDados, sizeof(Pessoa), 1, fp);
+		if (aux->id == novosDados.id)
+		{
+			break;
+		}
+		cursor = ftell(fp);
 	}
+
+	fseek(fp, cursor, SEEK_SET);
+	fwrite(&novosDados, sizeof(Pessoa), 1, fp);
+
 	fclose(fp);
+	//free(aux);
 
 	return true;
 }
 
+bool RemoverDadosListaPessoaBin(int id)
+{
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
+	if (fp == NULL)
+	{
+		printf("Erro ao abrir o ficheiro\n");
+		exit(1);
+	}
+
+	FILE* fp2 = fopen("copiaListaPessoa.bin", "wb"); // Escreve ficheiro binário
+	if (fp2 == NULL)
+	{
+		printf("Erro ao abrir o ficheiro\n");
+		exit(1);
+	}
+
+	Pessoa* aux = malloc(sizeof(Pessoa));
+	//long int cursor;
+
+	while (fread(aux, sizeof(Pessoa), 1, fp))
+	{
+		if (aux->id != id)
+		{
+			fwrite(aux, sizeof(Pessoa), 1, fp2);
+			//printf("%d;%d;%s;%f\n", aux->id, aux->admin, aux->nome, aux->saldo);
+		}
+		//cursor = ftell(fp);
+	}
+
+	fclose(fp);
+	fclose(fp2);
+
+	//free(aux);
+
+	remove("listaPessoa.bin");
+	
+	if (rename("copiaListaPessoa.bin", "listaPessoa.bin") != 0)
+	{
+		printf("Erro ao renomear arquivo de saída");
+		return(false);
+	}
+	
+	return true;
+}
 
 /*bool AlterarListaPessoaBin()
 {

@@ -26,5 +26,8 @@ int main()
 
 	AlterarListaPessoaBin(novosDados);
 	LerListaPessoaBin();
+	RemoverDadosListaPessoaBin(3);
+	LerListaPessoaBin();
+
 	return (1);
 }
