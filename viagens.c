@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "dados.h"
 #include "viagens.h"
 #include "pessoas.h"
 
@@ -25,13 +24,13 @@
  * \param distanciaViagem
  * \return 
  */
-ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, Pessoa cliente, Veiculo veiculo, float precoViagem, float distanciaViagem)
+ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, int cliente_id, int veiculo_id, float precoViagem, float distanciaViagem)
 {
 	Viagem* novaViagem = malloc(sizeof(Viagem));
-
+	if (novaViagem == NULL) return NULL;
 	novaViagem->id = id;
-	novaViagem->cliente = cliente;
-	novaViagem->veiculo = veiculo;
+	novaViagem->cliente_id = cliente_id;
+	novaViagem->veiculo_id = veiculo_id;
 	novaViagem->precoViagem = precoViagem;
 	novaViagem->distanciaViagem = distanciaViagem;
 
@@ -48,10 +47,10 @@ ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, Pessoa cliente, Ve
 		}
 	}
 
-	Pessoa clienteAtualizado = cliente;
+	/*Pessoa clienteAtualizado = cliente;
 	clienteAtualizado.saldo = clienteAtualizado.saldo - novaViagem->precoViagem;
 	 
-	AlterarListaPessoaBin(clienteAtualizado); //Atualiza o saldo do cliente que realizou a viagem
+	AlterarListaPessoaBin(clienteAtualizado); //Atualiza o saldo do cliente que realizou a viagem*/
 
 	return listaViagem;
 }

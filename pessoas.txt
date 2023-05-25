@@ -1,3 +1,3 @@
-1;0;Rui;100.00
-2;1;Julia;50.00
-3;0;Diogo;25.00
+1;0;Rui;Braga;100.00
+2;1;Julia;Barcelos;50.00
+3;0;Diogo;Porto;25.00

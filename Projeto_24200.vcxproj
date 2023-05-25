@@ -133,7 +133,6 @@
     <ClCompile Include="viagens.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dados.h" />
     <ClInclude Include="pessoas.h" />
     <ClInclude Include="veiculos.h" />
     <ClInclude Include="viagens.h" />
