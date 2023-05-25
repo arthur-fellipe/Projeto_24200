@@ -68,35 +68,14 @@ typedef struct Localizacao {
 Localizacao* ListarLocais();
 Vertice* CriarGrafo();
 Vertice* CriarVertice();
-//Vertice* CriarVertice(char* localizacao, int id);
 Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res);
 void MostrarGrafo(Vertice* gr);
+
+Vertice* ProcurarVertice(Vertice* gr, char* localizacao);
+int ProcurarVerticeId(Vertice* gr, char* localizacao);
+Adj* CriarAdj(int id, int peso);
+Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res);
+Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res);
+bool ExisteAdjacentes(Adj* h, int id);
 void MostrarAdjacencias(Adj* h);
-
-/*bool existeAresta(Grafo* gr, int vertice_inicial, int vertice_final) {
-    Aresta* arestaTeste = gr->lista_adj[vertice_inicial].head;
-    while (arestaTeste != NULL) {
-        if (arestaTeste->vertice_destino == vertice_final) {
-            return true;
-        }
-        arestaTeste = arestaTeste->proxima;
-    }
-    return false;
-}
-
-bool insereAresta(Grafo* gr, int vertice_inicial, int vertice_final, int peso) {
-    if (!gr) return (false);
-    if ((vertice_final < 1) || (vertice_final > gr->num_vertices))return(false);
-    if ((vertice_inicial < 1) || (vertice_inicial > gr->num_vertices))return(false);
-
-    Aresta* novaAresta1 = criaAresta(vertice_final, peso);
-    novaAresta1->proxima = gr->lista_adj[vertice_inicial].head;
-    gr->lista_adj[vertice_inicial].head = novaAresta1;
-
-    Aresta* novaAresta2 = criaAresta(vertice_inicial, peso);
-    novaAresta2->proxima = gr->lista_adj[vertice_final].head;
-    gr->lista_adj[vertice_final].head = novaAresta2;
-
-    return (true);
-}*/
 #pragma endregion

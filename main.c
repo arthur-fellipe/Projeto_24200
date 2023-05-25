@@ -52,16 +52,20 @@ int main()
 	ListarVeiculoLocalizacao("Braga");
 
 
-	//Localizacao* listaLocais = ListarLocais();
-	int totalVertices = 0;
+	//int totalVertices = 0;
 	bool res;
 	Vertice* grafoVeiculos = CriarGrafo();
 	Vertice* listaVertice = CriarVertice();
-//	Vertice* novoVertice = CriarVertice("Braga", totalVertices);
 	if (listaVertice != NULL) {
 		grafoVeiculos = InserirVertice(grafoVeiculos, listaVertice, &res);
-		totalVertices++;
+		//totalVertices++;
 	}
+	MostrarGrafo(grafoVeiculos);
+
+	grafoVeiculos = InserirAdjacenteVertice(grafoVeiculos, "Braga", "Porto", 35, &res);
+	grafoVeiculos = InserirAdjacenteVertice(grafoVeiculos, "Braga", "Lisboa", 15, &res);
+
+
 	MostrarGrafo(grafoVeiculos);
 
 #pragma endregion

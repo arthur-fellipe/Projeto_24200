@@ -461,9 +461,7 @@ Vertice* CriarGrafo() {
 
 Vertice* CriarVertice() {
 	Vertice* listaVertices = NULL;
-	//Localizacao* listaLocais = listaLocais;
 	Localizacao* listaLocais = ListarLocais();
-
 
 	while (listaLocais)
 	{
@@ -493,20 +491,6 @@ Vertice* CriarVertice() {
 
 	return listaVertices;
 }
-
-/*Vertice* CriarVertice(char* localizacao, int id) {
-	Vertice* novoVertice = malloc(sizeof(Vertice));
-	if (novoVertice == NULL)
-	{
-		return NULL;
-	}
-	novoVertice->id = id;
-	strcpy(novoVertice->localizacao, localizacao);
-	novoVertice->proxima = NULL;
-	novoVertice->lista_adjacentes = NULL;
-
-	return novoVertice;
-}*/
 
 Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res) {
 	if (gr == NULL) {
@@ -541,16 +525,117 @@ void MostrarGrafo(Vertice* gr) {
 		return NULL;
 	}
 
-	printf("V: %d - %s\n", gr->id, gr->localizacao);
+	printf("Vértice: %d - %s\n", gr->id, gr->localizacao);
 	MostrarAdjacencias(gr->lista_adjacentes);
 	MostrarGrafo(gr->proxima);
 }
+
+Vertice* ProcurarVertice(Vertice* gr, char* localizacao) {
+	if (gr == NULL) {
+		return NULL;
+	}
+	if (strcmp(gr->localizacao, localizacao) == 0) {
+		return gr;
+	}
+	return(ProcurarVertice(gr->proxima, localizacao));
+}
+
+int ProcurarVerticeId(Vertice* gr, char* localizacao) {
+	if (gr == NULL) {
+		return -1;
+	}
+	if (gr->proxima == NULL && strcmp(gr->localizacao, localizacao) > 0) {
+		return -2;
+	}
+	if (strcmp(gr->localizacao, localizacao) == 0) {
+		return gr->id;
+	}
+	return(ProcurarVerticeId(gr->proxima, localizacao));
+}
+
+
+Adj* CriarAdj(int id, int peso) {
+	Adj* novoAdj = (Adj*)calloc(1, sizeof(Adj));
+	if (novoAdj == NULL) {
+		return NULL;
+	}
+	novoAdj->id = id;
+	novoAdj->peso = peso;
+	novoAdj->proxima = NULL;
+	return novoAdj;
+}
+
+Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res) {
+#pragma region Validações
+	*res = false;				//por defeito é falso
+
+	if (gr == NULL) {
+		return gr;	//<! se grafo está vazio, ignora operação
+	}
+
+	Vertice* aux = ProcurarVertice(gr, origem);	//<! procura vertice origem
+	int idDest = ProcurarVerticeId(gr, dest);	//<! procura vertice destino
+
+	if (aux == NULL || idDest < 0) {
+		return gr;			//<! Se não encontrou vertice origem e destino, ignora operação
+	}
+
+	if (ExisteAdjacentes(aux->lista_adjacentes, idDest) == true) {
+		return gr; //Se já foi registado esta adjacencia, ignorar a operação
+	}
+
+#pragma endregion
+
+#pragma region Ação
+	//Insere nova adjacencia no vertice "Origem"
+	Adj* novoAdj = CriarAdj(idDest, peso);
+	aux->lista_adjacentes = InserirAdj(aux->lista_adjacentes, novoAdj, res);
+	return (InserirAdjacenteVertice(gr, dest, origem, peso, res));
+#pragma endregion
+
+}
+
+Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res) {
+
+	*res = false;		//por defeito é falso
+
+	if (novoAdj == NULL) {	//Se novo adjacente é nulo, ignora operação
+		return h;
+	}
+
+	if (ExisteAdjacentes(h, novoAdj->id) == true) {
+		return h; // Se novo adj existe, ignorar operação
+	}
+
+	// Inserir nova adjacencia!
+	*res = true;
+	if (h == NULL) {	//Se lista de adjacencias é vazia, esta é a primeira adjacencia
+		h = novoAdj;
+		return h;
+	}
+	//senão insere no início das adjacências!
+	novoAdj->proxima = h;
+	h = novoAdj;
+
+	return h;
+}
+
+bool ExisteAdjacentes(Adj* h, int id) {
+	if (h == NULL) {
+		return false;
+	}
+	if (h->id == id) {
+		return true;
+	}
+	return ExisteAdjacentes(h->proxima, id);
+}
+
 
 void MostrarAdjacencias(Adj* h) {
 	if (h == NULL) {
 		return NULL;
 	}
-	printf("\tAdj: %d - (%.0f)\n", h->id, h->peso);
+	printf("\tAdj: %d - %d\n", h->id, h->peso);
 	MostrarAdjacencias(h->proxima);
 }
 
