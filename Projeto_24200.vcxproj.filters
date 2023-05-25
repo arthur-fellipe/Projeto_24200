@@ -18,25 +18,33 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source.c">
+    <ClCompile Include="veiculos.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="veiculos.c">
+    <ClCompile Include="pessoas.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="viagens.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="header.h">
+    <ClInclude Include="pessoas.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="viagens.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="veiculos.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="pessoas.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="veiculos.txt" />
+    <Text Include="veiculos.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

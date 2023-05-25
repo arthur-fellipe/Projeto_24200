@@ -386,8 +386,7 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 				int novoTamanho = i + 1;
 				vetorVeiculo = (Veiculo*)realloc(vetorVeiculo, novoTamanho * sizeof(Veiculo));
 				if (vetorVeiculo == NULL) {
-					printf("Erro: não foi possível realocar memória.\n");
-					exit(1);
+					return false;
 				}
 				tamanho = novoTamanho;
 			}
@@ -403,7 +402,6 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 	}
 	else
 	{
-		printf("Erro: não foi possível alocar memória.\n");
 		return false;
 	}
 
@@ -414,3 +412,146 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 
 	return true;
 }
+
+#pragma region Grafo_Veículos
+Localizacao* ListarLocais() {
+	int i = 0;
+	ListaVeiculo* listaVeiculo = LerListaVeiculoBin();
+	Localizacao* listaLocal = NULL; // Inicializa com NULL
+
+	while (listaVeiculo) {
+		Localizacao* aux = listaLocal;
+		int encontrado = 0; // Variável de controle para verificar se a localização já existe na lista
+
+		while (aux) {
+			if (strcmp(listaVeiculo->v.localizacao, aux->localizacao) == 0) {
+				encontrado = 1;
+				break; // Localização já existe na lista, interrompe o loop
+			}
+			aux = aux->proxima;
+		}
+
+		if (!encontrado) {
+			Localizacao* novoLocal = malloc(sizeof(Localizacao));
+
+			novoLocal->id = i;
+			strcpy(novoLocal->localizacao, listaVeiculo->v.localizacao);
+			novoLocal->proxima = NULL;
+
+			if (listaLocal == NULL) {
+				listaLocal = novoLocal;
+			}
+			else {
+				aux = listaLocal;
+				while (aux->proxima) {
+					aux = aux->proxima;
+				}
+				aux->proxima = novoLocal;
+			}
+			i++;
+		}
+		listaVeiculo = listaVeiculo->proxima;
+	}
+	return listaLocal;
+}
+
+Vertice* CriarGrafo() {
+	return NULL;
+}
+
+Vertice* CriarVertice() {
+	Vertice* listaVertices = NULL;
+	//Localizacao* listaLocais = listaLocais;
+	Localizacao* listaLocais = ListarLocais();
+
+
+	while (listaLocais)
+	{
+		Vertice* aux2 = listaVertices;
+		Vertice* novoVertice = malloc(sizeof(Vertice));
+		if (novoVertice == NULL)
+		{
+			return NULL;
+		}
+
+		novoVertice->id = listaLocais->id;
+		strcpy(novoVertice->localizacao, listaLocais->localizacao);
+		novoVertice->proxima = NULL;
+		novoVertice->lista_adjacentes = NULL;
+
+		if (listaVertices == NULL) {
+			listaVertices = novoVertice;
+		}
+		else {
+			while (aux2->proxima) {
+				aux2 = aux2->proxima;
+			}
+			aux2->proxima = novoVertice;
+		}
+		listaLocais = listaLocais->proxima;
+	}
+
+	return listaVertices;
+}
+
+/*Vertice* CriarVertice(char* localizacao, int id) {
+	Vertice* novoVertice = malloc(sizeof(Vertice));
+	if (novoVertice == NULL)
+	{
+		return NULL;
+	}
+	novoVertice->id = id;
+	strcpy(novoVertice->localizacao, localizacao);
+	novoVertice->proxima = NULL;
+	novoVertice->lista_adjacentes = NULL;
+
+	return novoVertice;
+}*/
+
+Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res) {
+	if (gr == NULL) {
+		gr = novoVertice;
+		*res = true;
+		return gr;
+	}
+	else
+	{
+		Vertice* aux = gr;
+		Vertice* ant = aux;
+		while (aux && strcmp(aux->localizacao, novoVertice->localizacao) < 0) {
+			ant = aux;
+			aux = aux->proxima;
+		}
+		if (aux == gr) {
+			novoVertice->proxima = gr;
+			gr = novoVertice;
+		}
+		else
+		{
+			novoVertice->proxima = aux;
+			ant->proxima = novoVertice;
+		}
+		*res = true;
+	}
+	return gr;
+}
+
+void MostrarGrafo(Vertice* gr) {
+	if (gr == NULL) {
+		return NULL;
+	}
+
+	printf("V: %d - %s\n", gr->id, gr->localizacao);
+	MostrarAdjacencias(gr->lista_adjacentes);
+	MostrarGrafo(gr->proxima);
+}
+
+void MostrarAdjacencias(Adj* h) {
+	if (h == NULL) {
+		return NULL;
+	}
+	printf("\tAdj: %d - (%.0f)\n", h->id, h->peso);
+	MostrarAdjacencias(h->proxima);
+}
+
+#pragma endregion

@@ -10,7 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
-#include "dados.h"
 #include "pessoas.h"
 
 /**
@@ -27,7 +26,7 @@ ListaPessoa* LerFicheiroPessoaTxt()
 	// Verifica se o ficheiro foi aberto com sucesso
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
+		 printf("Erro ao abrir o ficheiro\n");
 		exit(1);
 	}
 	// Lê os dados do ficheiro
@@ -35,7 +34,7 @@ ListaPessoa* LerFicheiroPessoaTxt()
 	ListaPessoa* listaPessoa = NULL;
 	while (!feof(fp) != NULL)
 	{
-		if (fscanf(fp, "%d;%d;%50[^;];%f\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, &(novaPessoa->saldo)))
+		if (fscanf(fp, "%d;%d;%50[^;];%40[^;];%f\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, novaPessoa->localizacao, &(novaPessoa->saldo)))
 		{
 			if (listaPessoa == NULL)
 			{
@@ -146,7 +145,6 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 	{
 		Pessoa buffer = aux->p;
 		fwrite(&buffer, sizeof(Pessoa), 1, fp);
-		//printf("%d;%d;%s;%f\n", buffer.id, buffer.admin, buffer.nome, buffer.saldo);
 		aux = aux->proxima;
 	}
 
@@ -156,7 +154,7 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 }
 
 /**
- * Insere pessoas no fichiro binário.
+ * Insere pessoas no ficheiro binário.
  * 
  * \param listaPessoa
  * \return 
@@ -190,7 +188,7 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
  */
 ListaPessoa* LerListaPessoaBin()
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb"); // L� ficheiro bin�rio
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -237,7 +235,7 @@ ListaPessoa* LerListaPessoaBin()
  */
 bool AlterarListaPessoaBin(Pessoa novosDados)
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb+"); // L� e altera ficheiro bin�rio
+	FILE* fp = fopen("listaPessoa.bin", "rb+"); // Lê e altera ficheiro binário
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -272,7 +270,7 @@ bool AlterarListaPessoaBin(Pessoa novosDados)
  */
 bool RemoverDadosListaPessoaBin(int id)
 {
-	FILE* fp = fopen("listaPessoa.bin", "rb"); // L� ficheiro bin�rio
+	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
 		printf("Erro ao abrir o ficheiro\n");
@@ -303,7 +301,7 @@ bool RemoverDadosListaPessoaBin(int id)
 
 	if (rename("copiaListaPessoa.bin", "listaPessoa.bin") != 0)
 	{
-		printf("Erro ao renomear arquivo de sa�da");
+		printf("Erro ao renomear arquivo de saída");
 		return(false);
 	}
 
@@ -329,7 +327,7 @@ bool ListarPessoaBin()
 				int novoTamanho = i + 1;
 				vetorPessoa = (Pessoa*)realloc(vetorPessoa, novoTamanho * sizeof(Pessoa));
 				if (vetorPessoa == NULL) {
-					printf("Erro: n�o foi poss�vel realocar mem�ria.\n");
+					printf("Erro: não foi possível realocar memória.\n");
 					exit(1);
 				}
 				tamanho = novoTamanho;
@@ -341,13 +339,13 @@ bool ListarPessoaBin()
 	}
 	else
 	{
-		printf("Erro: n�o foi poss�vel alocar mem�ria.\n");
+		printf("Erro: não foi possível alocar memória.\n");
 		return false;
 	}
 
 	for (int j = 0; j < tamanho; j++)
 	{
-		printf("%d;%d;%s;%f;\n", vetorPessoa[j].id, vetorPessoa[j].admin, vetorPessoa[j].nome, vetorPessoa[j].saldo);
+		printf("%d;%d;%s;%s;%f;\n", vetorPessoa[j].id, vetorPessoa[j].admin, vetorPessoa[j].nome, vetorPessoa[j].localizacao, vetorPessoa[j].saldo);
 	}
 
 	return true;
