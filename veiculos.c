@@ -32,26 +32,23 @@ ListaVeiculo* LerFicheiroVeiculoTxt()
 	}
 	// Lê os dados do ficheiro
 	Veiculo* novoVeiculo = malloc(sizeof(Veiculo));
-	ListaVeiculo* listaVeiculo = NULL;
+	ListaVeiculo* listaVeiculo = CriarListaVeiculo(); //Chama função para criar a lista de veículos
+	CriarListaVeiculoBin(listaVeiculo); //Cria ficheiro binário para armazenar a lista de veículos
+
 	while (!feof(fp) != NULL)
 	{
 		if (fscanf(fp, "%d;%20[^;];%d;%40[^;];%f;%d\n", &(novoVeiculo->id), novoVeiculo->tipoVeiculo, &(novoVeiculo->bateria), novoVeiculo->localizacao, &(novoVeiculo->custo), &(novoVeiculo->disponibilidade)))
 		{
-			if (listaVeiculo == NULL)
+
+			if (VerificarExisteVeiculo(listaVeiculo, novoVeiculo) == false) //Verifica se já existe o veículo dentro da lista
 			{
-				listaVeiculo = CriarListaVeiculo(listaVeiculo, novoVeiculo); //Chama função para criar a lista de veículos
-				CriarListaVeiculoBin(listaVeiculo); //Cria ficheiro binário para armazenar a lista de veículos
+				listaVeiculo = InserirVeiculo(listaVeiculo, novoVeiculo); //Insere novo veículo em lista já existente
 			}
-			else
-			{
-				if (VerificarExisteVeiculo(listaVeiculo, novoVeiculo) == false) //Verifica se já existe o veículo dentro da lista
-				{
-					listaVeiculo = InserirVeiculo(listaVeiculo, novoVeiculo); //Insere novo veículo em lista já existente
-				}
-			}
+			
 		}
 	}
-
+	InserirListaVeiculoBin(listaVeiculo);	//Insere a lista no ficheiro binario
+	
 	// Fecha o ficheiro
 	fclose(fp);
 
@@ -90,14 +87,10 @@ bool VerificarExisteVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
  * \param novoVeiculo
  * \return 
  */
-ListaVeiculo* CriarListaVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
+ListaVeiculo* CriarListaVeiculo()
 {
-	ListaVeiculo* novoNo = malloc(sizeof(ListaVeiculo));
-
-	novoNo->v = *novoVeiculo;
-	novoNo->proxima = NULL;
-
-	return novoNo;
+	ListaVeiculo* listaVeiculo = NULL;
+	return listaVeiculo;
 }
 
 /**
@@ -114,14 +107,18 @@ ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 	novoNo->v = *novoVeiculo;
 	novoNo->proxima = NULL;
 
-	aux = listaVeiculo;
-	while (aux->proxima)
+	if (listaVeiculo == NULL)
 	{
-		aux = aux->proxima;
+		listaVeiculo = novoNo;
 	}
-	aux->proxima = novoNo;
-
-	InserirListaVeiculoBin(novoNo);	//Insere a pessoa no ficheiro binario
+	else {
+		aux = listaVeiculo;
+		while (aux->proxima)
+		{
+			aux = aux->proxima;
+		}
+		aux->proxima = novoNo;
+	}
 
 	return listaVeiculo;
 }
@@ -358,7 +355,7 @@ bool ListarVeiculoOrdemDecrescente()
 
 	qsort(vetorVeiculo, tamanho, sizeof(Veiculo), comparar);
 
-	for (int j = 0; j < tamanho; j++)
+	for (int j = 0; j < i; j++)
 	{
 		printf("%d;%s;%d;%s;%f;%d\n", vetorVeiculo[j].id, vetorVeiculo[j].tipoVeiculo, vetorVeiculo[j].bateria, vetorVeiculo[j].localizacao, vetorVeiculo[j].custo, vetorVeiculo[j].disponibilidade);
 	}
@@ -405,7 +402,7 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 		return false;
 	}
 
-	for (int j = 0; j < tamanho; j++)
+	for (int j = 0; j < i; j++)
 	{
 		printf("%d;%s;%d;%s;%f;%d\n", vetorVeiculo[j].id, vetorVeiculo[j].tipoVeiculo, vetorVeiculo[j].bateria, vetorVeiculo[j].localizacao, vetorVeiculo[j].custo, vetorVeiculo[j].disponibilidade);
 	}
@@ -413,14 +410,91 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 	return true;
 }
 
+ListaVeiculo* SelecionarVeiculosTipo(char* tipoVeiculo) {
+	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
+	ListaVeiculo* listaTipo = CriarListaVeiculo();
+
+	while (listaAtual != NULL)
+	{
+		if (strcmp(listaAtual->v.tipoVeiculo, tipoVeiculo) == 0)
+		{
+			Veiculo* v = &listaAtual->v;
+			listaTipo = InserirVeiculo(listaTipo, v);
+		}
+		listaAtual = listaAtual->proxima;
+
+	}
+	return listaTipo;
+}
+
+Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio) {
+	
+	Vertice* verticePessoa = ProcurarVerticeLocal(gr, localizacaoPessoa);
+	if (verticePessoa == NULL) 
+	{
+		return NULL;
+	}
+
+	Localizacao* listaArea = malloc(sizeof(Localizacao));
+	listaArea->id = verticePessoa->id;
+	strcpy(listaArea->localizacao, verticePessoa->localizacao);
+	listaArea->proxima = NULL;
+
+	while (verticePessoa->lista_adjacentes != NULL)
+	{
+		Localizacao* aux = listaArea;
+
+		if (verticePessoa->lista_adjacentes->peso <= raio*2)
+		{
+			Vertice* adj = ProcuraVerticeId(gr, verticePessoa->lista_adjacentes->id);
+
+			Localizacao* novoLocal = malloc(sizeof(Localizacao));
+
+			novoLocal->id = adj->id;
+			strcpy(novoLocal->localizacao, adj->localizacao);
+			novoLocal->proxima = NULL;
+
+			while (aux->proxima) {
+				aux = aux->proxima;
+			}
+			aux->proxima = novoLocal;
+		}
+		verticePessoa->lista_adjacentes = verticePessoa->lista_adjacentes->proxima;
+	}
+	return listaArea;
+}
+
+bool ListarVeiculosArea(Vertice* gr) {
+	ListaVeiculo* listaTipo = SelecionarVeiculosTipo("bicicleta");
+	Localizacao* listaArea = DefinirArea("Braga", gr, 50);
+
+	//ListaVeiculo* auxTipo = listaTipo;
+	Localizacao* auxArea = listaArea;
+
+	while (listaTipo)
+	{
+		while (listaArea)
+		{
+			if (strcmp(listaTipo->v.localizacao,listaArea->localizacao) == 0)
+			{
+				printf("%d;%s;%d;%s;%f;%d\n", listaTipo->v.id, listaTipo->v.tipoVeiculo, listaTipo->v.bateria, listaTipo->v.localizacao, listaTipo->v.custo, listaTipo->v.disponibilidade);
+			}
+			listaArea = listaArea->proxima;
+		}
+		listaTipo = listaTipo->proxima;
+		listaArea = auxArea;
+	}
+	return true;
+}
+
 #pragma region Grafo_Veículos
-Localizacao* ListarLocais() {
+Localizacao* ListarLocaisVeiculos() {
 	int i = 0;
 	ListaVeiculo* listaVeiculo = LerListaVeiculoBin();
-	Localizacao* listaLocal = NULL; // Inicializa com NULL
+	Localizacao* listaLocalVeiculo = NULL;
 
 	while (listaVeiculo) {
-		Localizacao* aux = listaLocal;
+		Localizacao* aux = listaLocalVeiculo;
 		int encontrado = 0; // Variável de controle para verificar se a localização já existe na lista
 
 		while (aux) {
@@ -438,11 +512,11 @@ Localizacao* ListarLocais() {
 			strcpy(novoLocal->localizacao, listaVeiculo->v.localizacao);
 			novoLocal->proxima = NULL;
 
-			if (listaLocal == NULL) {
-				listaLocal = novoLocal;
+			if (listaLocalVeiculo == NULL) {
+				listaLocalVeiculo = novoLocal;
 			}
 			else {
-				aux = listaLocal;
+				aux = listaLocalVeiculo;
 				while (aux->proxima) {
 					aux = aux->proxima;
 				}
@@ -452,7 +526,7 @@ Localizacao* ListarLocais() {
 		}
 		listaVeiculo = listaVeiculo->proxima;
 	}
-	return listaLocal;
+	return listaLocalVeiculo;
 }
 
 Vertice* CriarGrafo() {
@@ -461,9 +535,9 @@ Vertice* CriarGrafo() {
 
 Vertice* CriarVertice() {
 	Vertice* listaVertices = NULL;
-	Localizacao* listaLocais = ListarLocais();
+	Localizacao* listaLocalVeiculo = ListarLocaisVeiculos();
 
-	while (listaLocais)
+	while (listaLocalVeiculo)
 	{
 		Vertice* aux2 = listaVertices;
 		Vertice* novoVertice = malloc(sizeof(Vertice));
@@ -472,8 +546,8 @@ Vertice* CriarVertice() {
 			return NULL;
 		}
 
-		novoVertice->id = listaLocais->id;
-		strcpy(novoVertice->localizacao, listaLocais->localizacao);
+		novoVertice->id = listaLocalVeiculo->id;
+		strcpy(novoVertice->localizacao, listaLocalVeiculo->localizacao);
 		novoVertice->proxima = NULL;
 		novoVertice->lista_adjacentes = NULL;
 
@@ -486,7 +560,7 @@ Vertice* CriarVertice() {
 			}
 			aux2->proxima = novoVertice;
 		}
-		listaLocais = listaLocais->proxima;
+		listaLocalVeiculo = listaLocalVeiculo->proxima;
 	}
 
 	return listaVertices;
@@ -530,17 +604,27 @@ void MostrarGrafo(Vertice* gr) {
 	MostrarGrafo(gr->proxima);
 }
 
-Vertice* ProcurarVertice(Vertice* gr, char* localizacao) {
+Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao) {
 	if (gr == NULL) {
 		return NULL;
 	}
 	if (strcmp(gr->localizacao, localizacao) == 0) {
 		return gr;
 	}
-	return(ProcurarVertice(gr->proxima, localizacao));
+	return(ProcurarVerticeLocal(gr->proxima, localizacao));
 }
 
-int ProcurarVerticeId(Vertice* gr, char* localizacao) {
+Vertice* ProcuraVerticeId(Vertice* gr, int id) {
+	if (gr == NULL) {
+		return NULL;
+	}
+	if (gr->id == id) {
+		return gr;
+	}
+	return(ProcuraVerticeId(gr->proxima, id));
+}
+
+int ProcurarIdVertice(Vertice* gr, char* localizacao) {
 	if (gr == NULL) {
 		return -1;
 	}
@@ -550,7 +634,7 @@ int ProcurarVerticeId(Vertice* gr, char* localizacao) {
 	if (strcmp(gr->localizacao, localizacao) == 0) {
 		return gr->id;
 	}
-	return(ProcurarVerticeId(gr->proxima, localizacao));
+	return(ProcurarIdVertice(gr->proxima, localizacao));
 }
 
 
@@ -573,8 +657,8 @@ Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso
 		return gr;	//<! se grafo está vazio, ignora operação
 	}
 
-	Vertice* aux = ProcurarVertice(gr, origem);	//<! procura vertice origem
-	int idDest = ProcurarVerticeId(gr, dest);	//<! procura vertice destino
+	Vertice* aux = ProcurarVerticeLocal(gr, origem);	//<! procura vertice origem
+	int idDest = ProcurarIdVertice(gr, dest);	//<! procura vertice destino
 
 	if (aux == NULL || idDest < 0) {
 		return gr;			//<! Se não encontrou vertice origem e destino, ignora operação

@@ -68,6 +68,8 @@ int main()
 
 	MostrarGrafo(grafoVeiculos);
 
+	ListarVeiculosArea(grafoVeiculos);
+
 #pragma endregion
 
 #pragma region Viagem
