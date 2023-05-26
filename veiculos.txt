@@ -1,4 +1,5 @@
 1;bicicleta;100;Lisboa;3.50;0
 2;trotineta;50;Barcelos;2.00;1
 3;bicicleta;75;Braga;3.50;1
-4;bicicleta;75;Braga;3.50;1
+4;bicicleta;75;Porto;3.50;1
+5;bicicleta;75;Braga;3.50;1

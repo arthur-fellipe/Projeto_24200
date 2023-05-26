@@ -32,7 +32,7 @@ typedef struct ListaVeiculo
 #pragma region Funções Veículo
 ListaVeiculo* LerFicheiroVeiculoTxt();
 bool VerificarExisteVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo);
-ListaVeiculo* CriarListaVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo);
+ListaVeiculo* CriarListaVeiculo();
 ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo);
 bool CriarListaVeiculoBin(ListaVeiculo* listaVeiculo);
 bool InserirListaVeiculoBin(ListaVeiculo* listaVeiculo);
@@ -65,17 +65,23 @@ typedef struct Localizacao {
 } Localizacao;
 
 
-Localizacao* ListarLocais();
+Localizacao* ListarLocaisVeiculos();
 Vertice* CriarGrafo();
 Vertice* CriarVertice();
 Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res);
 void MostrarGrafo(Vertice* gr);
 
-Vertice* ProcurarVertice(Vertice* gr, char* localizacao);
-int ProcurarVerticeId(Vertice* gr, char* localizacao);
+Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao);
+Vertice* ProcuraVerticeId(Vertice* gr, int id);
+int ProcurarIdVertice(Vertice* gr, char* localizacao);
 Adj* CriarAdj(int id, int peso);
 Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res);
 Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res);
 bool ExisteAdjacentes(Adj* h, int id);
 void MostrarAdjacencias(Adj* h);
+
+ListaVeiculo* SelecionarVeiculosTipo(char tipoVeiculo[]);
+Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio);
+bool ListarVeiculosArea(Vertice* gr);
+
 #pragma endregion
