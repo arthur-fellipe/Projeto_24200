@@ -724,3 +724,81 @@ void MostrarAdjacencias(Adj* h) {
 }
 
 #pragma endregion
+
+#pragma region Veículos_Area
+ListaVeiculo* SelecionarVeiculosTipo(char* tipoVeiculo) {
+	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
+	ListaVeiculo* listaTipo = CriarListaVeiculo();
+
+	while (listaAtual != NULL)
+	{
+		if (strcmp(listaAtual->v.tipoVeiculo, tipoVeiculo) == 0)
+		{
+			Veiculo* v = &listaAtual->v;
+			listaTipo = InserirVeiculo(listaTipo, v);
+		}
+		listaAtual = listaAtual->proxima;
+
+	}
+	return listaTipo;
+}
+
+Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio) {
+
+	Vertice* verticePessoa = ProcurarVerticeLocal(gr, localizacaoPessoa);
+	if (verticePessoa == NULL)
+	{
+		return NULL;
+	}
+
+	Localizacao* listaArea = malloc(sizeof(Localizacao));
+	listaArea->id = verticePessoa->id;
+	strcpy(listaArea->localizacao, verticePessoa->localizacao);
+	listaArea->proxima = NULL;
+
+	while (verticePessoa->lista_adjacentes != NULL)
+	{
+		Localizacao* aux = listaArea;
+
+		if (verticePessoa->lista_adjacentes->peso <= raio * 2)
+		{
+			Vertice* adj = ProcuraVerticeId(gr, verticePessoa->lista_adjacentes->id);
+
+			Localizacao* novoLocal = malloc(sizeof(Localizacao));
+
+			novoLocal->id = adj->id;
+			strcpy(novoLocal->localizacao, adj->localizacao);
+			novoLocal->proxima = NULL;
+
+			while (aux->proxima) {
+				aux = aux->proxima;
+			}
+			aux->proxima = novoLocal;
+		}
+		verticePessoa->lista_adjacentes = verticePessoa->lista_adjacentes->proxima;
+	}
+	return listaArea;
+}
+
+bool ListarVeiculosArea(Vertice* gr) {
+	ListaVeiculo* listaTipo = SelecionarVeiculosTipo("bicicleta");
+	Localizacao* listaArea = DefinirArea("Braga", gr, 50);
+
+	Localizacao* auxArea = listaArea;
+
+	while (listaTipo)
+	{
+		while (listaArea)
+		{
+			if (strcmp(listaTipo->v.localizacao, listaArea->localizacao) == 0)
+			{
+				printf("%d;%s;%d;%s;%f;%d\n", listaTipo->v.id, listaTipo->v.tipoVeiculo, listaTipo->v.bateria, listaTipo->v.localizacao, listaTipo->v.custo, listaTipo->v.disponibilidade);
+			}
+			listaArea = listaArea->proxima;
+		}
+		listaTipo = listaTipo->proxima;
+		listaArea = auxArea;
+	}
+	return true;
+}
+#pragma endregion
