@@ -33,4 +33,11 @@ ListaViagem* RegistarViagem(ListaViagem* listaViagem, int id, int cliente_id, in
 bool VerificarExisteViagem(ListaViagem* listaViagem, Viagem* novaViagem);
 ListaViagem* CriarListaViagem(ListaViagem* listaViagem, Viagem* novaViagem);
 ListaViagem* InserirViagem(ListaViagem* listaViagem, Viagem* novaViagem);
+
+bool CriarListaViagemBin(ListaViagem* listaViagem);
+bool InserirListaViagemBin(ListaViagem* listaViagem);
+ListaViagem* LerListaViagemBin();
+bool AlterarListaViagemBin(Viagem novosDados);
+bool RemoverDadosListaViagemBin(int id);
+
 #pragma endregion

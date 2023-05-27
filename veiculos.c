@@ -10,13 +10,15 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <limits.h>
 #include "pessoas.h"
 #include "veiculos.h"
 
+#pragma region Fase1
 /**
  *  Lê o ficheiro que contem as informações dos veículos e armazena esses dados em uma lista.
  * 
- * \return
+ * \return listaVeiculo
  */
 ListaVeiculo* LerFicheiroVeiculoTxt()
 {
@@ -83,9 +85,7 @@ bool VerificarExisteVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 /**
  * Cria lista de veículos.
  * 
- * \param listaVeiculo
- * \param novoVeiculo
- * \return 
+ * \return listaVeiculo
  */
 ListaVeiculo* CriarListaVeiculo()
 {
@@ -98,7 +98,7 @@ ListaVeiculo* CriarListaVeiculo()
  * 
  * \param listaVeiculo
  * \param novoVeiculo
- * \return 
+ * \return listaVeiculo
  */
 ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 {
@@ -119,7 +119,6 @@ ListaVeiculo* InserirVeiculo(ListaVeiculo* listaVeiculo, Veiculo* novoVeiculo)
 		}
 		aux->proxima = novoNo;
 	}
-
 	return listaVeiculo;
 }
 
@@ -134,7 +133,6 @@ bool CriarListaVeiculoBin(ListaVeiculo* listaVeiculo)
 	FILE* fp = fopen("listaVeiculo.bin", "wb"); // Escreve ficheiro binário
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
 		return (false);
 	}
 
@@ -182,15 +180,14 @@ bool InserirListaVeiculoBin(ListaVeiculo* listaVeiculo)
 /**
  * Lê o ficheiro binário que armazena os veículos e retorna uma lista atualizada.
  * 
- * \return 
+ * \return listaAtual
  */
 ListaVeiculo* LerListaVeiculoBin()
 {
 	FILE* fp = fopen("listaVeiculo.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return NULL;
 	}
 
 	ListaVeiculo* listaAtual = malloc(sizeof(ListaVeiculo)), * aux = malloc(sizeof(ListaVeiculo));
@@ -271,15 +268,13 @@ bool RemoverDadosListaVeiculoBin(int id)
 	FILE* fp = fopen("listaVeiculo.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return false;
 	}
 
 	FILE* fp2 = fopen("copiaListaVeiculo.bin", "wb"); // Escreve ficheiro binário
 	if (fp2 == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return false;
 	}
 
 	Veiculo* aux = malloc(sizeof(Veiculo));
@@ -299,7 +294,6 @@ bool RemoverDadosListaVeiculoBin(int id)
 
 	if (rename("copiaListaVeiculo.bin", "listaVeiculo.bin") != 0)
 	{
-		printf("Erro ao renomear arquivo de saída");
 		return(false);
 	}
 
@@ -409,88 +403,17 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 
 	return true;
 }
-
-ListaVeiculo* SelecionarVeiculosTipo(char* tipoVeiculo) {
-	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
-	ListaVeiculo* listaTipo = CriarListaVeiculo();
-
-	while (listaAtual != NULL)
-	{
-		if (strcmp(listaAtual->v.tipoVeiculo, tipoVeiculo) == 0)
-		{
-			Veiculo* v = &listaAtual->v;
-			listaTipo = InserirVeiculo(listaTipo, v);
-		}
-		listaAtual = listaAtual->proxima;
-
-	}
-	return listaTipo;
-}
-
-Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio) {
-	
-	Vertice* verticePessoa = ProcurarVerticeLocal(gr, localizacaoPessoa);
-	if (verticePessoa == NULL) 
-	{
-		return NULL;
-	}
-
-	Localizacao* listaArea = malloc(sizeof(Localizacao));
-	listaArea->id = verticePessoa->id;
-	strcpy(listaArea->localizacao, verticePessoa->localizacao);
-	listaArea->proxima = NULL;
-
-	while (verticePessoa->lista_adjacentes != NULL)
-	{
-		Localizacao* aux = listaArea;
-
-		if (verticePessoa->lista_adjacentes->peso <= raio*2)
-		{
-			Vertice* adj = ProcuraVerticeId(gr, verticePessoa->lista_adjacentes->id);
-
-			Localizacao* novoLocal = malloc(sizeof(Localizacao));
-
-			novoLocal->id = adj->id;
-			strcpy(novoLocal->localizacao, adj->localizacao);
-			novoLocal->proxima = NULL;
-
-			while (aux->proxima) {
-				aux = aux->proxima;
-			}
-			aux->proxima = novoLocal;
-		}
-		verticePessoa->lista_adjacentes = verticePessoa->lista_adjacentes->proxima;
-	}
-	return listaArea;
-}
-
-bool ListarVeiculosArea(Vertice* gr) {
-	ListaVeiculo* listaTipo = SelecionarVeiculosTipo("bicicleta");
-	Localizacao* listaArea = DefinirArea("Braga", gr, 50);
-
-	//ListaVeiculo* auxTipo = listaTipo;
-	Localizacao* auxArea = listaArea;
-
-	while (listaTipo)
-	{
-		while (listaArea)
-		{
-			if (strcmp(listaTipo->v.localizacao,listaArea->localizacao) == 0)
-			{
-				printf("%d;%s;%d;%s;%f;%d\n", listaTipo->v.id, listaTipo->v.tipoVeiculo, listaTipo->v.bateria, listaTipo->v.localizacao, listaTipo->v.custo, listaTipo->v.disponibilidade);
-			}
-			listaArea = listaArea->proxima;
-		}
-		listaTipo = listaTipo->proxima;
-		listaArea = auxArea;
-	}
-	return true;
-}
+#pragma endregion
 
 #pragma region Grafo_Veículos
-Localizacao* ListarLocaisVeiculos() {
+/**
+ * Recebe a lista atualizada de veículos e cria uma lista com todas as localizações.
+ * 
+ * \param listaVeiculo
+ * \return listaLocalVeiculo
+ */
+Localizacao* ListarLocaisVeiculos(ListaVeiculo* listaVeiculo) {
 	int i = 0;
-	ListaVeiculo* listaVeiculo = LerListaVeiculoBin();
 	Localizacao* listaLocalVeiculo = NULL;
 
 	while (listaVeiculo) {
@@ -528,14 +451,24 @@ Localizacao* ListarLocaisVeiculos() {
 	}
 	return listaLocalVeiculo;
 }
-
+/**
+ * Cria um grafo vazio.
+ * 
+ * \return 
+ */
 Vertice* CriarGrafo() {
 	return NULL;
 }
 
+/**
+ * Cria uma lista com todos os vértices.
+ * 
+ * \return listaVertices
+ */
 Vertice* CriarVertice() {
 	Vertice* listaVertices = NULL;
-	Localizacao* listaLocalVeiculo = ListarLocaisVeiculos();
+	ListaVeiculo* listaVeiculo = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
+	Localizacao* listaLocalVeiculo = ListarLocaisVeiculos(listaVeiculo); //Chama a função para criar uma lista de localizações
 
 	while (listaLocalVeiculo)
 	{
@@ -566,6 +499,14 @@ Vertice* CriarVertice() {
 	return listaVertices;
 }
 
+/**
+ * Insere os vertices no grafo.
+ * 
+ * \param gr
+ * \param novoVertice
+ * \param res
+ * \return gr
+ */
 Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res) {
 	if (gr == NULL) {
 		gr = novoVertice;
@@ -594,6 +535,11 @@ Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res) {
 	return gr;
 }
 
+/**
+ * Imprime o grafo no ecrã.
+ * 
+ * \param gr
+ */
 void MostrarGrafo(Vertice* gr) {
 	if (gr == NULL) {
 		return NULL;
@@ -604,6 +550,13 @@ void MostrarGrafo(Vertice* gr) {
 	MostrarGrafo(gr->proxima);
 }
 
+/**
+ * Procura um vértice a partir do nome da localização.
+ * 
+ * \param gr
+ * \param localizacao
+ * \return gr
+ */
 Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao) {
 	if (gr == NULL) {
 		return NULL;
@@ -614,16 +567,30 @@ Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao) {
 	return(ProcurarVerticeLocal(gr->proxima, localizacao));
 }
 
-Vertice* ProcuraVerticeId(Vertice* gr, int id) {
+/**
+ * Procura um vértice a partir do seu id.
+ * 
+ * \param gr
+ * \param id
+ * \return gr
+ */
+Vertice* ProcurarVerticeId(Vertice* gr, int id) {
 	if (gr == NULL) {
 		return NULL;
 	}
 	if (gr->id == id) {
 		return gr;
 	}
-	return(ProcuraVerticeId(gr->proxima, id));
+	return(ProcurarVerticeId(gr->proxima, id));
 }
 
+/**
+ * Procura o id de um vértice a partir do nome da localização..
+ * 
+ * \param gr
+ * \param localizacao
+ * \return gr->id
+ */
 int ProcurarIdVertice(Vertice* gr, char* localizacao) {
 	if (gr == NULL) {
 		return -1;
@@ -637,7 +604,13 @@ int ProcurarIdVertice(Vertice* gr, char* localizacao) {
 	return(ProcurarIdVertice(gr->proxima, localizacao));
 }
 
-
+/**
+ * Cria um adjacente.
+ * 
+ * \param id
+ * \param peso
+ * \return novoAdj
+ */
 Adj* CriarAdj(int id, int peso) {
 	Adj* novoAdj = (Adj*)calloc(1, sizeof(Adj));
 	if (novoAdj == NULL) {
@@ -649,83 +622,368 @@ Adj* CriarAdj(int id, int peso) {
 	return novoAdj;
 }
 
+/**
+ * Insere um adjacente em um vértice do grafo de forma recursiva.
+ * 
+ * \param gr
+ * \param origem
+ * \param dest
+ * \param peso
+ * \param res
+ * \return 
+ */
 Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res) {
 #pragma region Validações
-	*res = false;				//por defeito é falso
+	* res = false;
 
 	if (gr == NULL) {
-		return gr;	//<! se grafo está vazio, ignora operação
+		return gr;	// Se o grafo está vazio, ignora operação
 	}
 
-	Vertice* aux = ProcurarVerticeLocal(gr, origem);	//<! procura vertice origem
-	int idDest = ProcurarIdVertice(gr, dest);	//<! procura vertice destino
+	Vertice* aux = ProcurarVerticeLocal(gr, origem);	// Procura o vértice de origem
+	int idDest = ProcurarIdVertice(gr, dest);	// Procura o id do vértice de destino
 
 	if (aux == NULL || idDest < 0) {
-		return gr;			//<! Se não encontrou vertice origem e destino, ignora operação
+		return gr;			// Se não encontrar o vertice origem ou destino, ignora operação
 	}
 
 	if (ExisteAdjacentes(aux->lista_adjacentes, idDest) == true) {
-		return gr; //Se já foi registado esta adjacencia, ignorar a operação
+		return gr; //Se já foi registado este adjacente, ignora a operação
 	}
 
 #pragma endregion
 
 #pragma region Ação
-	//Insere nova adjacencia no vertice "Origem"
-	Adj* novoAdj = CriarAdj(idDest, peso);
-	aux->lista_adjacentes = InserirAdj(aux->lista_adjacentes, novoAdj, res);
-	return (InserirAdjacenteVertice(gr, dest, origem, peso, res));
+	//Insere novo adjacente no vértice de origem
+	Adj* novoAdj = CriarAdj(idDest, peso); // Chama a função para criar o adjacente
+	aux->lista_adjacentes = InserirAdj(aux->lista_adjacentes, novoAdj, res); //Chama a função para inserir o adjacente na lista de adjacentes
+	return (InserirAdjacenteVertice(gr, dest, origem, peso, res)); // Função recursiva pois o grafo é não orientado
 #pragma endregion
-
 }
 
-Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res) {
+/**
+ * Insere o adjacente na lista de adjacentes de um vértice.
+ * 
+ * \param h
+ * \param novoAdj
+ * \param res
+ * \return listaAdjacentes
+ */
+Adj* InserirAdj(Adj* listaAdjacentes, Adj* novoAdj, bool* res) {
 
-	*res = false;		//por defeito é falso
+	*res = false;
 
-	if (novoAdj == NULL) {	//Se novo adjacente é nulo, ignora operação
-		return h;
+	if (novoAdj == NULL) {	//Se o novo adjacente é nulo, ignora operação
+		return listaAdjacentes;
 	}
 
-	if (ExisteAdjacentes(h, novoAdj->id) == true) {
-		return h; // Se novo adj existe, ignorar operação
+	if (ExisteAdjacentes(listaAdjacentes, novoAdj->id) == true) {
+		return listaAdjacentes; // Se o novo adjacente existe, ignora a operação
 	}
 
-	// Inserir nova adjacencia!
+	// Inserir novo adjacente
 	*res = true;
-	if (h == NULL) {	//Se lista de adjacencias é vazia, esta é a primeira adjacencia
-		h = novoAdj;
-		return h;
+	if (listaAdjacentes == NULL) {	//Se lista de adjacencias é vazia, este é o primeiro adjacente
+		listaAdjacentes = novoAdj;
+		return listaAdjacentes;
 	}
-	//senão insere no início das adjacências!
-	novoAdj->proxima = h;
-	h = novoAdj;
+	//Senão, insere no início da lista de adjacêntes
+	novoAdj->proxima = listaAdjacentes;
+	listaAdjacentes = novoAdj;
 
-	return h;
+	return listaAdjacentes;
 }
 
-bool ExisteAdjacentes(Adj* h, int id) {
-	if (h == NULL) {
+/**
+ * Verifica se o adjacente já está na lista.
+ * 
+ * \param h
+ * \param id
+ * \return 
+ */
+bool ExisteAdjacentes(Adj* listaAdjacentes, int id) {
+	if (listaAdjacentes == NULL) {
 		return false;
 	}
-	if (h->id == id) {
+	if (listaAdjacentes->id == id) {
 		return true;
 	}
-	return ExisteAdjacentes(h->proxima, id);
+	return ExisteAdjacentes(listaAdjacentes->proxima, id);
 }
 
-
-void MostrarAdjacencias(Adj* h) {
-	if (h == NULL) {
+/**
+ * Imprime no ecrã a lista de adjacentes de um vértice.
+ * 
+ * \param listaAdjacentes
+ */
+void MostrarAdjacencias(Adj* listaAdjacentes) {
+	if (listaAdjacentes == NULL) {
 		return NULL;
 	}
-	printf("\tAdj: %d - %d\n", h->id, h->peso);
-	MostrarAdjacencias(h->proxima);
+	printf("\tAdj: %d - %d\n", listaAdjacentes->id, listaAdjacentes->peso);
+	MostrarAdjacencias(listaAdjacentes->proxima);
 }
+
+/**
+ * Calcula o número de vértices de um grafo.
+ * 
+ * \param gr
+ * \return 
+ */
+int CalcularTamanhoGrafo(Vertice* gr) {
+	int tamanho = 0;
+	
+	Vertice* aux = gr;
+	while (aux != NULL) {
+		tamanho++;
+		aux = aux->proxima;
+	}
+
+	return tamanho;
+}
+#pragma endregion
+
+#pragma region Menor Caminho
+/*ListaVeiculo* SelecionarVeiculosBateria() {
+	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
+	ListaVeiculo* listaBateria = CriarListaVeiculo();
+
+	while (listaAtual != NULL)
+	{
+		if (listaAtual->v.bateria < 50)
+		{
+			Veiculo* v = &listaAtual->v;
+			listaBateria = InserirVeiculo(listaBateria, v);
+		}
+		listaAtual = listaAtual->proxima;
+	}
+	return listaBateria;
+}
+
+Localizacao* LocalizarBateria(ListaVeiculo* listaBateria) {
+	Localizacao* locaisBateria = ListarLocaisVeiculos(listaBateria);
+
+	return locaisBateria;
+}
+
+
+
+
+Vertice* EncontrarCaminhoMinimo(Vertice* gr, int src, int dst, int CalcularTamanhoGrafo) {
+	// Crie e inicialize as estruturas de dados necessárias para o algoritmo de Dijkstra
+	int* distancias = (int*)malloc(CalcularTamanhoGrafo * sizeof(int));
+	int* predecessores = (int*)malloc(CalcularTamanhoGrafo * sizeof(int));
+	bool* visitados = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
+
+	for (int i = 0; i < CalcularTamanhoGrafo; i++) {
+		distancias[i] = INT_MAX; // Distância inicialmente infinita para todos os vértices
+		predecessores[i] = -1; // Predecessor desconhecido inicialmente para todos os vértices
+		visitados[i] = false; // Nenhum vértice foi visitado inicialmente
+	}
+
+	distancias[src] = 0; // Distância do vértice de origem para si mesmo é zero
+
+	// Executar o algoritmo de Dijkstra
+	for (int count = 0; count < CalcularTamanhoGrafo - 1; count++) {
+		int u = -1;
+		int menorDistancia = INT_MAX;
+
+		// Encontre o vértice não visitado com a menor distância
+		for (int v = 0; v < CalcularTamanhoGrafo; v++) {
+			if (!visitados[v] && distancias[v] < menorDistancia) {
+				u = v;
+				menorDistancia = distancias[v];
+			}
+		}
+
+		// Marque o vértice atual como visitado
+		visitados[u] = true;
+
+		// Atualize as distâncias dos vértices adjacentes ao vértice atual
+		Adj* adjacente = gr[u].lista_adjacentes;
+		while (adjacente != NULL) {
+			int v = adjacente->id;
+			int pesoAresta = adjacente->peso;
+
+			if (!visitados[v] && distancias[u] + pesoAresta < distancias[v]) {
+				distancias[v] = distancias[u] + pesoAresta;
+				predecessores[v] = u;
+			}
+
+			adjacente = adjacente->proxima;
+		}
+	}
+
+	// Construa o caminho mínimo a partir dos predecessores
+	Vertice* caminho = NULL;
+	int atual = dst;
+	bool res;
+
+	while (atual != -1) {
+		Vertice* vertice = ProcurarVerticeId(gr, atual);
+		caminho = InserirVertice(caminho, vertice, &res);
+		atual = predecessores[atual];
+	}
+
+	// Libere a memória alocada para as estruturas de dados do algoritmo de Dijkstra
+	free(distancias);
+	free(predecessores);
+	free(visitados);
+
+	// Retorne o caminho mínimo encontrado
+	return caminho;
+}
+
+int CalcularDistancia(Vertice* gr, int src, int dst) {
+	Vertice* verticeSrc = ProcurarVerticeId(gr, src);
+
+	// Procurar a aresta que conecta src e dst na lista de adjacências do vértice src
+	Adj* adjacente = verticeSrc->lista_adjacentes;
+	while (adjacente) {
+		if (adjacente->id == dst) {
+			// O peso da aresta é a distância entre os vértices src e dst
+			return adjacente->peso;
+		}
+		adjacente = adjacente->proxima;
+	}
+
+	// Caso a aresta entre src e dst não seja encontrada, retorna um valor inválido
+	return -1;
+}
+
+int CalcularDistanciaTotal(Vertice* gr, Vertice* caminho) {
+	int distanciaTotal = 0;
+	Vertice* atual = caminho;
+	while (atual && atual->proxima) {
+		distanciaTotal += CalcularDistancia(gr, atual->id, atual->proxima->id);
+		atual = atual->proxima;
+	}
+	return distanciaTotal;
+}
+
+int CalcularMenorDistancia(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo) {
+	char* central = gr->localizacao;
+	char* src = central;
+	int menorDistancia = 0;
+
+	Localizacao* auxLocaisBateria = locaisBateria;
+
+	while (auxLocaisBateria) {
+		char* dest = auxLocaisBateria->localizacao;
+		int s = ProcurarIdVertice(gr, src);
+		int d = ProcurarIdVertice(gr, dest);
+
+		Vertice* caminho = EncontrarCaminhoMinimo(gr, s, d, CalcularTamanhoGrafo);
+		if (caminho) {
+			menorDistancia += CalcularDistanciaTotal(gr, caminho);
+			//LiberarListaVertice(caminho); // Liberar a memória alocada para o caminho
+		}
+		else {
+			// Tratar caso em que não há caminho possível entre os vértices
+			// Pode lançar uma exceção, retornar um valor especial ou tomar alguma outra ação adequada ao seu problema
+			return -1;
+		}
+
+		// Atualizar src e passar para o próximo destino
+		src = dest;
+		auxLocaisBateria = auxLocaisBateria->proxima;
+	}
+
+	// Incluir a distância do último destino de volta à central
+	int s = ProcurarIdVertice(gr, src);
+	int d = ProcurarIdVertice(gr, central);
+
+	Vertice* caminho = EncontrarCaminhoMinimo(gr, s, d, CalcularTamanhoGrafo);
+	if (caminho) {
+		menorDistancia += CalcularDistanciaTotal(gr, caminho);
+		//LiberarListaVertice(caminho); // Liberar a memória alocada para o caminho
+	}
+
+	return menorDistancia;
+}
+
+int CountPaths(Vertice* gr, int src, int dst, int pathCount, bool* visited) {
+	if (gr == NULL)
+		return 0;
+
+	// If current vertex is same as destination, then increment count
+	if (src == dst)
+		return (++pathCount);
+
+	else {
+		// Mark the current vertex as visited
+		visited[src] = true;
+
+		// Recur for all the vertices adjacent to this vertex
+		Vertice* aux = ProcurarVerticeId(gr, src);
+		Adj* hAdj = aux->lista_adjacentes;
+		while (hAdj) {
+			Vertice* v = ProcurarVerticeId(gr, hAdj->id);
+			if (!visited[v->id])
+				pathCount = CountPaths(gr, v->id, dst, pathCount, visited);
+			hAdj = hAdj->proxima;
+		}
+	}
+
+	// Mark the current vertex as unvisited before returning
+	visited[src] = false;
+
+	return pathCount;
+}
+
+int CountPathsVerticesName(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo) {
+	char* central = gr->localizacao;
+	char* src = central;
+	int countPaths = 0;
+
+	Localizacao* auxLocaisBateria = locaisBateria;
+
+	while (auxLocaisBateria) {
+		char* dest = auxLocaisBateria->localizacao;
+		int s = ProcurarIdVertice(gr, src);
+		int d = ProcurarIdVertice(gr, dest);
+
+		// Create and initialize the visited array
+		bool* visited = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
+		for (int i = 0; i < CalcularTamanhoGrafo; i++)
+			visited[i] = false;
+
+		countPaths += CountPaths(gr, s, d, 0, visited);
+
+		// Free the visited array
+		free(visited);
+
+		// Update src and move to the next destination
+		src = dest;
+		auxLocaisBateria = auxLocaisBateria->proxima;
+	}
+
+	// Include the path from the last destination back to the central vertex
+	int s = ProcurarIdVertice(gr, src);
+	int d = ProcurarIdVertice(gr, central);
+
+	// Create and initialize the visited array
+	bool* visited = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
+	for (int i = 0; i < CalcularTamanhoGrafo; i++)
+		visited[i] = false;
+
+	countPaths += CountPaths(gr, s, d, 0, visited);
+
+	// Free the visited array
+	free(visited);
+
+	return countPaths;
+}*/
 
 #pragma endregion
 
 #pragma region Veículos_Area
+/**
+ * Cria uma lista com todos os veículos de determinado tipo.
+ * 
+ * \param tipoVeiculo
+ * \return listaTipo
+ */
 ListaVeiculo* SelecionarVeiculosTipo(char* tipoVeiculo) {
 	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
 	ListaVeiculo* listaTipo = CriarListaVeiculo();
@@ -743,6 +1001,14 @@ ListaVeiculo* SelecionarVeiculosTipo(char* tipoVeiculo) {
 	return listaTipo;
 }
 
+/**
+ * Cria uma lista como todos os locais inseridos dentro de determinado raio.
+ * 
+ * \param localizacaoPessoa
+ * \param gr
+ * \param raio
+ * \return listaArea
+ */
 Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio) {
 
 	Vertice* verticePessoa = ProcurarVerticeLocal(gr, localizacaoPessoa);
@@ -756,30 +1022,40 @@ Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio) {
 	strcpy(listaArea->localizacao, verticePessoa->localizacao);
 	listaArea->proxima = NULL;
 
-	while (verticePessoa->lista_adjacentes != NULL)
+	Adj* adjacente = verticePessoa->lista_adjacentes;
+
+	while (adjacente != NULL)
 	{
-		Localizacao* aux = listaArea;
 
-		if (verticePessoa->lista_adjacentes->peso <= raio * 2)
+		if (adjacente->peso <= raio * 2)
 		{
-			Vertice* adj = ProcuraVerticeId(gr, verticePessoa->lista_adjacentes->id);
+			Vertice* adj = ProcurarVerticeId(gr, adjacente->id);
+			if (adj)
+			{
+				Localizacao* novoLocal = malloc(sizeof(Localizacao));
 
-			Localizacao* novoLocal = malloc(sizeof(Localizacao));
+				novoLocal->id = adj->id;
+				strcpy(novoLocal->localizacao, adj->localizacao);
+				novoLocal->proxima = NULL;
 
-			novoLocal->id = adj->id;
-			strcpy(novoLocal->localizacao, adj->localizacao);
-			novoLocal->proxima = NULL;
-
-			while (aux->proxima) {
-				aux = aux->proxima;
+				Localizacao* aux = listaArea;
+				while (aux->proxima) {
+					aux = aux->proxima;
+				}
+				aux->proxima = novoLocal;
 			}
-			aux->proxima = novoLocal;
 		}
-		verticePessoa->lista_adjacentes = verticePessoa->lista_adjacentes->proxima;
+		adjacente = adjacente->proxima;
 	}
 	return listaArea;
 }
 
+/**
+ * Compara a listaTipo e a listaArea e imprime no ecrã os veículos daquele tipo naquele raio.
+ * 
+ * \param gr
+ * \return 
+ */
 bool ListarVeiculosArea(Vertice* gr) {
 	ListaVeiculo* listaTipo = SelecionarVeiculosTipo("bicicleta");
 	Localizacao* listaArea = DefinirArea("Braga", gr, 50);

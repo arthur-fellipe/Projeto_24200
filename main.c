@@ -52,13 +52,11 @@ int main()
 	ListarVeiculoLocalizacao("Braga");
 
 
-	//int totalVertices = 0;
 	bool res;
 	Vertice* grafoVeiculos = CriarGrafo();
 	Vertice* listaVertice = CriarVertice();
 	if (listaVertice != NULL) {
 		grafoVeiculos = InserirVertice(grafoVeiculos, listaVertice, &res);
-		//totalVertices++;
 	}
 	MostrarGrafo(grafoVeiculos);
 
@@ -67,8 +65,14 @@ int main()
 
 
 	MostrarGrafo(grafoVeiculos);
+	int tamanho = CalcularTamanhoGrafo(grafoVeiculos);
 
 	ListarVeiculosArea(grafoVeiculos);
+
+	//ListaVeiculo* listaBateria = SelecionarVeiculosBateria();
+	//Localizacao* locaisBateria = LocalizarBateria(listaBateria);
+	//CountPathsVerticesName(grafoVeiculos, locaisBateria, tamanho);
+	//CalcularMenorDistancia(grafoVeiculos, locaisBateria, tamanho);
 
 #pragma endregion
 
@@ -79,7 +83,6 @@ int main()
 	listaViagem = RegistarViagem(listaViagem, 1, 3, 3, 5, 3);
 	listaViagem = RegistarViagem(listaViagem, 2, 3, 3, 7.50, 1.5);
 #pragma endregion
-
 
 	return (1);
 }

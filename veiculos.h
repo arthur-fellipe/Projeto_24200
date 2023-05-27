@@ -65,20 +65,31 @@ typedef struct Localizacao {
 } Localizacao;
 
 
-Localizacao* ListarLocaisVeiculos();
+Localizacao* ListarLocaisVeiculos(ListaVeiculo* listaVeiculo);
 Vertice* CriarGrafo();
 Vertice* CriarVertice();
 Vertice* InserirVertice(Vertice* gr, Vertice* novoVertice, bool* res);
 void MostrarGrafo(Vertice* gr);
 
 Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao);
-Vertice* ProcuraVerticeId(Vertice* gr, int id);
+Vertice* ProcurarVerticeId(Vertice* gr, int id);
 int ProcurarIdVertice(Vertice* gr, char* localizacao);
 Adj* CriarAdj(int id, int peso);
 Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res);
 Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res);
 bool ExisteAdjacentes(Adj* h, int id);
 void MostrarAdjacencias(Adj* h);
+int CalcularTamanhoGrafo(Vertice* gr);
+
+/*ListaVeiculo* SelecionarVeiculosBateria();
+Localizacao* LocalizarBateria(ListaVeiculo* listaBateria);
+ //int CountPathsVerticesName(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo);
+//int CountPaths(Vertice* gr, int src, int dst, int pathCount);
+int CalcularMenorDistancia(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo);
+int CalcularDistanciaTotal(Vertice* gr, Vertice* caminho);
+int CalcularDistancia(Vertice* gr, int src, int dst);
+Vertice* EncontrarCaminhoMinimo(Vertice* gr, int src, int dst, int CalcularTamanhoGrafo);
+*/
 
 ListaVeiculo* SelecionarVeiculosTipo(char tipoVeiculo[]);
 Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio);
