@@ -29,8 +29,7 @@ ListaVeiculo* LerFicheiroVeiculoTxt()
 	// Verifica se o ficheiro foi aberto com sucesso
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return NULL;
 	}
 	// Lê os dados do ficheiro
 	Veiculo* novoVeiculo = malloc(sizeof(Veiculo));
@@ -406,6 +405,103 @@ bool ListarVeiculoLocalizacao(char localizacao[])
 #pragma endregion
 
 #pragma region Grafo_Veículos
+Aresta* LerFicheiroAdjacentesTxt()
+{
+	// Abre o ficheiro com os dados
+	FILE* fp = fopen("adjacentes.txt", "r");
+
+	// Verifica se o ficheiro foi aberto com sucesso
+	if (fp == NULL)
+	{
+		return NULL;
+	}
+	// Lê os dados do ficheiro
+	Aresta* novaAresta = malloc(sizeof(Aresta));
+	ListaAresta* listaAresta = CriarListaAresta(); //Chama função para criar a lista de arestas
+
+	while (!feof(fp) != NULL)
+	{
+		if (fscanf(fp, "%40[^;];%40[^;];%d\n", novaAresta->origem, novaAresta->destino, &(novaAresta->peso)))
+		{
+			if (VerificarExisteAresta(listaAresta, novaAresta) == false) //Verifica se já existe a aresta dentro da lista
+			{
+				listaAresta = InserirAresta(listaAresta, novaAresta); //Insere nova aresta em lista já existente
+			}
+		}
+	}
+
+	// Fecha o ficheiro
+	fclose(fp);
+
+	return listaAresta;
+}
+
+/**
+ * Verifica se já existe a aresta dentro da lista.
+ *
+ * \param listaAresta
+ * \param novaAresta
+ * \return
+ */
+bool VerificarExisteAresta(ListaAresta* listaAresta, Aresta* novaAresta)
+{
+	ListaAresta* aux = malloc(sizeof(ListaAresta));
+	aux = listaAresta;
+	while (aux != NULL)
+	{
+		if ((strcmp(aux->a.origem, novaAresta->origem) == 0) || (strcmp(aux->a.origem, novaAresta->destino) == 0))
+		{
+			if ((strcmp(aux->a.destino, novaAresta->origem)==0) || (strcmp(aux->a.destino, novaAresta->destino) == 0))
+			return true;
+		}
+
+			aux = aux->proxima;
+
+	}
+	return false;
+}
+
+/**
+ * Cria lista de arestas.
+ *
+ * \return listaAresta
+ */
+ListaAresta* CriarListaAresta() 
+{
+	ListaAresta* listaAresta = NULL;
+	return listaAresta;
+}
+
+/**
+ * Insere arestas na lista.
+ *
+ * \param listaAresta
+ * \param novaAresta
+ * \return listaAresta
+ */
+ListaAresta* InserirAresta(ListaAresta* listaAresta, Aresta* novaAresta)
+{
+	ListaAresta* novoNo = malloc(sizeof(ListaAresta)), * aux;
+
+	novoNo->a = *novaAresta;
+	novoNo->proxima = NULL;
+
+	if (listaAresta == NULL)
+	{
+		listaAresta = novoNo;
+	}
+	else {
+		aux = listaAresta;
+		while (aux->proxima)
+		{
+			aux = aux->proxima;
+		}
+		aux->proxima = novoNo;
+	}
+	return listaAresta;
+}
+
+
 /**
  * Recebe a lista atualizada de veículos e cria uma lista com todas as localizações.
  * 
@@ -585,7 +681,7 @@ Vertice* ProcurarVerticeId(Vertice* gr, int id) {
 }
 
 /**
- * Procura o id de um vértice a partir do nome da localização..
+ * Procura o id de um vértice a partir do nome da localização.
  * 
  * \param gr
  * \param localizacao
@@ -623,43 +719,53 @@ Adj* CriarAdj(int id, int peso) {
 }
 
 /**
- * Insere um adjacente em um vértice do grafo de forma recursiva.
+ * Insere os adjacentes nos vértices do grafo de forma recursiva.
  * 
  * \param gr
- * \param origem
- * \param dest
- * \param peso
+ * \param listaAresta
  * \param res
  * \return 
  */
-Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res) {
-#pragma region Validações
-	* res = false;
+Vertice* InserirAdjVertice(Vertice* gr, ListaAresta* listaAresta, bool* res) {
+	*res = false;
 
-	if (gr == NULL) {
-		return gr;	// Se o grafo está vazio, ignora operação
+	if (gr == NULL || listaAresta == NULL) {
+		return gr; // Se o grafo ou a listaAresta está vazia, ignora operação
 	}
 
-	Vertice* aux = ProcurarVerticeLocal(gr, origem);	// Procura o vértice de origem
-	int idDest = ProcurarIdVertice(gr, dest);	// Procura o id do vértice de destino
+	ListaAresta* listaAtual = listaAresta;
 
-	if (aux == NULL || idDest < 0) {
-		return gr;			// Se não encontrar o vertice origem ou destino, ignora operação
+	while (listaAtual != NULL) {
+		Vertice* origem = ProcurarVerticeLocal(gr, listaAtual->a.origem);
+		Vertice* destino = ProcurarVerticeLocal(gr, listaAtual->a.destino);
+
+		if (origem != NULL && destino != NULL) {
+			int idOrigem = ProcurarIdVertice(gr, listaAtual->a.origem);
+			int idDestino = ProcurarIdVertice(gr, listaAtual->a.destino);
+
+			if (!ExisteAdjacentes(origem->lista_adjacentes, idDestino)) {
+				// Cria a adjacência no vértice de origem
+				Adj* novoAdjOrigem = CriarAdj(idDestino, listaAtual->a.peso);
+				origem->lista_adjacentes = InserirAdj(origem->lista_adjacentes, novoAdjOrigem, res);
+			}
+
+			if (!ExisteAdjacentes(destino->lista_adjacentes, idOrigem)) {
+				// Cria a adjacência no vértice de destino
+				Adj* novoAdjDestino = CriarAdj(idOrigem, listaAtual->a.peso);
+				destino->lista_adjacentes = InserirAdj(destino->lista_adjacentes, novoAdjDestino, res);
+			}
+		}
+
+		listaAtual = listaAtual->proxima;
 	}
 
-	if (ExisteAdjacentes(aux->lista_adjacentes, idDest) == true) {
-		return gr; //Se já foi registado este adjacente, ignora a operação
-	}
-
-#pragma endregion
-
-#pragma region Ação
-	//Insere novo adjacente no vértice de origem
-	Adj* novoAdj = CriarAdj(idDest, peso); // Chama a função para criar o adjacente
-	aux->lista_adjacentes = InserirAdj(aux->lista_adjacentes, novoAdj, res); //Chama a função para inserir o adjacente na lista de adjacentes
-	return (InserirAdjacenteVertice(gr, dest, origem, peso, res)); // Função recursiva pois o grafo é não orientado
-#pragma endregion
+	return gr;
 }
+
+
+
+
+
 
 /**
  * Insere o adjacente na lista de adjacentes de um vértice.
@@ -906,12 +1012,12 @@ int CountPaths(Vertice* gr, int src, int dst, int pathCount, bool* visited) {
 	if (gr == NULL)
 		return 0;
 
-	// If current vertex is same as destination, then increment count
+	// If listaAtual vertex is same as destination, then increment count
 	if (src == dst)
 		return (++pathCount);
 
 	else {
-		// Mark the current vertex as visited
+		// Mark the listaAtual vertex as visited
 		visited[src] = true;
 
 		// Recur for all the vertices adjacent to this vertex
@@ -925,7 +1031,7 @@ int CountPaths(Vertice* gr, int src, int dst, int pathCount, bool* visited) {
 		}
 	}
 
-	// Mark the current vertex as unvisited before returning
+	// Mark the listaAtual vertex as unvisited before returning
 	visited[src] = false;
 
 	return pathCount;

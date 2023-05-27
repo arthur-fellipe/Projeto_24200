@@ -19,15 +19,13 @@
  */
 ListaPessoa* LerFicheiroPessoaTxt()
 {
-
 	// Abre o ficheiro com os dados
 	FILE* fp = fopen("pessoas.txt", "r");
 
 	// Verifica se o ficheiro foi aberto com sucesso
 	if (fp == NULL)
 	{
-		 printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return NULL;
 	}
 	// Lê os dados do ficheiro
 	Pessoa* novaPessoa = malloc(sizeof(Pessoa));

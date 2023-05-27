@@ -43,7 +43,3 @@ bool AlterarListaPessoaBin(Pessoa novosDados);
 bool RemoverDadosListaPessoaBin(int id);
 bool ListarPessoaBin();
 #pragma endregion
-
-/*#pragma region Grafo_Pessoas
-
-#pragma endregion*/
