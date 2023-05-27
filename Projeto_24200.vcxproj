@@ -138,6 +138,7 @@
     <ClInclude Include="viagens.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="adjacentes.txt" />
     <Text Include="veiculos.txt" />
     <Text Include="pessoas.txt" />
   </ItemGroup>

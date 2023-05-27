@@ -31,25 +31,19 @@ ListaPessoa* LerFicheiroPessoaTxt()
 	}
 	// Lê os dados do ficheiro
 	Pessoa* novaPessoa = malloc(sizeof(Pessoa));
-	ListaPessoa* listaPessoa = NULL;
+	ListaPessoa* listaPessoa = CriarListaPessoa(); //Chama função para criar a lista de pessoas
+	CriarListaPessoaBin(listaPessoa); //Cria ficheiro binário para armazenar a lista de pessoas
 	while (!feof(fp) != NULL)
 	{
 		if (fscanf(fp, "%d;%d;%50[^;];%40[^;];%f\n", &(novaPessoa->id), &(novaPessoa->admin), novaPessoa->nome, novaPessoa->localizacao, &(novaPessoa->saldo)))
 		{
-			if (listaPessoa == NULL)
+			if (VerificarExistePessoa(listaPessoa, novaPessoa) == false) //Verifica se já existe a pessoa dentro da lista
 			{
-				listaPessoa = CriarListaPessoa(listaPessoa, novaPessoa); //Chama função para criar a lista de pessoas
-				CriarListaPessoaBin(listaPessoa); //Cria ficheiro binário para armazenar a lista de pessoas
-			}
-			else
-			{
-				if (VerificarExistePessoa(listaPessoa, novaPessoa) == false) //Verifica se já existe a pessoa dentro da lista
-				{
-					listaPessoa = InserirPessoa(listaPessoa, novaPessoa); //Insere nova pessoa em lista já existente
-				}
+				listaPessoa = InserirPessoa(listaPessoa, novaPessoa); //Insere nova pessoa em lista já existente
 			}
 		}
 	}
+	InserirListaPessoaBin(listaPessoa); //Insere a lista no ficheiro binario
 
 	// Fecha o ficheiro
 	fclose(fp);
@@ -87,16 +81,12 @@ bool VerificarExistePessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
  * 
  * \param listaPessoa
  * \param novaPessoa
- * \return 
+ * \return listaPessoa
  */
-ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
+ListaPessoa* CriarListaPessoa()
 {
-	ListaPessoa* novoNo = malloc(sizeof(ListaPessoa));
-
-	novoNo->p = *novaPessoa;
-	novoNo->proxima = NULL;
-
-	return novoNo;
+	ListaPessoa* listaPessoa = NULL;
+	return listaPessoa;
 }
 
 /**
@@ -104,7 +94,7 @@ ListaPessoa* CriarListaPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
  * 
  * \param listaPessoa
  * \param novaPessoa
- * \return 
+ * \return listaPessoa
  */
 ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 {
@@ -113,15 +103,20 @@ ListaPessoa* InserirPessoa(ListaPessoa* listaPessoa, Pessoa* novaPessoa)
 	novoNo->p = *novaPessoa;
 	novoNo->proxima = NULL;
 
-	aux = listaPessoa;
-	while (aux->proxima)
+	if (listaPessoa == NULL)
 	{
-		aux = aux->proxima;
+		listaPessoa = novoNo;
 	}
-	aux->proxima = novoNo;
+	else
+	{
+		aux = listaPessoa;
+		while (aux->proxima)
+		{
+			aux = aux->proxima;
+		}
+		aux->proxima = novoNo;
+	}
 	
-	InserirListaPessoaBin(novoNo); //Insere a pessoa no ficheiro binario
-
 	return listaPessoa;
 }
 
@@ -184,15 +179,14 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 /**
  * Lê o ficheiro binário que armazena as pessoas e retorna uma lista atualizada.
  * 
- * \return 
+ * \return listaAtual
  */
 ListaPessoa* LerListaPessoaBin()
 {
 	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return NULL;
 	}
 
 	ListaPessoa* listaAtual = malloc(sizeof(ListaPessoa)), * aux = malloc(sizeof(ListaPessoa));
@@ -273,15 +267,13 @@ bool RemoverDadosListaPessoaBin(int id)
 	FILE* fp = fopen("listaPessoa.bin", "rb"); // Lê ficheiro binário
 	if (fp == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return false;
 	}
 
 	FILE* fp2 = fopen("copiaListaPessoa.bin", "wb"); // Escreve ficheiro bin�rio
 	if (fp2 == NULL)
 	{
-		printf("Erro ao abrir o ficheiro\n");
-		exit(1);
+		return false;
 	}
 
 	Pessoa* aux = malloc(sizeof(Pessoa));
@@ -301,10 +293,8 @@ bool RemoverDadosListaPessoaBin(int id)
 
 	if (rename("copiaListaPessoa.bin", "listaPessoa.bin") != 0)
 	{
-		printf("Erro ao renomear arquivo de saída");
 		return(false);
 	}
-
 	return true;
 }
 
@@ -327,8 +317,7 @@ bool ListarPessoaBin()
 				int novoTamanho = i + 1;
 				vetorPessoa = (Pessoa*)realloc(vetorPessoa, novoTamanho * sizeof(Pessoa));
 				if (vetorPessoa == NULL) {
-					printf("Erro: não foi possível realocar memória.\n");
-					exit(1);
+					return false;
 				}
 				tamanho = novoTamanho;
 			}
