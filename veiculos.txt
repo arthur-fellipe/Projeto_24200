@@ -3,3 +3,10 @@
 3;bicicleta;75;Braga;3.50;1
 4;bicicleta;45;Porto;3.50;1
 5;bicicleta;20;Braga;3.50;1
+6;trotineta;40;Chaves;2.00;1
+7;bicicleta;63;Barcelos;3.50;0
+8;trotineta;84;Faro;2.00;1
+9;bicicleta;10;Guarda;3.50;0
+10;bicicleta;52;Coimbra;3.50;1
+11;trotineta;20;Cascais;2.00;1
+12;trotineta;20;Manteigas;2.00;0

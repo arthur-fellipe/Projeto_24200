@@ -44,6 +44,17 @@ bool ListarVeiculoLocalizacao(char localizacao[]);
 #pragma endregion
 
 #pragma region Grafo_Veículos
+typedef struct Aresta {
+    char origem[40];
+    char destino[40];
+    int peso;
+} Aresta;
+
+typedef struct ListaAresta {
+    Aresta a;
+    struct ListaAresta* proxima;
+} ListaAresta;
+
 typedef struct Adj {
     int id;
     int peso;
@@ -64,7 +75,6 @@ typedef struct Localizacao {
     struct Localizacao* proxima;
 } Localizacao;
 
-
 Localizacao* ListarLocaisVeiculos(ListaVeiculo* listaVeiculo);
 Vertice* CriarGrafo();
 Vertice* CriarVertice();
@@ -74,8 +84,13 @@ void MostrarGrafo(Vertice* gr);
 Vertice* ProcurarVerticeLocal(Vertice* gr, char* localizacao);
 Vertice* ProcurarVerticeId(Vertice* gr, int id);
 int ProcurarIdVertice(Vertice* gr, char* localizacao);
+
+Aresta* LerFicheiroAdjacentesTxt();
+ListaAresta* CriarListaAresta();
+ListaAresta* InserirAresta(ListaAresta* listaAresta, Aresta* novaAresta);
+bool VerificarExisteAresta(ListaAresta* listaAresta, Aresta* novaAresta);
 Adj* CriarAdj(int id, int peso);
-Vertice* InserirAdjacenteVertice(Vertice* gr, char* origem, char* dest, int peso, bool* res);
+Vertice* InserirAdjVertice(Vertice* gr, ListaAresta* listaAresta, bool* res);
 Adj* InserirAdj(Adj* h, Adj* novoAdj, bool* res);
 bool ExisteAdjacentes(Adj* h, int id);
 void MostrarAdjacencias(Adj* h);

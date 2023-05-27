@@ -51,7 +51,6 @@ int main()
 	ListarVeiculoOrdemDecrescente();
 	ListarVeiculoLocalizacao("Braga");
 
-
 	bool res;
 	Vertice* grafoVeiculos = CriarGrafo();
 	Vertice* listaVertice = CriarVertice();
@@ -60,9 +59,8 @@ int main()
 	}
 	MostrarGrafo(grafoVeiculos);
 
-	grafoVeiculos = InserirAdjacenteVertice(grafoVeiculos, "Braga", "Porto", 35, &res);
-	grafoVeiculos = InserirAdjacenteVertice(grafoVeiculos, "Braga", "Lisboa", 15, &res);
-
+	ListaAresta* listaAresta = LerFicheiroAdjacentesTxt();
+	grafoVeiculos = InserirAdjVertice(grafoVeiculos,listaAresta, &res);
 
 	MostrarGrafo(grafoVeiculos);
 	int tamanho = CalcularTamanhoGrafo(grafoVeiculos);
