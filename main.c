@@ -67,10 +67,7 @@ int main()
 
 	ListarVeiculosArea(grafoVeiculos);
 
-	//ListaVeiculo* listaBateria = SelecionarVeiculosBateria();
-	//Localizacao* locaisBateria = LocalizarBateria(listaBateria);
-	//CountPathsVerticesName(grafoVeiculos, locaisBateria, tamanho);
-	//CalcularMenorDistancia(grafoVeiculos, locaisBateria, tamanho);
+	//EncontrarMenorTrajeto(grafoVeiculos);
 
 #pragma endregion
 
