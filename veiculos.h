@@ -96,15 +96,13 @@ bool ExisteAdjacentes(Adj* h, int id);
 void MostrarAdjacencias(Adj* h);
 int CalcularTamanhoGrafo(Vertice* gr);
 
-/*ListaVeiculo* SelecionarVeiculosBateria();
-Localizacao* LocalizarBateria(ListaVeiculo* listaBateria);
- //int CountPathsVerticesName(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo);
-//int CountPaths(Vertice* gr, int src, int dst, int pathCount);
-int CalcularMenorDistancia(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo);
-int CalcularDistanciaTotal(Vertice* gr, Vertice* caminho);
-int CalcularDistancia(Vertice* gr, int src, int dst);
-Vertice* EncontrarCaminhoMinimo(Vertice* gr, int src, int dst, int CalcularTamanhoGrafo);
-*/
+/*void EncontrarMenorTrajeto(Vertice* grafo);
+bool TodosVerticesVisitados(bool* visitados, int tamanhoGrafo);
+void BuscaExaustiva(Vertice* grafo, bool* visitados, int tamanhoGrafo, Vertice* verticeAtual, int distanciaAtual, int* menorDistancia);
+int CalcularDistancia(Vertice* origem, Vertice* destino);
+//ListaVeiculo* SelecionarVeiculosBateria();
+//Localizacao* LocalizarBateria(ListaVeiculo* listaBateria);*/
+#pragma endregion
 
 ListaVeiculo* SelecionarVeiculosTipo(char tipoVeiculo[]);
 Localizacao* DefinirArea(char* localizacaoPessoa, Vertice* gr, int raio);

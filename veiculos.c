@@ -527,8 +527,8 @@ Localizacao* ListarLocaisVeiculos(ListaVeiculo* listaVeiculo) {
 		if (!encontrado) {
 			Localizacao* novoLocal = malloc(sizeof(Localizacao));
 
-			novoLocal->id = i;
 			strcpy(novoLocal->localizacao, listaVeiculo->v.localizacao);
+			novoLocal->id = i;
 			novoLocal->proxima = NULL;
 
 			if (listaLocalVeiculo == NULL) {
@@ -762,11 +762,6 @@ Vertice* InserirAdjVertice(Vertice* gr, ListaAresta* listaAresta, bool* res) {
 	return gr;
 }
 
-
-
-
-
-
 /**
  * Insere o adjacente na lista de adjacentes de um vértice.
  * 
@@ -850,7 +845,68 @@ int CalcularTamanhoGrafo(Vertice* gr) {
 #pragma endregion
 
 #pragma region Menor Caminho
-/*ListaVeiculo* SelecionarVeiculosBateria() {
+/*// Função para calcular a distância entre dois vértices
+int CalcularDistancia(Vertice* origem, Vertice* destino) {
+	if (origem == NULL || destino == NULL) {
+		return NULL;
+	}
+		
+	Adj* auxOrigem = origem->lista_adjacentes;
+	Vertice* auxDest = destino;
+	while (auxOrigem) {
+
+		if (auxOrigem->id == auxDest->id) {
+			return auxOrigem->peso;
+		}
+		auxOrigem = auxOrigem->proxima;
+	}
+	// Se a distância não estiver definida, retorne um valor inválido
+	return 0;
+}
+
+bool TodosVerticesVisitados(bool* visitados, int tamanhoGrafo) {
+	for (int i = 0; i < tamanhoGrafo; i++) {
+		if (!visitados[i]) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void EncontrarMenorTrajeto(Vertice* grafo) {
+	int tamanho = CalcularTamanhoGrafo(grafo);
+	bool* visitados = (bool*)malloc(sizeof(bool) * tamanho);
+	for (int i = 0; i < tamanho; i++) {
+		visitados[i] = false; // Inicializa todos os vértices como não visitados
+	}
+	visitados[0] = true; // Marca o vértice 0 como visitado
+	int menorDistancia = INT_MAX; // Menor distância inicialmente definida como infinito
+	Vertice* verticeAtual = NULL;
+
+	BuscaExaustiva(grafo, visitados, tamanho, NULL, 0, &menorDistancia);
+	free(visitados);
+}
+
+void BuscaExaustiva(Vertice* grafo, bool* visitados, int tamanhoGrafo, Vertice* verticeAtual, int distanciaAtual, int* menorDistancia) {
+	if (TodosVerticesVisitados(visitados, tamanhoGrafo)) {
+		if (distanciaAtual < *menorDistancia) {
+			*menorDistancia = distanciaAtual;
+		}
+		return;
+	}
+
+	for (Vertice* vertice = grafo; vertice != NULL; vertice = vertice->proxima) {
+		if (!visitados[vertice->id]) {
+			visitados[vertice->id] = true;
+			int novaDistancia = distanciaAtual + CalcularDistancia(verticeAtual, vertice);
+			BuscaExaustiva(grafo, visitados, tamanhoGrafo, vertice, novaDistancia, menorDistancia);
+			visitados[vertice->id] = false;
+		}
+	}
+}
+
+
+ListaVeiculo* SelecionarVeiculosBateria() {
 	ListaVeiculo* listaAtual = LerListaVeiculoBin(); //Armazena os veículos do ficheiro binário em uma lista
 	ListaVeiculo* listaBateria = CriarListaVeiculo();
 
@@ -870,217 +926,7 @@ Localizacao* LocalizarBateria(ListaVeiculo* listaBateria) {
 	Localizacao* locaisBateria = ListarLocaisVeiculos(listaBateria);
 
 	return locaisBateria;
-}
-
-
-
-
-Vertice* EncontrarCaminhoMinimo(Vertice* gr, int src, int dst, int CalcularTamanhoGrafo) {
-	// Crie e inicialize as estruturas de dados necessárias para o algoritmo de Dijkstra
-	int* distancias = (int*)malloc(CalcularTamanhoGrafo * sizeof(int));
-	int* predecessores = (int*)malloc(CalcularTamanhoGrafo * sizeof(int));
-	bool* visitados = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
-
-	for (int i = 0; i < CalcularTamanhoGrafo; i++) {
-		distancias[i] = INT_MAX; // Distância inicialmente infinita para todos os vértices
-		predecessores[i] = -1; // Predecessor desconhecido inicialmente para todos os vértices
-		visitados[i] = false; // Nenhum vértice foi visitado inicialmente
-	}
-
-	distancias[src] = 0; // Distância do vértice de origem para si mesmo é zero
-
-	// Executar o algoritmo de Dijkstra
-	for (int count = 0; count < CalcularTamanhoGrafo - 1; count++) {
-		int u = -1;
-		int menorDistancia = INT_MAX;
-
-		// Encontre o vértice não visitado com a menor distância
-		for (int v = 0; v < CalcularTamanhoGrafo; v++) {
-			if (!visitados[v] && distancias[v] < menorDistancia) {
-				u = v;
-				menorDistancia = distancias[v];
-			}
-		}
-
-		// Marque o vértice atual como visitado
-		visitados[u] = true;
-
-		// Atualize as distâncias dos vértices adjacentes ao vértice atual
-		Adj* adjacente = gr[u].lista_adjacentes;
-		while (adjacente != NULL) {
-			int v = adjacente->id;
-			int pesoAresta = adjacente->peso;
-
-			if (!visitados[v] && distancias[u] + pesoAresta < distancias[v]) {
-				distancias[v] = distancias[u] + pesoAresta;
-				predecessores[v] = u;
-			}
-
-			adjacente = adjacente->proxima;
-		}
-	}
-
-	// Construa o caminho mínimo a partir dos predecessores
-	Vertice* caminho = NULL;
-	int atual = dst;
-	bool res;
-
-	while (atual != -1) {
-		Vertice* vertice = ProcurarVerticeId(gr, atual);
-		caminho = InserirVertice(caminho, vertice, &res);
-		atual = predecessores[atual];
-	}
-
-	// Libere a memória alocada para as estruturas de dados do algoritmo de Dijkstra
-	free(distancias);
-	free(predecessores);
-	free(visitados);
-
-	// Retorne o caminho mínimo encontrado
-	return caminho;
-}
-
-int CalcularDistancia(Vertice* gr, int src, int dst) {
-	Vertice* verticeSrc = ProcurarVerticeId(gr, src);
-
-	// Procurar a aresta que conecta src e dst na lista de adjacências do vértice src
-	Adj* adjacente = verticeSrc->lista_adjacentes;
-	while (adjacente) {
-		if (adjacente->id == dst) {
-			// O peso da aresta é a distância entre os vértices src e dst
-			return adjacente->peso;
-		}
-		adjacente = adjacente->proxima;
-	}
-
-	// Caso a aresta entre src e dst não seja encontrada, retorna um valor inválido
-	return -1;
-}
-
-int CalcularDistanciaTotal(Vertice* gr, Vertice* caminho) {
-	int distanciaTotal = 0;
-	Vertice* atual = caminho;
-	while (atual && atual->proxima) {
-		distanciaTotal += CalcularDistancia(gr, atual->id, atual->proxima->id);
-		atual = atual->proxima;
-	}
-	return distanciaTotal;
-}
-
-int CalcularMenorDistancia(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo) {
-	char* central = gr->localizacao;
-	char* src = central;
-	int menorDistancia = 0;
-
-	Localizacao* auxLocaisBateria = locaisBateria;
-
-	while (auxLocaisBateria) {
-		char* dest = auxLocaisBateria->localizacao;
-		int s = ProcurarIdVertice(gr, src);
-		int d = ProcurarIdVertice(gr, dest);
-
-		Vertice* caminho = EncontrarCaminhoMinimo(gr, s, d, CalcularTamanhoGrafo);
-		if (caminho) {
-			menorDistancia += CalcularDistanciaTotal(gr, caminho);
-			//LiberarListaVertice(caminho); // Liberar a memória alocada para o caminho
-		}
-		else {
-			// Tratar caso em que não há caminho possível entre os vértices
-			// Pode lançar uma exceção, retornar um valor especial ou tomar alguma outra ação adequada ao seu problema
-			return -1;
-		}
-
-		// Atualizar src e passar para o próximo destino
-		src = dest;
-		auxLocaisBateria = auxLocaisBateria->proxima;
-	}
-
-	// Incluir a distância do último destino de volta à central
-	int s = ProcurarIdVertice(gr, src);
-	int d = ProcurarIdVertice(gr, central);
-
-	Vertice* caminho = EncontrarCaminhoMinimo(gr, s, d, CalcularTamanhoGrafo);
-	if (caminho) {
-		menorDistancia += CalcularDistanciaTotal(gr, caminho);
-		//LiberarListaVertice(caminho); // Liberar a memória alocada para o caminho
-	}
-
-	return menorDistancia;
-}
-
-int CountPaths(Vertice* gr, int src, int dst, int pathCount, bool* visited) {
-	if (gr == NULL)
-		return 0;
-
-	// If listaAtual vertex is same as destination, then increment count
-	if (src == dst)
-		return (++pathCount);
-
-	else {
-		// Mark the listaAtual vertex as visited
-		visited[src] = true;
-
-		// Recur for all the vertices adjacent to this vertex
-		Vertice* aux = ProcurarVerticeId(gr, src);
-		Adj* hAdj = aux->lista_adjacentes;
-		while (hAdj) {
-			Vertice* v = ProcurarVerticeId(gr, hAdj->id);
-			if (!visited[v->id])
-				pathCount = CountPaths(gr, v->id, dst, pathCount, visited);
-			hAdj = hAdj->proxima;
-		}
-	}
-
-	// Mark the listaAtual vertex as unvisited before returning
-	visited[src] = false;
-
-	return pathCount;
-}
-
-int CountPathsVerticesName(Vertice* gr, Localizacao* locaisBateria, int CalcularTamanhoGrafo) {
-	char* central = gr->localizacao;
-	char* src = central;
-	int countPaths = 0;
-
-	Localizacao* auxLocaisBateria = locaisBateria;
-
-	while (auxLocaisBateria) {
-		char* dest = auxLocaisBateria->localizacao;
-		int s = ProcurarIdVertice(gr, src);
-		int d = ProcurarIdVertice(gr, dest);
-
-		// Create and initialize the visited array
-		bool* visited = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
-		for (int i = 0; i < CalcularTamanhoGrafo; i++)
-			visited[i] = false;
-
-		countPaths += CountPaths(gr, s, d, 0, visited);
-
-		// Free the visited array
-		free(visited);
-
-		// Update src and move to the next destination
-		src = dest;
-		auxLocaisBateria = auxLocaisBateria->proxima;
-	}
-
-	// Include the path from the last destination back to the central vertex
-	int s = ProcurarIdVertice(gr, src);
-	int d = ProcurarIdVertice(gr, central);
-
-	// Create and initialize the visited array
-	bool* visited = (bool*)malloc(CalcularTamanhoGrafo * sizeof(bool));
-	for (int i = 0; i < CalcularTamanhoGrafo; i++)
-		visited[i] = false;
-
-	countPaths += CountPaths(gr, s, d, 0, visited);
-
-	// Free the visited array
-	free(visited);
-
-	return countPaths;
 }*/
-
 #pragma endregion
 
 #pragma region Veículos_Area
