@@ -1,0 +1,42 @@
+\doxysection{viagens.\+h}
+\hypertarget{viagens_8h_source}{}\label{viagens_8h_source}\mbox{\hyperlink{viagens_8h}{Ir para a documentaÃ§Ã£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_CRT\_SECURE\_NO\_WARNINGS}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#pragma\ region\ Viagem}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_viagem}{Viagem}}}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_viagem_a8e80de25714f4cf8fc393838abd201a9}{cliente\_id}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_viagem_af7865665501ba7cf9428192ce829c1bd}{veiculo\_id}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_viagem_ac80790ca54ece46e3522eab76d075130}{precoViagem}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_viagem_a35fbe25f7acb5f0acc426757aec286d1}{distanciaViagem}};}
+\DoxyCodeLine{00022\ \}\mbox{\hyperlink{struct_viagem}{Viagem}};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}}
+\DoxyCodeLine{00025\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}\ \mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}};}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ \mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00028\ \}\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}};}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#pragma\ region\ Funções\ Viagem}}
+\DoxyCodeLine{00032\ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ \mbox{\hyperlink{viagens_8h_ae4d74bedfbddfb7025b4d903c1bc2e7f}{RegistarViagem}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ cliente\_id,\ \textcolor{keywordtype}{int}\ veiculo\_id,\ \textcolor{keywordtype}{float}\ precoViagem,\ \textcolor{keywordtype}{float}\ distanciaViagem);}
+\DoxyCodeLine{00033\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{viagens_8h_a872f6f09d208f089e6e98a21bd9e32a3}{VerificarExisteViagem}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem,\ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ novaViagem);}
+\DoxyCodeLine{00034\ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ \mbox{\hyperlink{viagens_8h_a3d5779e63ef4565635930916528e7750}{CriarListaViagem}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem,\ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ novaViagem);}
+\DoxyCodeLine{00035\ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ \mbox{\hyperlink{viagens_8h_ab087245e97cd61b329af6b77b984560a}{InserirViagem}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem,\ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ novaViagem);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{viagens_8h_a14b09860d8947abfb13acbce6fef7e2e}{CriarListaViagemBin}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{viagens_8h_a7a4422a1fe3cc1fa304eda12e7f5830b}{InserirListaViagemBin}}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaViagem);}
+\DoxyCodeLine{00039\ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ \mbox{\hyperlink{viagens_8h_af88a12db36e6dcd53fdfa1eaf7944a17}{LerListaViagemBin}}();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{viagens_8h_a59cc8c4c4cf3940bcf57a6bdb164c27b}{AlterarListaViagemBin}}(\mbox{\hyperlink{struct_viagem}{Viagem}}\ novosDados);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{viagens_8h_aeda219374d619bb5c18bd36667b7e912}{RemoverDadosListaViagemBin}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#pragma\ endregion}}
+
+\end{DoxyCode}

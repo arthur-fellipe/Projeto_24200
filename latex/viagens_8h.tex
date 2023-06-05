@@ -1,0 +1,491 @@
+\doxysection{ReferÃªncia ao ficheiro viagens.\+h}
+\hypertarget{viagens_8h}{}\label{viagens_8h}\index{viagens.h@{viagens.h}}
+
+
+~\newline
+  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_viagem}{Viagem}}
+\item 
+struct \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{viagens_8h_af08ec37a8c99d747fb60fa15bc28678b}{\+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{DefiniÃ§Ãµes de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_viagem}{Viagem}} \mbox{\hyperlink{viagens_8h_adc225cc6616397bbae8a51b7e6a3c3b7}{Viagem}}
+\item 
+typedef struct \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \mbox{\hyperlink{viagens_8h_a2895ff5f342be85da9702ef9b234ded2}{Lista\+Viagem}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{viagens_8h_ae4d74bedfbddfb7025b4d903c1bc2e7f}{Registar\+Viagem}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem, int id, int cliente\+\_\+id, int veiculo\+\_\+id, float preco\+Viagem, float distancia\+Viagem)
+\item 
+bool \mbox{\hyperlink{viagens_8h_a872f6f09d208f089e6e98a21bd9e32a3}{Verificar\+Existe\+Viagem}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem, \mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}nova\+Viagem)
+\item 
+\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{viagens_8h_a3d5779e63ef4565635930916528e7750}{Criar\+Lista\+Viagem}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem, \mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}nova\+Viagem)
+\item 
+\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{viagens_8h_ab087245e97cd61b329af6b77b984560a}{Inserir\+Viagem}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem, \mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}nova\+Viagem)
+\item 
+bool \mbox{\hyperlink{viagens_8h_a14b09860d8947abfb13acbce6fef7e2e}{Criar\+Lista\+Viagem\+Bin}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem)
+\item 
+bool \mbox{\hyperlink{viagens_8h_a7a4422a1fe3cc1fa304eda12e7f5830b}{Inserir\+Lista\+Viagem\+Bin}} (\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}lista\+Viagem)
+\item 
+\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{viagens_8h_af88a12db36e6dcd53fdfa1eaf7944a17}{Ler\+Lista\+Viagem\+Bin}} ()
+\item 
+bool \mbox{\hyperlink{viagens_8h_a59cc8c4c4cf3940bcf57a6bdb164c27b}{Alterar\+Lista\+Viagem\+Bin}} (\mbox{\hyperlink{struct_viagem}{Viagem}} novos\+Dados)
+\item 
+bool \mbox{\hyperlink{viagens_8h_aeda219374d619bb5c18bd36667b7e912}{Remover\+Dados\+Lista\+Viagem\+Bin}} (int id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+~\newline
+ 
+
+\begin{DoxyAuthor}{Autor}
+Arthur Fellipe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+March 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o das macros}
+\Hypertarget{viagens_8h_af08ec37a8c99d747fb60fa15bc28678b}\label{viagens_8h_af08ec37a8c99d747fb60fa15bc28678b} 
+\index{viagens.h@{viagens.h}!\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}}
+\index{\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{\_CRT\_SECURE\_NO\_WARNINGS}{\_CRT\_SECURE\_NO\_WARNINGS}}
+{\footnotesize\ttfamily \#define \+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o dos tipos}
+\Hypertarget{viagens_8h_a2895ff5f342be85da9702ef9b234ded2}\label{viagens_8h_a2895ff5f342be85da9702ef9b234ded2} 
+\index{viagens.h@{viagens.h}!ListaViagem@{ListaViagem}}
+\index{ListaViagem@{ListaViagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{ListaViagem}{ListaViagem}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}}}
+
+\Hypertarget{viagens_8h_adc225cc6616397bbae8a51b7e6a3c3b7}\label{viagens_8h_adc225cc6616397bbae8a51b7e6a3c3b7} 
+\index{viagens.h@{viagens.h}!Viagem@{Viagem}}
+\index{Viagem@{Viagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{Viagem}{Viagem}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_viagem}{Viagem}} \mbox{\hyperlink{struct_viagem}{Viagem}}}
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\Hypertarget{viagens_8h_a59cc8c4c4cf3940bcf57a6bdb164c27b}\label{viagens_8h_a59cc8c4c4cf3940bcf57a6bdb164c27b} 
+\index{viagens.h@{viagens.h}!AlterarListaViagemBin@{AlterarListaViagemBin}}
+\index{AlterarListaViagemBin@{AlterarListaViagemBin}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{AlterarListaViagemBin()}{AlterarListaViagemBin()}}
+{\footnotesize\ttfamily bool Alterar\+Lista\+Viagem\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_viagem}{Viagem}}}]{novos\+Dados }\end{DoxyParamCaption})}
+
+Altera dados dentro do ficheiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em novos\+Dados} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00234\ \{}
+\DoxyCodeLine{00235\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaViagem.bin"{}},\ \textcolor{stringliteral}{"{}rb+"{}});\ \textcolor{comment}{//\ Lê e\ altera\ ficheiro\ binário}}
+\DoxyCodeLine{00236\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00237\ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00240\ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}));}
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp))}
+\DoxyCodeLine{00246\ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novosDados.\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ fseek(fp,\ cursor,\ SEEK\_SET);}
+\DoxyCodeLine{00255\ \ \ \ \ fwrite(\&novosDados,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp);}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00258\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_a3d5779e63ef4565635930916528e7750}\label{viagens_8h_a3d5779e63ef4565635930916528e7750} 
+\index{viagens.h@{viagens.h}!CriarListaViagem@{CriarListaViagem}}
+\index{CriarListaViagem@{CriarListaViagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaViagem()}{CriarListaViagem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} Criar\+Lista\+Viagem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem,  }\item[{\mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}}]{nova\+Viagem }\end{DoxyParamCaption})}
+
+Cria lista de viagens.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+{\em nova\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ novoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}));}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}}\ =\ *novaViagem;}
+\DoxyCodeLine{00095\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ novoNo;}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_a14b09860d8947abfb13acbce6fef7e2e}\label{viagens_8h_a14b09860d8947abfb13acbce6fef7e2e} 
+\index{viagens.h@{viagens.h}!CriarListaViagemBin@{CriarListaViagemBin}}
+\index{CriarListaViagemBin@{CriarListaViagemBin}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaViagemBin()}{CriarListaViagemBin()}}
+{\footnotesize\ttfamily bool Criar\+Lista\+Viagem\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem }\end{DoxyParamCaption})}
+
+Cria ficheiro binário e guarda os dados armazenados na lista de Viagens
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00134\ \{}
+\DoxyCodeLine{00135\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaViagem.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ binário}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00137\ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00139\ \ \ \ \ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ aux\ =\ listaViagem;}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00143\ \ \ \ \ \{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}};}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00152\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_a7a4422a1fe3cc1fa304eda12e7f5830b}\label{viagens_8h_a7a4422a1fe3cc1fa304eda12e7f5830b} 
+\index{viagens.h@{viagens.h}!InserirListaViagemBin@{InserirListaViagemBin}}
+\index{InserirListaViagemBin@{InserirListaViagemBin}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{InserirListaViagemBin()}{InserirListaViagemBin()}}
+{\footnotesize\ttfamily bool Inserir\+Lista\+Viagem\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem }\end{DoxyParamCaption})}
+
+Insere viagens no fichiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00161\ \{}
+\DoxyCodeLine{00162\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaViagem.bin"{}},\ \textcolor{stringliteral}{"{}ab"{}});\ \textcolor{comment}{//\ Insere\ no\ ficheiro\ binário}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00164\ \ \ \ \ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ aux\ =\ listaViagem;}
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00171\ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}};}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00180\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_ab087245e97cd61b329af6b77b984560a}\label{viagens_8h_ab087245e97cd61b329af6b77b984560a} 
+\index{viagens.h@{viagens.h}!InserirViagem@{InserirViagem}}
+\index{InserirViagem@{InserirViagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{InserirViagem()}{InserirViagem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} Inserir\+Viagem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem,  }\item[{\mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}}]{nova\+Viagem }\end{DoxyParamCaption})}
+
+Insere viagens na lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+{\em nova\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ novoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}})),\ *\ aux;}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}}\ =\ *novaViagem;}
+\DoxyCodeLine{00112\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ aux\ =\ listaViagem;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00116\ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00118\ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}}\ =\ novoNo;}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ \mbox{\hyperlink{viagens_8c_a7a4422a1fe3cc1fa304eda12e7f5830b}{InserirListaViagemBin}}(novoNo);\ \textcolor{comment}{//Insere\ a\ pessoa\ no\ ficheiro\ binario}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{return}\ listaViagem;}
+\DoxyCodeLine{00125\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_af88a12db36e6dcd53fdfa1eaf7944a17}\label{viagens_8h_af88a12db36e6dcd53fdfa1eaf7944a17} 
+\index{viagens.h@{viagens.h}!LerListaViagemBin@{LerListaViagemBin}}
+\index{LerListaViagemBin@{LerListaViagemBin}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{LerListaViagemBin()}{LerListaViagemBin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} Ler\+Lista\+Viagem\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lê o ficheiro binário que armazena as viagens e retorna uma lista atualizada.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Atual 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00188\ \{}
+\DoxyCodeLine{00189\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaViagem.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê ficheiro\ binário}}
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00191\ \ \ \ \ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00193\ \ \ \ \ \}}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ listaAtual\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}})),\ *\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}));}
+\DoxyCodeLine{00196\ \ \ \ \ listaAtual\ =\ NULL;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00198\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00199\ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ viagem\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}));}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(viagem,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp))}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ proximoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}));}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}}\ =\ *viagem;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAtual\ ==\ NULL)}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ proximoNo;}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ listaAtual;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}}\ =\ proximoNo;}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAtual;}
+\DoxyCodeLine{00225\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_ae4d74bedfbddfb7025b4d903c1bc2e7f}\label{viagens_8h_ae4d74bedfbddfb7025b4d903c1bc2e7f} 
+\index{viagens.h@{viagens.h}!RegistarViagem@{RegistarViagem}}
+\index{RegistarViagem@{RegistarViagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{RegistarViagem()}{RegistarViagem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*} Registar\+Viagem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem,  }\item[{int}]{id,  }\item[{int}]{cliente\+\_\+id,  }\item[{int}]{veiculo\+\_\+id,  }\item[{float}]{preco\+Viagem,  }\item[{float}]{distancia\+Viagem }\end{DoxyParamCaption})}
+
+Regista a viagem realizada por certo usuário, atualizando o seu saldo.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+{\em id} & \\
+\hline
+{\em cliente} & \\
+\hline
+{\em veiculo} & \\
+\hline
+{\em preco\+Viagem} & \\
+\hline
+{\em distancia\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ novaViagem\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}));}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (novaViagem\ ==\ NULL)\ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00031\ \ \ \ \ novaViagem-\/>\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ id;}
+\DoxyCodeLine{00032\ \ \ \ \ novaViagem-\/>\mbox{\hyperlink{struct_viagem_a8e80de25714f4cf8fc393838abd201a9}{cliente\_id}}\ =\ cliente\_id;}
+\DoxyCodeLine{00033\ \ \ \ \ novaViagem-\/>\mbox{\hyperlink{struct_viagem_af7865665501ba7cf9428192ce829c1bd}{veiculo\_id}}\ =\ veiculo\_id;}
+\DoxyCodeLine{00034\ \ \ \ \ novaViagem-\/>\mbox{\hyperlink{struct_viagem_ac80790ca54ece46e3522eab76d075130}{precoViagem}}\ =\ precoViagem;}
+\DoxyCodeLine{00035\ \ \ \ \ novaViagem-\/>\mbox{\hyperlink{struct_viagem_a35fbe25f7acb5f0acc426757aec286d1}{distanciaViagem}}\ =\ distanciaViagem;}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaViagem\ ==\ NULL)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ listaViagem\ =\ \mbox{\hyperlink{viagens_8c_a3d5779e63ef4565635930916528e7750}{CriarListaViagem}}(listaViagem,\ novaViagem);\ \textcolor{comment}{//Chama\ função\ para\ criar\ a\ lista\ de\ viagens}}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{viagens_8c_a14b09860d8947abfb13acbce6fef7e2e}{CriarListaViagemBin}}(listaViagem);}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00043\ \ \ \ \ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{viagens_8c_a872f6f09d208f089e6e98a21bd9e32a3}{VerificarExisteViagem}}(listaViagem,\ novaViagem)\ ==\ \textcolor{keyword}{false})\ \textcolor{comment}{//Verifica\ se\ já existe\ a\ viagem\ dentro\ da\ lista}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ listaViagem\ =\ \mbox{\hyperlink{viagens_8c_ab087245e97cd61b329af6b77b984560a}{InserirViagem}}(listaViagem,\ novaViagem);\ \textcolor{comment}{//Insere\ nova\ viagem\ em\ lista\ já existente}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{/*Pessoa\ clienteAtualizado\ =\ cliente; }}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ \ \ \ clienteAtualizado.saldo\ =\ clienteAtualizado.saldo\ -\/\ novaViagem-\/>precoViagem; }}
+\DoxyCodeLine{00052\ \textcolor{comment}{\ \ \ \ \  }}
+\DoxyCodeLine{00053\ \textcolor{comment}{\ \ \ \ AlterarListaPessoaBin(clienteAtualizado);\ //Atualiza\ o\ saldo\ do\ cliente\ que\ realizou\ a\ viagem*/}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ listaViagem;}
+\DoxyCodeLine{00056\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_aeda219374d619bb5c18bd36667b7e912}\label{viagens_8h_aeda219374d619bb5c18bd36667b7e912} 
+\index{viagens.h@{viagens.h}!RemoverDadosListaViagemBin@{RemoverDadosListaViagemBin}}
+\index{RemoverDadosListaViagemBin@{RemoverDadosListaViagemBin}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{RemoverDadosListaViagemBin()}{RemoverDadosListaViagemBin()}}
+{\footnotesize\ttfamily bool Remover\+Dados\+Lista\+Viagem\+Bin (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Remove o registo de um veículo do ficheiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00269\ \{}
+\DoxyCodeLine{00270\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaViagem.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê ficheiro\ binário}}
+\DoxyCodeLine{00271\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00272\ \ \ \ \ \{}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00274\ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ FILE*\ fp2\ =\ fopen(\textcolor{stringliteral}{"{}copiaListaViagem.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ binário}}
+\DoxyCodeLine{00277\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp2\ ==\ NULL)}
+\DoxyCodeLine{00278\ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00280\ \ \ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00282\ \ \ \ \ \mbox{\hyperlink{struct_viagem}{Viagem}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}));}
+\DoxyCodeLine{00283\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp))}
+\DoxyCodeLine{00285\ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ !=\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ fwrite(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_viagem}{Viagem}}),\ 1,\ fp2);}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00293\ \ \ \ \ fclose(fp2);}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00295\ \ \ \ \ remove(\textcolor{stringliteral}{"{}listaViagem.bin"{}});}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keywordflow}{if}\ (rename(\textcolor{stringliteral}{"{}copiaListaViagem.bin"{}},\ \textcolor{stringliteral}{"{}listaViagem.bin"{}})\ !=\ 0)}
+\DoxyCodeLine{00298\ \ \ \ \ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00303\ \}}
+
+\end{DoxyCode}
+\Hypertarget{viagens_8h_a872f6f09d208f089e6e98a21bd9e32a3}\label{viagens_8h_a872f6f09d208f089e6e98a21bd9e32a3} 
+\index{viagens.h@{viagens.h}!VerificarExisteViagem@{VerificarExisteViagem}}
+\index{VerificarExisteViagem@{VerificarExisteViagem}!viagens.h@{viagens.h}}
+\doxysubsubsection{\texorpdfstring{VerificarExisteViagem()}{VerificarExisteViagem()}}
+{\footnotesize\ttfamily bool Verificar\+Existe\+Viagem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_viagem}{Lista\+Viagem}} \texorpdfstring{$\ast$}{*}}]{lista\+Viagem,  }\item[{\mbox{\hyperlink{struct_viagem}{Viagem}} \texorpdfstring{$\ast$}{*}}]{nova\+Viagem }\end{DoxyParamCaption})}
+
+Verifica se já existe a viagem dentro da lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Viagem} & \\
+\hline
+{\em nova\+Viagem} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_viagem}{ListaViagem}}));}
+\DoxyCodeLine{00068\ \ \ \ \ aux\ =\ listaViagem;}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00070\ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae0e6b3227ec986bdd7aaaeb1a26a43b2}{viagem}}.\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novaViagem-\/>\mbox{\hyperlink{struct_viagem_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_viagem_ae18318fcae3e81814482c610edb40129}{proxima}};}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00081\ \}}
+
+\end{DoxyCode}

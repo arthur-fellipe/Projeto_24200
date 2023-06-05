@@ -1,0 +1,44 @@
+\doxysection{pessoas.\+h}
+\hypertarget{pessoas_8h_source}{}\label{pessoas_8h_source}\mbox{\hyperlink{pessoas_8h}{Ir para a documentaÃ§Ã£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ \_CRT\_SECURE\_NO\_WARNINGS}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#pragma\ region\ Pessoa}}
+\DoxyCodeLine{00016\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_pessoa}{Pessoa}}}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_pessoa_af547f60c38cf172900cbcad9487180ae}{admin}};}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_pessoa_ad9b32a94f9054fd81f59b1118b8d53d2}{nome}}[50];}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//char\ nif[9];}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//char\ morada[100];}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_pessoa_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}}[40];}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_pessoa_a053787aa31e36d2305553048e761d7c4}{saldo}};}
+\DoxyCodeLine{00025\ \}\mbox{\hyperlink{struct_pessoa}{Pessoa}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}}
+\DoxyCodeLine{00028\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}\ \mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}};}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ \mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00031\ \}\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}};}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#pragma\ region\ Funções\ Pessoa}}
+\DoxyCodeLine{00035\ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ \mbox{\hyperlink{pessoas_8h_a9b53674fc2901ad736e0b7bb5036f662}{LerFicheiroPessoaTxt}}();}
+\DoxyCodeLine{00036\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_a29aad53fe56f3bbd47df2d91d9900c13}{VerificarExistePessoa}}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa,\ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ novaPessoa);}
+\DoxyCodeLine{00037\ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ \mbox{\hyperlink{pessoas_8h_afed845823bcc7e422bf10bbe78169e54}{CriarListaPessoa}}();}
+\DoxyCodeLine{00038\ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ \mbox{\hyperlink{pessoas_8h_a20286bacd76e0a61d4a1d31ab1dcc0fc}{InserirPessoa}}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa,\ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ nPessoa);}
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_aaf7dbf457dc854504a55e88178c54f34}{CriarListaPessoaBin}}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa);}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_a79665e4e0de2f3fedc36372f8e61727d}{InserirListaPessoaBin}}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa);}
+\DoxyCodeLine{00041\ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ \mbox{\hyperlink{pessoas_8h_a65fb64e1a8263c52f1cc2168e3b8d0c3}{LerListaPessoaBin}}();}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_a58c961eb1ebbcea2ded4440137169540}{AlterarListaPessoaBin}}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}\ novosDados);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_a504d620bf226f0ba83b150eda3eddbf8}{RemoverDadosListaPessoaBin}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{pessoas_8h_a9fb4b8b4c95fe3c4cc21c7c247ebddf6}{ListarPessoaBin}}();}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#pragma\ endregion}}
+
+\end{DoxyCode}

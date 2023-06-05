@@ -1,0 +1,520 @@
+\doxysection{Referência ao ficheiro pessoas.\+h}
+\hypertarget{pessoas_8h}{}\label{pessoas_8h}\index{pessoas.h@{pessoas.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_pessoa}{Pessoa}}
+\item 
+struct \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{pessoas_8h_af08ec37a8c99d747fb60fa15bc28678b}{\+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Definições de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_pessoa}{Pessoa}} \mbox{\hyperlink{pessoas_8h_add0a458b9753bc31e316ce02c55b6ad9}{Pessoa}}
+\item 
+typedef struct \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \mbox{\hyperlink{pessoas_8h_a03b75fb9ca29f3a801169efb3dce0a91}{Lista\+Pessoa}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Funções}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pessoas_8h_a9b53674fc2901ad736e0b7bb5036f662}{Ler\+Ficheiro\+Pessoa\+Txt}} ()
+\item 
+bool \mbox{\hyperlink{pessoas_8h_a29aad53fe56f3bbd47df2d91d9900c13}{Verificar\+Existe\+Pessoa}} (\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}lista\+Pessoa, \mbox{\hyperlink{struct_pessoa}{Pessoa}} \texorpdfstring{$\ast$}{*}nova\+Pessoa)
+\item 
+\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pessoas_8h_afed845823bcc7e422bf10bbe78169e54}{Criar\+Lista\+Pessoa}} ()
+\item 
+\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pessoas_8h_a20286bacd76e0a61d4a1d31ab1dcc0fc}{Inserir\+Pessoa}} (\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}lista\+Pessoa, \mbox{\hyperlink{struct_pessoa}{Pessoa}} \texorpdfstring{$\ast$}{*}n\+Pessoa)
+\item 
+bool \mbox{\hyperlink{pessoas_8h_aaf7dbf457dc854504a55e88178c54f34}{Criar\+Lista\+Pessoa\+Bin}} (\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}lista\+Pessoa)
+\item 
+bool \mbox{\hyperlink{pessoas_8h_a79665e4e0de2f3fedc36372f8e61727d}{Inserir\+Lista\+Pessoa\+Bin}} (\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}lista\+Pessoa)
+\item 
+\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{pessoas_8h_a65fb64e1a8263c52f1cc2168e3b8d0c3}{Ler\+Lista\+Pessoa\+Bin}} ()
+\item 
+bool \mbox{\hyperlink{pessoas_8h_a58c961eb1ebbcea2ded4440137169540}{Alterar\+Lista\+Pessoa\+Bin}} (\mbox{\hyperlink{struct_pessoa}{Pessoa}} novos\+Dados)
+\item 
+bool \mbox{\hyperlink{pessoas_8h_a504d620bf226f0ba83b150eda3eddbf8}{Remover\+Dados\+Lista\+Pessoa\+Bin}} (int id)
+\item 
+bool \mbox{\hyperlink{pessoas_8h_a9fb4b8b4c95fe3c4cc21c7c247ebddf6}{Listar\+Pessoa\+Bin}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Descrição detalhada}
+\begin{DoxyAuthor}{Autor}
+Arthur Fellipe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+March 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Documentação das macros}
+\Hypertarget{pessoas_8h_af08ec37a8c99d747fb60fa15bc28678b}\label{pessoas_8h_af08ec37a8c99d747fb60fa15bc28678b} 
+\index{pessoas.h@{pessoas.h}!\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}}
+\index{\_CRT\_SECURE\_NO\_WARNINGS@{\_CRT\_SECURE\_NO\_WARNINGS}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{\_CRT\_SECURE\_NO\_WARNINGS}{\_CRT\_SECURE\_NO\_WARNINGS}}
+{\footnotesize\ttfamily \#define \+\_\+\+CRT\+\_\+\+SECURE\+\_\+\+NO\+\_\+\+WARNINGS}
+
+
+
+\doxysubsection{Documentação dos tipos}
+\Hypertarget{pessoas_8h_a03b75fb9ca29f3a801169efb3dce0a91}\label{pessoas_8h_a03b75fb9ca29f3a801169efb3dce0a91} 
+\index{pessoas.h@{pessoas.h}!ListaPessoa@{ListaPessoa}}
+\index{ListaPessoa@{ListaPessoa}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{ListaPessoa}{ListaPessoa}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}}}
+
+\Hypertarget{pessoas_8h_add0a458b9753bc31e316ce02c55b6ad9}\label{pessoas_8h_add0a458b9753bc31e316ce02c55b6ad9} 
+\index{pessoas.h@{pessoas.h}!Pessoa@{Pessoa}}
+\index{Pessoa@{Pessoa}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{Pessoa}{Pessoa}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_pessoa}{Pessoa}} \mbox{\hyperlink{struct_pessoa}{Pessoa}}}
+
+
+
+\doxysubsection{Documentação das funções}
+\Hypertarget{pessoas_8h_a58c961eb1ebbcea2ded4440137169540}\label{pessoas_8h_a58c961eb1ebbcea2ded4440137169540} 
+\index{pessoas.h@{pessoas.h}!AlterarListaPessoaBin@{AlterarListaPessoaBin}}
+\index{AlterarListaPessoaBin@{AlterarListaPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{AlterarListaPessoaBin()}{AlterarListaPessoaBin()}}
+{\footnotesize\ttfamily bool Alterar\+Lista\+Pessoa\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_pessoa}{Pessoa}}}]{novos\+Dados }\end{DoxyParamCaption})}
+
+Altera dados dentro do ficheiro binário.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em novos\+Dados} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00229\ \{}
+\DoxyCodeLine{00230\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}rb+"{}});\ \textcolor{comment}{//\ Lê\ e\ altera\ ficheiro\ binário}}
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00232\ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp))}
+\DoxyCodeLine{00241\ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novosDados.\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00247\ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ fseek(fp,\ cursor,\ SEEK\_SET);}
+\DoxyCodeLine{00250\ \ \ \ \ fwrite(\&novosDados,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp);}
+\DoxyCodeLine{00251\ }
+\DoxyCodeLine{00252\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00255\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_afed845823bcc7e422bf10bbe78169e54}\label{pessoas_8h_afed845823bcc7e422bf10bbe78169e54} 
+\index{pessoas.h@{pessoas.h}!CriarListaPessoa@{CriarListaPessoa}}
+\index{CriarListaPessoa@{CriarListaPessoa}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaPessoa()}{CriarListaPessoa()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} Criar\+Lista\+Pessoa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cria lista de pessoas.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em lista\+Pessoa} & \\
+\hline
+{\em nova\+Pessoa} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Pessoa 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa\ =\ NULL;}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{return}\ listaPessoa;}
+\DoxyCodeLine{00088\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_aaf7dbf457dc854504a55e88178c54f34}\label{pessoas_8h_aaf7dbf457dc854504a55e88178c54f34} 
+\index{pessoas.h@{pessoas.h}!CriarListaPessoaBin@{CriarListaPessoaBin}}
+\index{CriarListaPessoaBin@{CriarListaPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaPessoaBin()}{CriarListaPessoaBin()}}
+{\footnotesize\ttfamily bool Criar\+Lista\+Pessoa\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}}]{lista\+Pessoa }\end{DoxyParamCaption})}
+
+Cria ficheiro binário e guarda os dados armazenados na lista de Pessoas
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em lista\+Pessoa} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00128\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ bin{\ucr}rio}}
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00131\ \ \ \ \ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00134\ \ \ \ \ \}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ aux\ =\ listaPessoa;}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00138\ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}};}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp);}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00147\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a79665e4e0de2f3fedc36372f8e61727d}\label{pessoas_8h_a79665e4e0de2f3fedc36372f8e61727d} 
+\index{pessoas.h@{pessoas.h}!InserirListaPessoaBin@{InserirListaPessoaBin}}
+\index{InserirListaPessoaBin@{InserirListaPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{InserirListaPessoaBin()}{InserirListaPessoaBin()}}
+{\footnotesize\ttfamily bool Inserir\+Lista\+Pessoa\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}}]{lista\+Pessoa }\end{DoxyParamCaption})}
+
+Insere pessoas no ficheiro binário.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em lista\+Pessoa} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00156\ \{}
+\DoxyCodeLine{00157\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}ab"{}});\ \textcolor{comment}{//\ Insere\ no\ ficheiro\ bin{\ucr}rio}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00159\ \ \ \ \ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00162\ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ aux\ =\ listaPessoa;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00166\ \ \ \ \ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp);}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00170\ \ \ \ \ \}}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00172\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00175\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a20286bacd76e0a61d4a1d31ab1dcc0fc}\label{pessoas_8h_a20286bacd76e0a61d4a1d31ab1dcc0fc} 
+\index{pessoas.h@{pessoas.h}!InserirPessoa@{InserirPessoa}}
+\index{InserirPessoa@{InserirPessoa}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{InserirPessoa()}{InserirPessoa()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} Inserir\+Pessoa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}}]{lista\+Pessoa,  }\item[{\mbox{\hyperlink{struct_pessoa}{Pessoa}} \texorpdfstring{$\ast$}{*}}]{nova\+Pessoa }\end{DoxyParamCaption})}
+
+Insere pessoas na lista.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em lista\+Pessoa} & \\
+\hline
+{\em nova\+Pessoa} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Pessoa 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ novoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}})),\ *\ aux;}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}}\ =\ *novaPessoa;}
+\DoxyCodeLine{00102\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaPessoa\ ==\ NULL)}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ listaPessoa\ =\ novoNo;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00109\ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ aux\ =\ listaPessoa;}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}}\ =\ novoNo;}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{return}\ listaPessoa;}
+\DoxyCodeLine{00119\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a9b53674fc2901ad736e0b7bb5036f662}\label{pessoas_8h_a9b53674fc2901ad736e0b7bb5036f662} 
+\index{pessoas.h@{pessoas.h}!LerFicheiroPessoaTxt@{LerFicheiroPessoaTxt}}
+\index{LerFicheiroPessoaTxt@{LerFicheiroPessoaTxt}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{LerFicheiroPessoaTxt()}{LerFicheiroPessoaTxt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} Ler\+Ficheiro\+Pessoa\+Txt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lê o ficheiro que contem as informações dos utilizadores e armazena esses dados em uma lista.
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Abre\ o\ ficheiro\ com\ os\ dados}}
+\DoxyCodeLine{00023\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}pessoas.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ o\ ficheiro\ foi\ aberto\ com\ sucesso}}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Lê\ os\ dados\ do\ ficheiro}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ novaPessoa\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaPessoa\ =\ \mbox{\hyperlink{pessoas_8c_afed845823bcc7e422bf10bbe78169e54}{CriarListaPessoa}}();\ \textcolor{comment}{//Chama\ função\ para\ criar\ a\ lista\ de\ pessoas}}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{pessoas_8c_aaf7dbf457dc854504a55e88178c54f34}{CriarListaPessoaBin}}(listaPessoa);\ \textcolor{comment}{//Cria\ ficheiro\ binário\ para\ armazenar\ a\ lista\ de\ pessoas}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00035\ \ \ \ \ \{}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}\%d;\%d;\%50[\string^;];\%40[\string^;];\%f\(\backslash\)n"{}},\ \&(novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}),\ \&(novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_af547f60c38cf172900cbcad9487180ae}{admin}}),\ novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_ad9b32a94f9054fd81f59b1118b8d53d2}{nome}},\ novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ \&(novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_a053787aa31e36d2305553048e761d7c4}{saldo}})))}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{pessoas_8c_a29aad53fe56f3bbd47df2d91d9900c13}{VerificarExistePessoa}}(listaPessoa,\ novaPessoa)\ ==\ \textcolor{keyword}{false})\ \textcolor{comment}{//Verifica\ se\ já\ existe\ a\ pessoa\ dentro\ da\ lista}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaPessoa\ =\ \mbox{\hyperlink{pessoas_8c_a0eeda88c958df091508e05be09ad1e84}{InserirPessoa}}(listaPessoa,\ novaPessoa);\ \textcolor{comment}{//Insere\ nova\ pessoa\ em\ lista\ já\ existente}}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \mbox{\hyperlink{pessoas_8c_a79665e4e0de2f3fedc36372f8e61727d}{InserirListaPessoaBin}}(listaPessoa);\ \textcolor{comment}{//Insere\ a\ lista\ no\ ficheiro\ binario}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{comment}{//\ Fecha\ o\ ficheiro}}
+\DoxyCodeLine{00047\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordflow}{return}\ listaPessoa;}
+\DoxyCodeLine{00050\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a65fb64e1a8263c52f1cc2168e3b8d0c3}\label{pessoas_8h_a65fb64e1a8263c52f1cc2168e3b8d0c3} 
+\index{pessoas.h@{pessoas.h}!LerListaPessoaBin@{LerListaPessoaBin}}
+\index{LerListaPessoaBin@{LerListaPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{LerListaPessoaBin()}{LerListaPessoaBin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*} Ler\+Lista\+Pessoa\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lê o ficheiro binário que armazena as pessoas e retorna uma lista atualizada.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Atual 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê\ ficheiro\ binário}}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00186\ \ \ \ \ \{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00188\ \ \ \ \ \}}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaAtual\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}})),\ *\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}));}
+\DoxyCodeLine{00191\ \ \ \ \ listaAtual\ =\ NULL;}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00194\ \ \ \ \ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ p\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(p,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp))}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ proximoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}));}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}}\ =\ *p;}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAtual\ ==\ NULL)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ proximoNo;}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ listaAtual;}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}}\ =\ proximoNo;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAtual;}
+\DoxyCodeLine{00220\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a9fb4b8b4c95fe3c4cc21c7c247ebddf6}\label{pessoas_8h_a9fb4b8b4c95fe3c4cc21c7c247ebddf6} 
+\index{pessoas.h@{pessoas.h}!ListarPessoaBin@{ListarPessoaBin}}
+\index{ListarPessoaBin@{ListarPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{ListarPessoaBin()}{ListarPessoaBin()}}
+{\footnotesize\ttfamily bool Listar\+Pessoa\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lista as pessoas registadas no ficheiro binário.
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00305\ \{}
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{int}\ tamanho\ =\ 1,\ i\ =\ 0;}
+\DoxyCodeLine{00307\ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ vetorPessoa\ =\ malloc(tamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00308\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ listaAtual\ =\ \mbox{\hyperlink{pessoas_8c_a65fb64e1a8263c52f1cc2168e3b8d0c3}{LerListaPessoaBin}}();\ \textcolor{comment}{//Armazena\ as\ pessoas\ do\ ficheiro\ binário\ em\ uma\ lista}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorPessoa\ !=\ NULL)\ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (listaAtual\ !=\ NULL)}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ tamanho)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ novoTamanho\ =\ i\ +\ 1;}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vetorPessoa\ =\ (\mbox{\hyperlink{struct_pessoa}{Pessoa}}*)realloc(vetorPessoa,\ novoTamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorPessoa\ ==\ NULL)\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tamanho\ =\ novoTamanho;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ vetorPessoa[i]\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}};}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00326\ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00328\ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ não\ foi\ possível\ alocar\ memória.\(\backslash\)n"{}});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00331\ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ tamanho;\ j++)}
+\DoxyCodeLine{00334\ \ \ \ \ \{}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d;\%d;\%s;\%s;\%f;\(\backslash\)n"{}},\ vetorPessoa[j].\textcolor{keywordtype}{id},\ vetorPessoa[j].admin,\ vetorPessoa[j].nome,\ vetorPessoa[j].localizacao,\ vetorPessoa[j].saldo);}
+\DoxyCodeLine{00336\ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00339\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a504d620bf226f0ba83b150eda3eddbf8}\label{pessoas_8h_a504d620bf226f0ba83b150eda3eddbf8} 
+\index{pessoas.h@{pessoas.h}!RemoverDadosListaPessoaBin@{RemoverDadosListaPessoaBin}}
+\index{RemoverDadosListaPessoaBin@{RemoverDadosListaPessoaBin}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{RemoverDadosListaPessoaBin()}{RemoverDadosListaPessoaBin()}}
+{\footnotesize\ttfamily bool Remover\+Dados\+Lista\+Pessoa\+Bin (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Remove o registo de uma pessoa do ficheiro binário.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00264\ \{}
+\DoxyCodeLine{00265\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê\ ficheiro\ binário}}
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00267\ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00269\ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00271\ \ \ \ \ FILE*\ fp2\ =\ fopen(\textcolor{stringliteral}{"{}copiaListaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ bin{\ucr}rio}}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp2\ ==\ NULL)}
+\DoxyCodeLine{00273\ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00275\ \ \ \ \ \}}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00277\ \ \ \ \ \mbox{\hyperlink{struct_pessoa}{Pessoa}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}));}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp))}
+\DoxyCodeLine{00280\ \ \ \ \ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ !=\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ fwrite(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_pessoa}{Pessoa}}),\ 1,\ fp2);}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ \ \ \ \ \}}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00287\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00288\ \ \ \ \ fclose(fp2);}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \ \ \ \ remove(\textcolor{stringliteral}{"{}listaPessoa.bin"{}});}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \textcolor{keywordflow}{if}\ (rename(\textcolor{stringliteral}{"{}copiaListaPessoa.bin"{}},\ \textcolor{stringliteral}{"{}listaPessoa.bin"{}})\ !=\ 0)}
+\DoxyCodeLine{00293\ \ \ \ \ \{}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00295\ \ \ \ \ \}}
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00297\ \}}
+
+\end{DoxyCode}
+\Hypertarget{pessoas_8h_a29aad53fe56f3bbd47df2d91d9900c13}\label{pessoas_8h_a29aad53fe56f3bbd47df2d91d9900c13} 
+\index{pessoas.h@{pessoas.h}!VerificarExistePessoa@{VerificarExistePessoa}}
+\index{VerificarExistePessoa@{VerificarExistePessoa}!pessoas.h@{pessoas.h}}
+\doxysubsubsection{\texorpdfstring{VerificarExistePessoa()}{VerificarExistePessoa()}}
+{\footnotesize\ttfamily bool Verificar\+Existe\+Pessoa (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_pessoa}{Lista\+Pessoa}} \texorpdfstring{$\ast$}{*}}]{lista\+Pessoa,  }\item[{\mbox{\hyperlink{struct_pessoa}{Pessoa}} \texorpdfstring{$\ast$}{*}}]{nova\+Pessoa }\end{DoxyParamCaption})}
+
+Verifica se já existe a pessoa dentro da lista.
+
+
+\begin{DoxyParams}{Parâmetros}
+{\em lista\+Pessoa} & \\
+\hline
+{\em nova\+Pessoa} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_pessoa}{ListaPessoa}}));}
+\DoxyCodeLine{00062\ \ \ \ \ aux\ =\ listaPessoa;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00064\ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a8b9e566722e414cf4d135c8f308e041f}{p}}.\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novaPessoa-\/>\mbox{\hyperlink{struct_pessoa_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_pessoa_a4e00aca9eb532c55e50088e9ca5a3c0a}{proxima}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00075\ \}}
+
+\end{DoxyCode}

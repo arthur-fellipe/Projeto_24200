@@ -57,6 +57,7 @@ int main()
 	if (listaVertice != NULL) {
 		grafoVeiculos = InserirVertice(grafoVeiculos, listaVertice, &res);
 	}
+	MostrarGrafo(grafoVeiculos);
 
 	ListaAresta* listaAresta = LerFicheiroAdjacentesTxt();
 	grafoVeiculos = InserirAdjVertice(grafoVeiculos,listaAresta, &res);
