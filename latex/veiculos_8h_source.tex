@@ -1,0 +1,110 @@
+\doxysection{veiculos.\+h}
+\hypertarget{veiculos_8h_source}{}\label{veiculos_8h_source}\mbox{\hyperlink{veiculos_8h}{Ir para a documentaÃ§Ã£o deste ficheiro.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*****************************************************************/}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <stdlib.h>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#pragma\ region\ Veiculo}}
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_veiculo}{Veiculo}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_veiculo_a52888b40c8af692099e44c1fd2bce771}{tipoVeiculo}}[20];}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_veiculo_a2d4ba198a98c57dd60beb58e6f2af8bc}{bateria}};}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}}[40];}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_veiculo_ac84a0a2333c2c7a6f130c3489d19a8b8}{custo}};}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_veiculo_a48235edd0fea959bd511746ee374633a}{disponibilidade}};}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//int\ totalViagens;}}
+\DoxyCodeLine{00023\ \}\mbox{\hyperlink{struct_veiculo}{Veiculo}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}\ \mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}};}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00029\ \}\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}};}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#pragma\ region\ Funções\ Veículo}}
+\DoxyCodeLine{00033\ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{veiculos_8h_a6a54b4ebe18141755c9dc29b9fe756c9}{LerFicheiroVeiculoTxt}}();}
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a2326e9d5f1a481dad36f7cb9a5493b50}{VerificarExisteVeiculo}}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo,\ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ novoVeiculo);}
+\DoxyCodeLine{00035\ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{veiculos_8h_a365679e80996ccdb0f9b3ab183510e2c}{CriarListaVeiculo}}();}
+\DoxyCodeLine{00036\ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{veiculos_8h_aa7afa3350fe5f6583f9c96888077cf8c}{InserirVeiculo}}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo,\ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ novoVeiculo);}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a13b1299cb9db3c2826711e2fb8aaaf62}{CriarListaVeiculoBin}}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo);}
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a245aab4349d64a92bac465c7e15be1b4}{InserirListaVeiculoBin}}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo);}
+\DoxyCodeLine{00039\ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{veiculos_8h_a99e72a5873dc1c5a861946b6fc3eccb4}{LerListaVeiculoBin}}();}
+\DoxyCodeLine{00040\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a74f479b2f951822d2fbfd2020876b56f}{AlterarListaVeiculoBin}}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}\ novosDados);}
+\DoxyCodeLine{00041\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a2fd5059e30961b098245944565a02c98}{RemoverDadosListaVeiculoBin}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_ad4f277bef0618619b335b56f3952f803}{ListarVeiculoOrdemDecrescente}}();}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_ae91f44f412596f5e12c24364b8ea7c4f}{ListarVeiculoLocalizacao}}(\textcolor{keywordtype}{char}\ localizacao[]);}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#pragma\ region\ Grafo\_Veículos}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_aresta}{Aresta}}\ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}}[40];}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}}[40];}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_aresta_a42cd64244a918a5ac7790523e97d1181}{peso}};}
+\DoxyCodeLine{00051\ \}\ \mbox{\hyperlink{struct_aresta}{Aresta}};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{struct_aresta}{Aresta}}\ \mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ \mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}};}
+\DoxyCodeLine{00056\ \}\ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_adj}{Adj}}\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_adj_a42cd64244a918a5ac7790523e97d1181}{peso}};}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_adj}{Adj}}*\ \mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}};}
+\DoxyCodeLine{00062\ \}\ \mbox{\hyperlink{struct_adj}{Adj}};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vertice}{Vertice}}\ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}}[40];}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{struct_vertice_a7432ec6b760cca5a63570ce7d9f9565b}{visitado}};}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}};}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_adj}{Adj}}*\ \mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}};}
+\DoxyCodeLine{00070\ \}\ \mbox{\hyperlink{struct_vertice}{Vertice}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_localizacao}{Localizacao}}\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_localizacao_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}}[40];}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ \mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{00076\ \}\ \mbox{\hyperlink{struct_localizacao}{Localizacao}};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ \mbox{\hyperlink{veiculos_8h_a32b754d527e894168bedf8710c06ff2a}{ListarLocaisVeiculos}}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo);}
+\DoxyCodeLine{00079\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_a2f497a6249cd79dd175b12fe72b8b7bf}{CriarGrafo}}();}
+\DoxyCodeLine{00080\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_aab4c09ffb2140be8dbe1c41041b43fa9}{CriarVertice}}();}
+\DoxyCodeLine{00081\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_ad3aa1f88b28d4152dfd424ad90e5e930}{InserirVertice}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ novoVertice,\ \textcolor{keywordtype}{bool}*\ res);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{veiculos_8h_ab93d78be535e3a86c57132b644060b0f}{MostrarGrafo}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_a197e70cf0e3b2023cf3f52cbc1e83135}{ProcurarVerticeLocal}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00085\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_a1a870bcef1b99f5d1bd694c6d7d93799}{ProcurarVerticeId}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00086\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{veiculos_8h_acfd7671c60887b4be34a2a41764125f9}{ProcurarIdVertice}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \mbox{\hyperlink{struct_aresta}{Aresta}}*\ \mbox{\hyperlink{veiculos_8h_a1a3f21676c193642c7d2bb4872883f02}{LerFicheiroAdjacentesTxt}}();}
+\DoxyCodeLine{00089\ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ \mbox{\hyperlink{veiculos_8h_ad176da68d6236bd6559d7f03d8474c76}{CriarListaAresta}}();}
+\DoxyCodeLine{00090\ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ \mbox{\hyperlink{veiculos_8h_ae92b9c099d036fe1c3dbf260a1cb902e}{InserirAresta}}(\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAresta,\ \mbox{\hyperlink{struct_aresta}{Aresta}}*\ novaAresta);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_aae0e0a540855409db48d3db202ec477f}{VerificarExisteAresta}}(\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAresta,\ \mbox{\hyperlink{struct_aresta}{Aresta}}*\ novaAresta);}
+\DoxyCodeLine{00092\ \mbox{\hyperlink{struct_adj}{Adj}}*\ \mbox{\hyperlink{veiculos_8h_a18e2c9e448fc51fdc6f89be463d8f8b0}{CriarAdj}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{int}\ peso);}
+\DoxyCodeLine{00093\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ \mbox{\hyperlink{veiculos_8h_ac77b3ada88304616ae73dd2faf684e86}{InserirAdjVertice}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAresta,\ \textcolor{keywordtype}{bool}*\ res);}
+\DoxyCodeLine{00094\ \mbox{\hyperlink{struct_adj}{Adj}}*\ \mbox{\hyperlink{veiculos_8h_ac292321418034143e42afa72348cca50}{InserirAdj}}(\mbox{\hyperlink{struct_adj}{Adj}}*\ h,\ \mbox{\hyperlink{struct_adj}{Adj}}*\ novoAdj,\ \textcolor{keywordtype}{bool}*\ res);}
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_ad32fb8368f3f4fab4df4befa82d09af0}{ExisteAdjacentes}}(\mbox{\hyperlink{struct_adj}{Adj}}*\ h,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{veiculos_8h_afd117d9a92b687df156f4eb97de033fe}{MostrarAdjacencias}}(\mbox{\hyperlink{struct_adj}{Adj}}*\ h);}
+\DoxyCodeLine{00097\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{veiculos_8h_ad4547ea4880f91702c2f50dfb05f5597}{CalcularTamanhoGrafo}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr);}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{comment}{/*void\ EncontrarMenorTrajeto(Vertice*\ grafo);}}
+\DoxyCodeLine{00100\ \textcolor{comment}{bool\ TodosVerticesVisitados(bool*\ visitados,\ int\ tamanhoGrafo);}}
+\DoxyCodeLine{00101\ \textcolor{comment}{void\ BuscaExaustiva(Vertice*\ grafo,\ bool*\ visitados,\ int\ tamanhoGrafo,\ Vertice*\ verticeAtual,\ int\ distanciaAtual,\ int*\ menorDistancia);}}
+\DoxyCodeLine{00102\ \textcolor{comment}{int\ CalcularDistancia(Vertice*\ origem,\ Vertice*\ destino);}}
+\DoxyCodeLine{00103\ \textcolor{comment}{//ListaVeiculo*\ SelecionarVeiculosBateria();}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//Localizacao*\ LocalizarBateria(ListaVeiculo*\ listaBateria);*/}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#pragma\ endregion}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ \mbox{\hyperlink{veiculos_8h_a35356f3c740ef1ad4146f0546fad88c5}{SelecionarVeiculosTipo}}(\textcolor{keywordtype}{char}\ tipoVeiculo[]);}
+\DoxyCodeLine{00108\ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ \mbox{\hyperlink{veiculos_8h_a0a9ac27bfca006c83a4378ab352f4ab1}{DefinirArea}}(\textcolor{keywordtype}{char}*\ localizacaoPessoa,\ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr,\ \textcolor{keywordtype}{int}\ raio);}
+\DoxyCodeLine{00109\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{veiculos_8h_a44118625859fb759151b411f676bffbd}{ListarVeiculosArea}}(\mbox{\hyperlink{struct_vertice}{Vertice}}*\ gr);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#pragma\ endregion}}
+
+\end{DoxyCode}

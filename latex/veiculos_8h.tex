@@ -1,0 +1,1438 @@
+\doxysection{ReferÃªncia ao ficheiro veiculos.\+h}
+\hypertarget{veiculos_8h}{}\label{veiculos_8h}\index{veiculos.h@{veiculos.h}}
+
+
+~\newline
+  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\doxysubsubsection*{Estruturas de Dados}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_veiculo}{Veiculo}}
+\item 
+struct \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}}
+\item 
+struct \mbox{\hyperlink{struct_aresta}{Aresta}}
+\item 
+struct \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}}
+\item 
+struct \mbox{\hyperlink{struct_adj}{Adj}}
+\item 
+struct \mbox{\hyperlink{struct_vertice}{Vertice}}
+\item 
+struct \mbox{\hyperlink{struct_localizacao}{Localizacao}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{DefiniÃ§Ãµes de tipos}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct_veiculo}{Veiculo}} \mbox{\hyperlink{veiculos_8h_a9067fb469eb34fb24e7612b2c354226e}{Veiculo}}
+\item 
+typedef struct \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \mbox{\hyperlink{veiculos_8h_aa650771b472664b098b8b3d156630d74}{Lista\+Veiculo}}
+\item 
+typedef struct \mbox{\hyperlink{struct_aresta}{Aresta}} \mbox{\hyperlink{veiculos_8h_a4dfeea32aaaf68604a93805ab84f33e1}{Aresta}}
+\item 
+typedef struct \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \mbox{\hyperlink{veiculos_8h_a0f15e95f7a11460bf568d71b531039ca}{Lista\+Aresta}}
+\item 
+typedef struct \mbox{\hyperlink{struct_adj}{Adj}} \mbox{\hyperlink{veiculos_8h_acd9f17cb24ce73dde34e7a6bc62f92fb}{Adj}}
+\item 
+typedef struct \mbox{\hyperlink{struct_vertice}{Vertice}} \mbox{\hyperlink{veiculos_8h_a901d403606dfb55e6d42b899c05d3347}{Vertice}}
+\item 
+typedef struct \mbox{\hyperlink{struct_localizacao}{Localizacao}} \mbox{\hyperlink{veiculos_8h_a232bf55543c70952c1eadfa44c0915cf}{Localizacao}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{FunÃ§Ãµes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a6a54b4ebe18141755c9dc29b9fe756c9}{Ler\+Ficheiro\+Veiculo\+Txt}} ()
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a2326e9d5f1a481dad36f7cb9a5493b50}{Verificar\+Existe\+Veiculo}} (\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}lista\+Veiculo, \mbox{\hyperlink{struct_veiculo}{Veiculo}} \texorpdfstring{$\ast$}{*}novo\+Veiculo)
+\item 
+\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a365679e80996ccdb0f9b3ab183510e2c}{Criar\+Lista\+Veiculo}} ()
+\item 
+\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_aa7afa3350fe5f6583f9c96888077cf8c}{Inserir\+Veiculo}} (\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}lista\+Veiculo, \mbox{\hyperlink{struct_veiculo}{Veiculo}} \texorpdfstring{$\ast$}{*}novo\+Veiculo)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a13b1299cb9db3c2826711e2fb8aaaf62}{Criar\+Lista\+Veiculo\+Bin}} (\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}lista\+Veiculo)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a245aab4349d64a92bac465c7e15be1b4}{Inserir\+Lista\+Veiculo\+Bin}} (\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}lista\+Veiculo)
+\item 
+\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a99e72a5873dc1c5a861946b6fc3eccb4}{Ler\+Lista\+Veiculo\+Bin}} ()
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a74f479b2f951822d2fbfd2020876b56f}{Alterar\+Lista\+Veiculo\+Bin}} (\mbox{\hyperlink{struct_veiculo}{Veiculo}} novos\+Dados)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a2fd5059e30961b098245944565a02c98}{Remover\+Dados\+Lista\+Veiculo\+Bin}} (int id)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_ad4f277bef0618619b335b56f3952f803}{Listar\+Veiculo\+Ordem\+Decrescente}} ()
+\item 
+bool \mbox{\hyperlink{veiculos_8h_ae91f44f412596f5e12c24364b8ea7c4f}{Listar\+Veiculo\+Localizacao}} (char localizacao\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{struct_localizacao}{Localizacao}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a32b754d527e894168bedf8710c06ff2a}{Listar\+Locais\+Veiculos}} (\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}lista\+Veiculo)
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a2f497a6249cd79dd175b12fe72b8b7bf}{Criar\+Grafo}} ()
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_aab4c09ffb2140be8dbe1c41041b43fa9}{Criar\+Vertice}} ()
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_ad3aa1f88b28d4152dfd424ad90e5e930}{Inserir\+Vertice}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}novo\+Vertice, bool \texorpdfstring{$\ast$}{*}res)
+\item 
+void \mbox{\hyperlink{veiculos_8h_ab93d78be535e3a86c57132b644060b0f}{Mostrar\+Grafo}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr)
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a197e70cf0e3b2023cf3f52cbc1e83135}{Procurar\+Vertice\+Local}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, char \texorpdfstring{$\ast$}{*}localizacao)
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a1a870bcef1b99f5d1bd694c6d7d93799}{Procurar\+Vertice\+Id}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, int id)
+\item 
+int \mbox{\hyperlink{veiculos_8h_acfd7671c60887b4be34a2a41764125f9}{Procurar\+Id\+Vertice}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, char \texorpdfstring{$\ast$}{*}localizacao)
+\item 
+\mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a1a3f21676c193642c7d2bb4872883f02}{Ler\+Ficheiro\+Adjacentes\+Txt}} ()
+\item 
+\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_ad176da68d6236bd6559d7f03d8474c76}{Criar\+Lista\+Aresta}} ()
+\item 
+\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_ae92b9c099d036fe1c3dbf260a1cb902e}{Inserir\+Aresta}} (\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}lista\+Aresta, \mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*}nova\+Aresta)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_aae0e0a540855409db48d3db202ec477f}{Verificar\+Existe\+Aresta}} (\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}lista\+Aresta, \mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*}nova\+Aresta)
+\item 
+\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a18e2c9e448fc51fdc6f89be463d8f8b0}{Criar\+Adj}} (int id, int peso)
+\item 
+\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_ac77b3ada88304616ae73dd2faf684e86}{Inserir\+Adj\+Vertice}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}lista\+Aresta, bool \texorpdfstring{$\ast$}{*}res)
+\item 
+\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_ac292321418034143e42afa72348cca50}{Inserir\+Adj}} (\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}h, \mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}novo\+Adj, bool \texorpdfstring{$\ast$}{*}res)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_ad32fb8368f3f4fab4df4befa82d09af0}{Existe\+Adjacentes}} (\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}h, int id)
+\item 
+void \mbox{\hyperlink{veiculos_8h_afd117d9a92b687df156f4eb97de033fe}{Mostrar\+Adjacencias}} (\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}h)
+\item 
+int \mbox{\hyperlink{veiculos_8h_ad4547ea4880f91702c2f50dfb05f5597}{Calcular\+Tamanho\+Grafo}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr)
+\item 
+\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a35356f3c740ef1ad4146f0546fad88c5}{Selecionar\+Veiculos\+Tipo}} (char tipo\+Veiculo\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{struct_localizacao}{Localizacao}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{veiculos_8h_a0a9ac27bfca006c83a4378ab352f4ab1}{Definir\+Area}} (char \texorpdfstring{$\ast$}{*}localizacao\+Pessoa, \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr, int raio)
+\item 
+bool \mbox{\hyperlink{veiculos_8h_a44118625859fb759151b411f676bffbd}{Listar\+Veiculos\+Area}} (\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}gr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{DescriÃ§Ã£o detalhada}
+~\newline
+ 
+
+\begin{DoxyAuthor}{Autor}
+Arthur Fellipe 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Data}
+March 2023 
+\end{DoxyDate}
+
+
+\doxysubsection{DocumentaÃ§Ã£o dos tipos}
+\Hypertarget{veiculos_8h_acd9f17cb24ce73dde34e7a6bc62f92fb}\label{veiculos_8h_acd9f17cb24ce73dde34e7a6bc62f92fb} 
+\index{veiculos.h@{veiculos.h}!Adj@{Adj}}
+\index{Adj@{Adj}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{Adj}{Adj}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_adj}{Adj}} \mbox{\hyperlink{struct_adj}{Adj}}}
+
+\Hypertarget{veiculos_8h_a4dfeea32aaaf68604a93805ab84f33e1}\label{veiculos_8h_a4dfeea32aaaf68604a93805ab84f33e1} 
+\index{veiculos.h@{veiculos.h}!Aresta@{Aresta}}
+\index{Aresta@{Aresta}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{Aresta}{Aresta}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_aresta}{Aresta}} \mbox{\hyperlink{struct_aresta}{Aresta}}}
+
+\Hypertarget{veiculos_8h_a0f15e95f7a11460bf568d71b531039ca}\label{veiculos_8h_a0f15e95f7a11460bf568d71b531039ca} 
+\index{veiculos.h@{veiculos.h}!ListaAresta@{ListaAresta}}
+\index{ListaAresta@{ListaAresta}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListaAresta}{ListaAresta}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}}}
+
+\Hypertarget{veiculos_8h_aa650771b472664b098b8b3d156630d74}\label{veiculos_8h_aa650771b472664b098b8b3d156630d74} 
+\index{veiculos.h@{veiculos.h}!ListaVeiculo@{ListaVeiculo}}
+\index{ListaVeiculo@{ListaVeiculo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListaVeiculo}{ListaVeiculo}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}}}
+
+\Hypertarget{veiculos_8h_a232bf55543c70952c1eadfa44c0915cf}\label{veiculos_8h_a232bf55543c70952c1eadfa44c0915cf} 
+\index{veiculos.h@{veiculos.h}!Localizacao@{Localizacao}}
+\index{Localizacao@{Localizacao}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{Localizacao}{Localizacao}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_localizacao}{Localizacao}} \mbox{\hyperlink{struct_localizacao}{Localizacao}}}
+
+\Hypertarget{veiculos_8h_a9067fb469eb34fb24e7612b2c354226e}\label{veiculos_8h_a9067fb469eb34fb24e7612b2c354226e} 
+\index{veiculos.h@{veiculos.h}!Veiculo@{Veiculo}}
+\index{Veiculo@{Veiculo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{Veiculo}{Veiculo}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_veiculo}{Veiculo}} \mbox{\hyperlink{struct_veiculo}{Veiculo}}}
+
+\Hypertarget{veiculos_8h_a901d403606dfb55e6d42b899c05d3347}\label{veiculos_8h_a901d403606dfb55e6d42b899c05d3347} 
+\index{veiculos.h@{veiculos.h}!Vertice@{Vertice}}
+\index{Vertice@{Vertice}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{Vertice}{Vertice}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_vertice}{Vertice}} \mbox{\hyperlink{struct_vertice}{Vertice}}}
+
+
+
+\doxysubsection{DocumentaÃ§Ã£o das funÃ§Ãµes}
+\Hypertarget{veiculos_8h_a74f479b2f951822d2fbfd2020876b56f}\label{veiculos_8h_a74f479b2f951822d2fbfd2020876b56f} 
+\index{veiculos.h@{veiculos.h}!AlterarListaVeiculoBin@{AlterarListaVeiculoBin}}
+\index{AlterarListaVeiculoBin@{AlterarListaVeiculoBin}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{AlterarListaVeiculoBin()}{AlterarListaVeiculoBin()}}
+{\footnotesize\ttfamily bool Alterar\+Lista\+Veiculo\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_veiculo}{Veiculo}}}]{novos\+Dados }\end{DoxyParamCaption})}
+
+Altera dados dentro do ficheiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em novos\+Dados} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00231\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}rb+"{}});\ \textcolor{comment}{//\ Lê e\ altera\ ficheiro\ binário}}
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00234\ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00237\ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00240\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp))}
+\DoxyCodeLine{00243\ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novosDados.\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ cursor\ =\ ftell(fp);}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ fseek(fp,\ cursor,\ SEEK\_SET);}
+\DoxyCodeLine{00252\ \ \ \ \ fwrite(\&novosDados,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp);}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00257\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ad4547ea4880f91702c2f50dfb05f5597}\label{veiculos_8h_ad4547ea4880f91702c2f50dfb05f5597} 
+\index{veiculos.h@{veiculos.h}!CalcularTamanhoGrafo@{CalcularTamanhoGrafo}}
+\index{CalcularTamanhoGrafo@{CalcularTamanhoGrafo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CalcularTamanhoGrafo()}{CalcularTamanhoGrafo()}}
+{\footnotesize\ttfamily int Calcular\+Tamanho\+Grafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr }\end{DoxyParamCaption})}
+
+Calcula o número de vértices de um grafo.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00834\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00835\ \ \ \ \ \textcolor{keywordtype}{int}\ tamanho\ =\ 0;}
+\DoxyCodeLine{00836\ \ \ \ \ }
+\DoxyCodeLine{00837\ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ aux\ =\ gr;}
+\DoxyCodeLine{00838\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)\ \{}
+\DoxyCodeLine{00839\ \ \ \ \ \ \ \ \ tamanho++;}
+\DoxyCodeLine{00840\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}};}
+\DoxyCodeLine{00841\ \ \ \ \ \}}
+\DoxyCodeLine{00842\ }
+\DoxyCodeLine{00843\ \ \ \ \ \textcolor{keywordflow}{return}\ tamanho;}
+\DoxyCodeLine{00844\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a18e2c9e448fc51fdc6f89be463d8f8b0}\label{veiculos_8h_a18e2c9e448fc51fdc6f89be463d8f8b0} 
+\index{veiculos.h@{veiculos.h}!CriarAdj@{CriarAdj}}
+\index{CriarAdj@{CriarAdj}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarAdj()}{CriarAdj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*} Criar\+Adj (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{peso }\end{DoxyParamCaption})}
+
+Cria um adjacente.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em id} & \\
+\hline
+{\em peso} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+novo\+Adj 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00711\ \ \ \ \ \mbox{\hyperlink{struct_adj}{Adj}}*\ novoAdj\ =\ (\mbox{\hyperlink{struct_adj}{Adj}}*)calloc(1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_adj}{Adj}}));}
+\DoxyCodeLine{00712\ \ \ \ \ \textcolor{keywordflow}{if}\ (novoAdj\ ==\ NULL)\ \{}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00714\ \ \ \ \ \}}
+\DoxyCodeLine{00715\ \ \ \ \ novoAdj-\/>\mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ id;}
+\DoxyCodeLine{00716\ \ \ \ \ novoAdj-\/>\mbox{\hyperlink{struct_adj_a42cd64244a918a5ac7790523e97d1181}{peso}}\ =\ peso;}
+\DoxyCodeLine{00717\ \ \ \ \ novoAdj-\/>\mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00718\ \ \ \ \ \textcolor{keywordflow}{return}\ novoAdj;}
+\DoxyCodeLine{00719\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a2f497a6249cd79dd175b12fe72b8b7bf}\label{veiculos_8h_a2f497a6249cd79dd175b12fe72b8b7bf} 
+\index{veiculos.h@{veiculos.h}!CriarGrafo@{CriarGrafo}}
+\index{CriarGrafo@{CriarGrafo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarGrafo()}{CriarGrafo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Criar\+Grafo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cria um grafo vazio.
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00557\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ad176da68d6236bd6559d7f03d8474c76}\label{veiculos_8h_ad176da68d6236bd6559d7f03d8474c76} 
+\index{veiculos.h@{veiculos.h}!CriarListaAresta@{CriarListaAresta}}
+\index{CriarListaAresta@{CriarListaAresta}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaAresta()}{CriarListaAresta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*} Criar\+Lista\+Aresta (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cria lista de arestas.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Aresta 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00470\ \{}
+\DoxyCodeLine{00471\ \ \ \ \ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAresta\ =\ NULL;}
+\DoxyCodeLine{00472\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAresta;}
+\DoxyCodeLine{00473\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a365679e80996ccdb0f9b3ab183510e2c}\label{veiculos_8h_a365679e80996ccdb0f9b3ab183510e2c} 
+\index{veiculos.h@{veiculos.h}!CriarListaVeiculo@{CriarListaVeiculo}}
+\index{CriarListaVeiculo@{CriarListaVeiculo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaVeiculo()}{CriarListaVeiculo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} Criar\+Lista\+Veiculo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cria lista de veículos.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Veiculo 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00090\ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo\ =\ NULL;}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordflow}{return}\ listaVeiculo;}
+\DoxyCodeLine{00093\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a13b1299cb9db3c2826711e2fb8aaaf62}\label{veiculos_8h_a13b1299cb9db3c2826711e2fb8aaaf62} 
+\index{veiculos.h@{veiculos.h}!CriarListaVeiculoBin@{CriarListaVeiculoBin}}
+\index{CriarListaVeiculoBin@{CriarListaVeiculoBin}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarListaVeiculoBin()}{CriarListaVeiculoBin()}}
+{\footnotesize\ttfamily bool Criar\+Lista\+Veiculo\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}}]{lista\+Veiculo }\end{DoxyParamCaption})}
+
+Cria ficheiro binário e guarda os dados armazenados na lista de Veículos
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Veiculo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00131\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ binário}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00134\ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ aux\ =\ listaVeiculo;}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00140\ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}};}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp);}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00149\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_aab4c09ffb2140be8dbe1c41041b43fa9}\label{veiculos_8h_aab4c09ffb2140be8dbe1c41041b43fa9} 
+\index{veiculos.h@{veiculos.h}!CriarVertice@{CriarVertice}}
+\index{CriarVertice@{CriarVertice}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{CriarVertice()}{CriarVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Criar\+Vertice (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Cria uma lista com todos os vértices.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Vertices 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ listaVertices\ =\ NULL;}
+\DoxyCodeLine{00566\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo\ =\ \mbox{\hyperlink{veiculos_8c_a99e72a5873dc1c5a861946b6fc3eccb4}{LerListaVeiculoBin}}();\ \textcolor{comment}{//Armazena\ os\ veículos\ do\ ficheiro\ binário\ em\ uma\ lista}}
+\DoxyCodeLine{00567\ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ listaLocalVeiculo\ =\ \mbox{\hyperlink{veiculos_8c_a32b754d527e894168bedf8710c06ff2a}{ListarLocaisVeiculos}}(listaVeiculo);\ \textcolor{comment}{//Chama\ a\ função\ para\ criar\ uma\ lista\ de\ localizações}}
+\DoxyCodeLine{00568\ }
+\DoxyCodeLine{00569\ \ \ \ \ \textcolor{keywordflow}{while}\ (listaLocalVeiculo)}
+\DoxyCodeLine{00570\ \ \ \ \ \{}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ aux2\ =\ listaVertices;}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ novoVertice\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_vertice}{Vertice}}));}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (novoVertice\ ==\ NULL)}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00577\ }
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ novoVertice-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ listaLocalVeiculo-\/>\mbox{\hyperlink{struct_localizacao_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ strcpy(novoVertice-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ listaLocalVeiculo-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ novoVertice-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ novoVertice-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}}\ =\ NULL;}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaVertices\ ==\ NULL)\ \{}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ listaVertices\ =\ novoVertice;}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux2-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}})\ \{}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux2\ =\ aux2-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}};}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ aux2-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ =\ novoVertice;}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ listaLocalVeiculo\ =\ listaLocalVeiculo-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{00593\ \ \ \ \ \}}
+\DoxyCodeLine{00594\ }
+\DoxyCodeLine{00595\ \ \ \ \ \textcolor{keywordflow}{return}\ listaVertices;}
+\DoxyCodeLine{00596\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a0a9ac27bfca006c83a4378ab352f4ab1}\label{veiculos_8h_a0a9ac27bfca006c83a4378ab352f4ab1} 
+\index{veiculos.h@{veiculos.h}!DefinirArea@{DefinirArea}}
+\index{DefinirArea@{DefinirArea}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{DefinirArea()}{DefinirArea()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao}{Localizacao}} \texorpdfstring{$\ast$}{*} Definir\+Area (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{localizacao\+Pessoa,  }\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{int}]{raio }\end{DoxyParamCaption})}
+
+Cria uma lista como todos os locais inseridos dentro de determinado raio.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em localizacao\+Pessoa} & \\
+\hline
+{\em gr} & \\
+\hline
+{\em raio} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Area 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00964\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00965\ }
+\DoxyCodeLine{00966\ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ verticePessoa\ =\ \mbox{\hyperlink{veiculos_8c_a197e70cf0e3b2023cf3f52cbc1e83135}{ProcurarVerticeLocal}}(gr,\ localizacaoPessoa);}
+\DoxyCodeLine{00967\ \ \ \ \ \textcolor{keywordflow}{if}\ (verticePessoa\ ==\ NULL)}
+\DoxyCodeLine{00968\ \ \ \ \ \{}
+\DoxyCodeLine{00969\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00970\ \ \ \ \ \}}
+\DoxyCodeLine{00971\ }
+\DoxyCodeLine{00972\ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ listaArea\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_localizacao}{Localizacao}}));}
+\DoxyCodeLine{00973\ \ \ \ \ listaArea-\/>\mbox{\hyperlink{struct_localizacao_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ verticePessoa-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00974\ \ \ \ \ strcpy(listaArea-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ verticePessoa-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00975\ \ \ \ \ listaArea-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00976\ }
+\DoxyCodeLine{00977\ \ \ \ \ \mbox{\hyperlink{struct_adj}{Adj}}*\ adjacente\ =\ verticePessoa-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}};}
+\DoxyCodeLine{00978\ }
+\DoxyCodeLine{00979\ \ \ \ \ \textcolor{keywordflow}{while}\ (adjacente\ !=\ NULL)}
+\DoxyCodeLine{00980\ \ \ \ \ \{}
+\DoxyCodeLine{00981\ }
+\DoxyCodeLine{00982\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adjacente-\/>\mbox{\hyperlink{struct_adj_a42cd64244a918a5ac7790523e97d1181}{peso}}\ <=\ raio\ *\ 2)}
+\DoxyCodeLine{00983\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00984\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ adj\ =\ \mbox{\hyperlink{veiculos_8c_a1a870bcef1b99f5d1bd694c6d7d93799}{ProcurarVerticeId}}(gr,\ adjacente-\/>\mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}});}
+\DoxyCodeLine{00985\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adj)}
+\DoxyCodeLine{00986\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ novoLocal\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_localizacao}{Localizacao}}));}
+\DoxyCodeLine{00988\ }
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ adj-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00990\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ adj-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00991\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00992\ }
+\DoxyCodeLine{00993\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ aux\ =\ listaArea;}
+\DoxyCodeLine{00994\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}})\ \{}
+\DoxyCodeLine{00995\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{00996\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00997\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}}\ =\ novoLocal;}
+\DoxyCodeLine{00998\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00999\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01000\ \ \ \ \ \ \ \ \ adjacente\ =\ adjacente-\/>\mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}};}
+\DoxyCodeLine{01001\ \ \ \ \ \}}
+\DoxyCodeLine{01002\ \ \ \ \ \textcolor{keywordflow}{return}\ listaArea;}
+\DoxyCodeLine{01003\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ad32fb8368f3f4fab4df4befa82d09af0}\label{veiculos_8h_ad32fb8368f3f4fab4df4befa82d09af0} 
+\index{veiculos.h@{veiculos.h}!ExisteAdjacentes@{ExisteAdjacentes}}
+\index{ExisteAdjacentes@{ExisteAdjacentes}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ExisteAdjacentes()}{ExisteAdjacentes()}}
+{\footnotesize\ttfamily bool Existe\+Adjacentes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}}]{lista\+Adjacentes,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+Verifica se o adjacente já está na lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em h} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00805\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00806\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAdjacentes\ ==\ NULL)\ \{}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00808\ \ \ \ \ \}}
+\DoxyCodeLine{00809\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAdjacentes-\/>\mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00811\ \ \ \ \ \}}
+\DoxyCodeLine{00812\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{veiculos_8c_ab7d1e257c5462bdfb86a98fe1fc6bce1}{ExisteAdjacentes}}(listaAdjacentes-\/>\mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}},\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00813\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ac292321418034143e42afa72348cca50}\label{veiculos_8h_ac292321418034143e42afa72348cca50} 
+\index{veiculos.h@{veiculos.h}!InserirAdj@{InserirAdj}}
+\index{InserirAdj@{InserirAdj}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirAdj()}{InserirAdj()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*} Inserir\+Adj (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}}]{lista\+Adjacentes,  }\item[{\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}}]{novo\+Adj,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{res }\end{DoxyParamCaption})}
+
+Insere o adjacente na lista de adjacentes de um vértice.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em h} & \\
+\hline
+{\em novo\+Adj} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Adjacentes 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00774\ }
+\DoxyCodeLine{00775\ \ \ \ \ *res\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00777\ \ \ \ \ \textcolor{keywordflow}{if}\ (novoAdj\ ==\ NULL)\ \{\ \ \textcolor{comment}{//Se\ o\ novo\ adjacente\ é nulo,\ ignora\ operação}}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listaAdjacentes;}
+\DoxyCodeLine{00779\ \ \ \ \ \}}
+\DoxyCodeLine{00780\ }
+\DoxyCodeLine{00781\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{veiculos_8c_ab7d1e257c5462bdfb86a98fe1fc6bce1}{ExisteAdjacentes}}(listaAdjacentes,\ novoAdj-\/>\mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})\ ==\ \textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{00782\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listaAdjacentes;\ \textcolor{comment}{//\ Se\ o\ novo\ adjacente\ existe,\ ignora\ a\ operação}}
+\DoxyCodeLine{00783\ \ \ \ \ \}}
+\DoxyCodeLine{00784\ }
+\DoxyCodeLine{00785\ \ \ \ \ \textcolor{comment}{//\ Inserir\ novo\ adjacente}}
+\DoxyCodeLine{00786\ \ \ \ \ *res\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00787\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAdjacentes\ ==\ NULL)\ \{\ \ \textcolor{comment}{//Se\ lista\ de\ adjacencias\ é vazia,\ este\ é o\ primeiro\ adjacente}}
+\DoxyCodeLine{00788\ \ \ \ \ \ \ \ \ listaAdjacentes\ =\ novoAdj;}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ listaAdjacentes;}
+\DoxyCodeLine{00790\ \ \ \ \ \}}
+\DoxyCodeLine{00791\ \ \ \ \ \textcolor{comment}{//Senão,\ insere\ no\ início\ da\ lista\ de\ adjacêntes}}
+\DoxyCodeLine{00792\ \ \ \ \ novoAdj-\/>\mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}}\ =\ listaAdjacentes;}
+\DoxyCodeLine{00793\ \ \ \ \ listaAdjacentes\ =\ novoAdj;}
+\DoxyCodeLine{00794\ }
+\DoxyCodeLine{00795\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAdjacentes;}
+\DoxyCodeLine{00796\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ac77b3ada88304616ae73dd2faf684e86}\label{veiculos_8h_ac77b3ada88304616ae73dd2faf684e86} 
+\index{veiculos.h@{veiculos.h}!InserirAdjVertice@{InserirAdjVertice}}
+\index{InserirAdjVertice@{InserirAdjVertice}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirAdjVertice()}{InserirAdjVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Inserir\+Adj\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}}]{lista\+Aresta,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{res }\end{DoxyParamCaption})}
+
+Insere os adjacentes nos vértices do grafo de forma recursiva.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+{\em lista\+Aresta} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00730\ \ \ \ \ *res\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00731\ }
+\DoxyCodeLine{00732\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL\ ||\ listaAresta\ ==\ NULL)\ \{}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gr;\ \textcolor{comment}{//\ Se\ o\ grafo\ ou\ a\ listaAresta\ está vazia,\ ignora\ operação}}
+\DoxyCodeLine{00734\ \ \ \ \ \}}
+\DoxyCodeLine{00735\ }
+\DoxyCodeLine{00736\ \ \ \ \ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAtual\ =\ listaAresta;}
+\DoxyCodeLine{00737\ }
+\DoxyCodeLine{00738\ \ \ \ \ \textcolor{keywordflow}{while}\ (listaAtual\ !=\ NULL)\ \{}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ origem\ =\ \mbox{\hyperlink{veiculos_8c_a197e70cf0e3b2023cf3f52cbc1e83135}{ProcurarVerticeLocal}}(gr,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}});}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ destino\ =\ \mbox{\hyperlink{veiculos_8c_a197e70cf0e3b2023cf3f52cbc1e83135}{ProcurarVerticeLocal}}(gr,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}});}
+\DoxyCodeLine{00741\ }
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (origem\ !=\ NULL\ \&\&\ destino\ !=\ NULL)\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idOrigem\ =\ \mbox{\hyperlink{veiculos_8c_acfd7671c60887b4be34a2a41764125f9}{ProcurarIdVertice}}(gr,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}});}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ idDestino\ =\ \mbox{\hyperlink{veiculos_8c_acfd7671c60887b4be34a2a41764125f9}{ProcurarIdVertice}}(gr,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}});}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{veiculos_8c_ab7d1e257c5462bdfb86a98fe1fc6bce1}{ExisteAdjacentes}}(origem-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}},\ idDestino))\ \{}
+\DoxyCodeLine{00747\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cria\ a\ adjacência\ no\ vértice\ de\ origem}}
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_adj}{Adj}}*\ novoAdjOrigem\ =\ \mbox{\hyperlink{veiculos_8c_a18e2c9e448fc51fdc6f89be463d8f8b0}{CriarAdj}}(idDestino,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a42cd64244a918a5ac7790523e97d1181}{peso}});}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ origem-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}}\ =\ \mbox{\hyperlink{veiculos_8c_a464f994ae344fc7e70e95d3ea5f751a6}{InserirAdj}}(origem-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}},\ novoAdjOrigem,\ res);}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00751\ }
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{veiculos_8c_ab7d1e257c5462bdfb86a98fe1fc6bce1}{ExisteAdjacentes}}(destino-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}},\ idOrigem))\ \{}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Cria\ a\ adjacência\ no\ vértice\ de\ destino}}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_adj}{Adj}}*\ novoAdjDestino\ =\ \mbox{\hyperlink{veiculos_8c_a18e2c9e448fc51fdc6f89be463d8f8b0}{CriarAdj}}(idOrigem,\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a42cd64244a918a5ac7790523e97d1181}{peso}});}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ destino-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}}\ =\ \mbox{\hyperlink{veiculos_8c_a464f994ae344fc7e70e95d3ea5f751a6}{InserirAdj}}(destino-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}},\ novoAdjDestino,\ res);}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00758\ }
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ listaAtual\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}};}
+\DoxyCodeLine{00760\ \ \ \ \ \}}
+\DoxyCodeLine{00761\ }
+\DoxyCodeLine{00762\ \ \ \ \ \textcolor{keywordflow}{return}\ gr;}
+\DoxyCodeLine{00763\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ae92b9c099d036fe1c3dbf260a1cb902e}\label{veiculos_8h_ae92b9c099d036fe1c3dbf260a1cb902e} 
+\index{veiculos.h@{veiculos.h}!InserirAresta@{InserirAresta}}
+\index{InserirAresta@{InserirAresta}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirAresta()}{InserirAresta()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*} Inserir\+Aresta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}}]{lista\+Aresta,  }\item[{\mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*}}]{nova\+Aresta }\end{DoxyParamCaption})}
+
+Insere arestas na lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Aresta} & \\
+\hline
+{\em nova\+Aresta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Aresta 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00483\ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ novoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}})),\ *\ aux;}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}\ =\ *novaAresta;}
+\DoxyCodeLine{00487\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00488\ }
+\DoxyCodeLine{00489\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAresta\ ==\ NULL)}
+\DoxyCodeLine{00490\ \ \ \ \ \{}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ listaAresta\ =\ novoNo;}
+\DoxyCodeLine{00492\ \ \ \ \ \}}
+\DoxyCodeLine{00493\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ aux\ =\ listaAresta;}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}};}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}}\ =\ novoNo;}
+\DoxyCodeLine{00500\ \ \ \ \ \}}
+\DoxyCodeLine{00501\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAresta;}
+\DoxyCodeLine{00502\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a245aab4349d64a92bac465c7e15be1b4}\label{veiculos_8h_a245aab4349d64a92bac465c7e15be1b4} 
+\index{veiculos.h@{veiculos.h}!InserirListaVeiculoBin@{InserirListaVeiculoBin}}
+\index{InserirListaVeiculoBin@{InserirListaVeiculoBin}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirListaVeiculoBin()}{InserirListaVeiculoBin()}}
+{\footnotesize\ttfamily bool Inserir\+Lista\+Veiculo\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}}]{lista\+Veiculo }\end{DoxyParamCaption})}
+
+Insere veículos no fichiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Veiculo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00158\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}ab"{}});\ \textcolor{comment}{//\ Insere\ no\ ficheiro\ binário}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00161\ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro\ ao\ abrir\ o\ ficheiro\(\backslash\)n"{}});}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{false});}
+\DoxyCodeLine{00164\ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ aux\ =\ listaVeiculo;}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00168\ \ \ \ \ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}\ buffer\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}};}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ fwrite(\&buffer,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp);}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keyword}{true});}
+\DoxyCodeLine{00177\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_aa7afa3350fe5f6583f9c96888077cf8c}\label{veiculos_8h_aa7afa3350fe5f6583f9c96888077cf8c} 
+\index{veiculos.h@{veiculos.h}!InserirVeiculo@{InserirVeiculo}}
+\index{InserirVeiculo@{InserirVeiculo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirVeiculo()}{InserirVeiculo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} Inserir\+Veiculo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}}]{lista\+Veiculo,  }\item[{\mbox{\hyperlink{struct_veiculo}{Veiculo}} \texorpdfstring{$\ast$}{*}}]{novo\+Veiculo }\end{DoxyParamCaption})}
+
+Insere veículos na lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Veiculo} & \\
+\hline
+{\em novo\+Veiculo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Veiculo 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00103\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ novoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}})),\ *\ aux;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}\ =\ *novoVeiculo;}
+\DoxyCodeLine{00107\ \ \ \ \ novoNo-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaVeiculo\ ==\ NULL)}
+\DoxyCodeLine{00110\ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ listaVeiculo\ =\ novoNo;}
+\DoxyCodeLine{00112\ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ aux\ =\ listaVeiculo;}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}}\ =\ novoNo;}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{return}\ listaVeiculo;}
+\DoxyCodeLine{00122\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ad3aa1f88b28d4152dfd424ad90e5e930}\label{veiculos_8h_ad3aa1f88b28d4152dfd424ad90e5e930} 
+\index{veiculos.h@{veiculos.h}!InserirVertice@{InserirVertice}}
+\index{InserirVertice@{InserirVertice}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{InserirVertice()}{InserirVertice()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Inserir\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{novo\+Vertice,  }\item[{bool \texorpdfstring{$\ast$}{*}}]{res }\end{DoxyParamCaption})}
+
+Insere os vertices no grafo.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+{\em novo\+Vertice} & \\
+\hline
+{\em res} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+gr 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00607\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL)\ \{}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ gr\ =\ novoVertice;}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ *res\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gr;}
+\DoxyCodeLine{00611\ \ \ \ \ \}}
+\DoxyCodeLine{00612\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00613\ \ \ \ \ \{}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ aux\ =\ gr;}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_vertice}{Vertice}}*\ ant\ =\ aux;}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ \&\&\ strcmp(aux-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ novoVertice-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}})\ <\ 0)\ \{}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ ant\ =\ aux;}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}};}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux\ ==\ gr)\ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ novoVertice-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ =\ gr;}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ gr\ =\ novoVertice;}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ novoVertice-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ =\ aux;}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ ant-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ =\ novoVertice;}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ *res\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00630\ \ \ \ \ \}}
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keywordflow}{return}\ gr;}
+\DoxyCodeLine{00632\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a1a3f21676c193642c7d2bb4872883f02}\label{veiculos_8h_a1a3f21676c193642c7d2bb4872883f02} 
+\index{veiculos.h@{veiculos.h}!LerFicheiroAdjacentesTxt@{LerFicheiroAdjacentesTxt}}
+\index{LerFicheiroAdjacentesTxt@{LerFicheiroAdjacentesTxt}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{LerFicheiroAdjacentesTxt()}{LerFicheiroAdjacentesTxt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*} Ler\+Ficheiro\+Adjacentes\+Txt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00409\ \{}
+\DoxyCodeLine{00410\ \ \ \ \ \textcolor{comment}{//\ Abre\ o\ ficheiro\ com\ os\ dados}}
+\DoxyCodeLine{00411\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}adjacentes.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ o\ ficheiro\ foi\ aberto\ com\ sucesso}}
+\DoxyCodeLine{00414\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00415\ \ \ \ \ \{}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00417\ \ \ \ \ \}}
+\DoxyCodeLine{00418\ \ \ \ \ \textcolor{comment}{//\ Lê os\ dados\ do\ ficheiro}}
+\DoxyCodeLine{00419\ \ \ \ \ \mbox{\hyperlink{struct_aresta}{Aresta}}*\ novaAresta\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_aresta}{Aresta}}));}
+\DoxyCodeLine{00420\ \ \ \ \ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ listaAresta\ =\ \mbox{\hyperlink{veiculos_8c_ad176da68d6236bd6559d7f03d8474c76}{CriarListaAresta}}();\ \textcolor{comment}{//Chama\ função\ para\ criar\ a\ lista\ de\ arestas}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00422\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00423\ \ \ \ \ \{}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}\%40[\string^;];\%40[\string^;];\%d\(\backslash\)n"{}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}},\ \&(novaAresta-\/>\mbox{\hyperlink{struct_aresta_a42cd64244a918a5ac7790523e97d1181}{peso}})))}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{veiculos_8c_aae0e0a540855409db48d3db202ec477f}{VerificarExisteAresta}}(listaAresta,\ novaAresta)\ ==\ \textcolor{keyword}{false})\ \textcolor{comment}{//Verifica\ se\ já existe\ a\ aresta\ dentro\ da\ lista}}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaAresta\ =\ \mbox{\hyperlink{veiculos_8c_ae92b9c099d036fe1c3dbf260a1cb902e}{InserirAresta}}(listaAresta,\ novaAresta);\ \textcolor{comment}{//Insere\ nova\ aresta\ em\ lista\ já existente}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00431\ \ \ \ \ \}}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00433\ \ \ \ \ \textcolor{comment}{//\ Fecha\ o\ ficheiro}}
+\DoxyCodeLine{00434\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAresta;}
+\DoxyCodeLine{00437\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a6a54b4ebe18141755c9dc29b9fe756c9}\label{veiculos_8h_a6a54b4ebe18141755c9dc29b9fe756c9} 
+\index{veiculos.h@{veiculos.h}!LerFicheiroVeiculoTxt@{LerFicheiroVeiculoTxt}}
+\index{LerFicheiroVeiculoTxt@{LerFicheiroVeiculoTxt}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{LerFicheiroVeiculoTxt()}{LerFicheiroVeiculoTxt()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} Ler\+Ficheiro\+Veiculo\+Txt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lê o ficheiro que contem as informações dos veículos e armazena esses dados em uma lista.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Veiculo 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00024\ \{}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Abre\ o\ ficheiro\ com\ os\ dados}}
+\DoxyCodeLine{00027\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}veiculos.txt"{}},\ \textcolor{stringliteral}{"{}r"{}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Verifica\ se\ o\ ficheiro\ foi\ aberto\ com\ sucesso}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00033\ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//\ Lê os\ dados\ do\ ficheiro}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ novoVeiculo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaVeiculo\ =\ \mbox{\hyperlink{veiculos_8c_a365679e80996ccdb0f9b3ab183510e2c}{CriarListaVeiculo}}();\ \textcolor{comment}{//Chama\ função\ para\ criar\ a\ lista\ de\ veículos}}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{veiculos_8c_a13b1299cb9db3c2826711e2fb8aaaf62}{CriarListaVeiculoBin}}(listaVeiculo);\ \textcolor{comment}{//Cria\ ficheiro\ binário\ para\ armazenar\ a\ lista\ de\ veículos}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00040\ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fscanf(fp,\ \textcolor{stringliteral}{"{}\%d;\%20[\string^;];\%d;\%40[\string^;];\%f;\%d\(\backslash\)n"{}},\ \&(novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}),\ novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a52888b40c8af692099e44c1fd2bce771}{tipoVeiculo}},\ \&(novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a2d4ba198a98c57dd60beb58e6f2af8bc}{bateria}}),\ novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ \&(novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_ac84a0a2333c2c7a6f130c3489d19a8b8}{custo}}),\ \&(novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a48235edd0fea959bd511746ee374633a}{disponibilidade}})))}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{veiculos_8c_a2326e9d5f1a481dad36f7cb9a5493b50}{VerificarExisteVeiculo}}(listaVeiculo,\ novoVeiculo)\ ==\ \textcolor{keyword}{false})\ \textcolor{comment}{//Verifica\ se\ já existe\ o\ veículo\ dentro\ da\ lista}}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaVeiculo\ =\ \mbox{\hyperlink{veiculos_8c_aa7afa3350fe5f6583f9c96888077cf8c}{InserirVeiculo}}(listaVeiculo,\ novoVeiculo);\ \textcolor{comment}{//Insere\ novo\ veículo\ em\ lista\ já existente}}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \mbox{\hyperlink{veiculos_8c_a245aab4349d64a92bac465c7e15be1b4}{InserirListaVeiculoBin}}(listaVeiculo);\ \textcolor{comment}{//Insere\ a\ lista\ no\ ficheiro\ binario}}
+\DoxyCodeLine{00052\ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Fecha\ o\ ficheiro}}
+\DoxyCodeLine{00054\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{return}\ listaVeiculo;}
+\DoxyCodeLine{00057\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a99e72a5873dc1c5a861946b6fc3eccb4}\label{veiculos_8h_a99e72a5873dc1c5a861946b6fc3eccb4} 
+\index{veiculos.h@{veiculos.h}!LerListaVeiculoBin@{LerListaVeiculoBin}}
+\index{LerListaVeiculoBin@{LerListaVeiculoBin}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{LerListaVeiculoBin()}{LerListaVeiculoBin()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} Ler\+Lista\+Veiculo\+Bin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lê o ficheiro binário que armazena os veículos e retorna uma lista atualizada.
+
+\begin{DoxyReturn}{Retorna}
+lista\+Atual 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00185\ \{}
+\DoxyCodeLine{00186\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê ficheiro\ binário}}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00188\ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00190\ \ \ \ \ \}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaAtual\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}})),\ *\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}));}
+\DoxyCodeLine{00193\ \ \ \ \ listaAtual\ =\ NULL;}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \textcolor{keywordflow}{while}\ (!feof(fp)\ !=\ NULL)}
+\DoxyCodeLine{00196\ \ \ \ \ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ v\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fread(v,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp))}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ proximoNo\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}));}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}\ =\ *v;}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ proximoNo-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAtual\ ==\ NULL)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ proximoNo;}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ listaAtual;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>proxima)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}}\ =\ proximoNo;}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordflow}{return}\ listaAtual;}
+\DoxyCodeLine{00222\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a32b754d527e894168bedf8710c06ff2a}\label{veiculos_8h_a32b754d527e894168bedf8710c06ff2a} 
+\index{veiculos.h@{veiculos.h}!ListarLocaisVeiculos@{ListarLocaisVeiculos}}
+\index{ListarLocaisVeiculos@{ListarLocaisVeiculos}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListarLocaisVeiculos()}{ListarLocaisVeiculos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_localizacao}{Localizacao}} \texorpdfstring{$\ast$}{*} Listar\+Locais\+Veiculos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}}]{lista\+Veiculo }\end{DoxyParamCaption})}
+
+Recebe a lista atualizada de veículos e cria uma lista com todas as localizações.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Veiculo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+lista\+Local\+Veiculo 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00512\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{00513\ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ listaLocalVeiculo\ =\ NULL;}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00515\ \ \ \ \ \textcolor{keywordflow}{while}\ (listaVeiculo)\ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ aux\ =\ listaLocalVeiculo;}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ encontrado\ =\ 0;\ \textcolor{comment}{//\ Variável\ de\ controle\ para\ verificar\ se\ a\ localização\ já existe\ na\ lista}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux)\ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(listaVeiculo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ aux-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}})\ ==\ 0)\ \{}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ encontrado\ =\ 1;}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\ \textcolor{comment}{//\ Localização\ já existe\ na\ lista,\ interrompe\ o\ loop}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!encontrado)\ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ novoLocal\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_localizacao}{Localizacao}}));}
+\DoxyCodeLine{00529\ }
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ strcpy(novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ listaVeiculo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ =\ i;}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ novoLocal-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}}\ =\ NULL;}
+\DoxyCodeLine{00533\ }
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (listaLocalVeiculo\ ==\ NULL)\ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ listaLocalVeiculo\ =\ novoLocal;}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ listaLocalVeiculo;}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}})\ \{}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ aux-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}}\ =\ novoLocal;}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ listaVeiculo\ =\ listaVeiculo-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00547\ \ \ \ \ \}}
+\DoxyCodeLine{00548\ \ \ \ \ \textcolor{keywordflow}{return}\ listaLocalVeiculo;}
+\DoxyCodeLine{00549\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ae91f44f412596f5e12c24364b8ea7c4f}\label{veiculos_8h_ae91f44f412596f5e12c24364b8ea7c4f} 
+\index{veiculos.h@{veiculos.h}!ListarVeiculoLocalizacao@{ListarVeiculoLocalizacao}}
+\index{ListarVeiculoLocalizacao@{ListarVeiculoLocalizacao}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListarVeiculoLocalizacao()}{ListarVeiculoLocalizacao()}}
+{\footnotesize\ttfamily bool Listar\+Veiculo\+Localizacao (\begin{DoxyParamCaption}\item[{char}]{localizacao\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Lista os veículos registados no ficheiro binário localizados em determinado lugar.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em localizacao} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00366\ \{}
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{keywordtype}{int}\ tamanho\ =\ 1,\ i\ =\ 0;}
+\DoxyCodeLine{00368\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ vetorVeiculo\ =\ malloc(tamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00369\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaAtual\ =\ \mbox{\hyperlink{veiculos_8c_a99e72a5873dc1c5a861946b6fc3eccb4}{LerListaVeiculoBin}}();\ \textcolor{comment}{//Armazena\ os\ veículos\ do\ ficheiro\ binário\ em\ uma\ lista}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorVeiculo\ !=\ NULL)\ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (listaAtual\ !=\ NULL)}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ tamanho)}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ novoTamanho\ =\ i\ +\ 1;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vetorVeiculo\ =\ (\mbox{\hyperlink{struct_veiculo}{Veiculo}}*)realloc(vetorVeiculo,\ novoTamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorVeiculo\ ==\ NULL)\ \{}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tamanho\ =\ novoTamanho;}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(listaAtual-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ localizacao)==0)}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vetorVeiculo[i]\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}};}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00392\ \ \ \ \ \}}
+\DoxyCodeLine{00393\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00394\ \ \ \ \ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00396\ \ \ \ \ \}}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ i;\ j++)}
+\DoxyCodeLine{00399\ \ \ \ \ \{}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d;\%s;\%d;\%s;\%f;\%d\(\backslash\)n"{}},\ vetorVeiculo[j].\textcolor{keywordtype}{id},\ vetorVeiculo[j].tipoVeiculo,\ vetorVeiculo[j].bateria,\ vetorVeiculo[j].localizacao,\ vetorVeiculo[j].custo,\ vetorVeiculo[j].disponibilidade);}
+\DoxyCodeLine{00401\ \ \ \ \ \}}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00404\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ad4f277bef0618619b335b56f3952f803}\label{veiculos_8h_ad4f277bef0618619b335b56f3952f803} 
+\index{veiculos.h@{veiculos.h}!ListarVeiculoOrdemDecrescente@{ListarVeiculoOrdemDecrescente}}
+\index{ListarVeiculoOrdemDecrescente@{ListarVeiculoOrdemDecrescente}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListarVeiculoOrdemDecrescente()}{ListarVeiculoOrdemDecrescente()}}
+{\footnotesize\ttfamily bool Listar\+Veiculo\+Ordem\+Decrescente (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Lista os veículos registados no ficheiro binário em ordem decrescente.
+
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00320\ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \textcolor{keywordtype}{int}\ tamanho\ =\ 1,\ i\ =\ 0;}
+\DoxyCodeLine{00322\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ vetorVeiculo\ =\ malloc(tamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00323\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaAtual\ =\ \mbox{\hyperlink{veiculos_8c_a99e72a5873dc1c5a861946b6fc3eccb4}{LerListaVeiculoBin}}();\ \textcolor{comment}{//Armazena\ os\ veículos\ do\ ficheiro\ binário\ em\ uma\ lista}}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00325\ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorVeiculo\ !=\ NULL)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (listaAtual\ !=\ NULL)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ >=\ tamanho)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ novoTamanho\ =\ i\ +\ 1;}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vetorVeiculo\ =\ (\mbox{\hyperlink{struct_veiculo}{Veiculo}}*)realloc(vetorVeiculo,\ novoTamanho\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vetorVeiculo\ ==\ NULL)\ \{}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ não foi\ possível\ realocar\ memória.\(\backslash\)n"{}});}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ exit(1);}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tamanho\ =\ novoTamanho;}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ vetorVeiculo[i]\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}};}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ listaAtual\ =\ listaAtual-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ i++;}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00342\ \ \ \ \ \}}
+\DoxyCodeLine{00343\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00344\ \ \ \ \ \{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}Erro:\ não foi\ possível\ alocar\ memória.\(\backslash\)n"{}});}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00347\ \ \ \ \ \}}
+\DoxyCodeLine{00348\ }
+\DoxyCodeLine{00349\ \ \ \ \ qsort(vetorVeiculo,\ tamanho,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ \mbox{\hyperlink{veiculos_8c_a3406116f27970409a9ba8bf85696f8ad}{comparar}});}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ i;\ j++)}
+\DoxyCodeLine{00352\ \ \ \ \ \{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d;\%s;\%d;\%s;\%f;\%d\(\backslash\)n"{}},\ vetorVeiculo[j].\textcolor{keywordtype}{id},\ vetorVeiculo[j].tipoVeiculo,\ vetorVeiculo[j].bateria,\ vetorVeiculo[j].localizacao,\ vetorVeiculo[j].custo,\ vetorVeiculo[j].disponibilidade);}
+\DoxyCodeLine{00354\ \ \ \ \ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00357\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a44118625859fb759151b411f676bffbd}\label{veiculos_8h_a44118625859fb759151b411f676bffbd} 
+\index{veiculos.h@{veiculos.h}!ListarVeiculosArea@{ListarVeiculosArea}}
+\index{ListarVeiculosArea@{ListarVeiculosArea}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ListarVeiculosArea()}{ListarVeiculosArea()}}
+{\footnotesize\ttfamily bool Listar\+Veiculos\+Area (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr }\end{DoxyParamCaption})}
+
+Compara a lista\+Tipo e a lista\+Area e imprime no ecrã os veículos daquele tipo naquele raio.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{01011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01012\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ listaTipo\ =\ \mbox{\hyperlink{veiculos_8c_a1c5fc70f6a9c141746c693dd496410aa}{SelecionarVeiculosTipo}}(\textcolor{stringliteral}{"{}bicicleta"{}});}
+\DoxyCodeLine{01013\ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ listaArea\ =\ \mbox{\hyperlink{veiculos_8c_a0a9ac27bfca006c83a4378ab352f4ab1}{DefinirArea}}(\textcolor{stringliteral}{"{}Braga"{}},\ gr,\ 50);}
+\DoxyCodeLine{01014\ }
+\DoxyCodeLine{01015\ \ \ \ \ \mbox{\hyperlink{struct_localizacao}{Localizacao}}*\ auxArea\ =\ listaArea;}
+\DoxyCodeLine{01016\ }
+\DoxyCodeLine{01017\ \ \ \ \ \textcolor{keywordflow}{while}\ (listaTipo)}
+\DoxyCodeLine{01018\ \ \ \ \ \{}
+\DoxyCodeLine{01019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (listaArea)}
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ listaArea-\/>\mbox{\hyperlink{struct_localizacao_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}})\ ==\ 0)}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%d;\%s;\%d;\%s;\%f;\%d\(\backslash\)n"{}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a52888b40c8af692099e44c1fd2bce771}{tipoVeiculo}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a2d4ba198a98c57dd60beb58e6f2af8bc}{bateria}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_ac84a0a2333c2c7a6f130c3489d19a8b8}{custo}},\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a48235edd0fea959bd511746ee374633a}{disponibilidade}});}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \ \ \ \ listaArea\ =\ listaArea-\/>\mbox{\hyperlink{struct_localizacao_a422c1e7324f10e7dab5807a0536d3bd6}{proxima}};}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01027\ \ \ \ \ \ \ \ \ listaTipo\ =\ listaTipo-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{01028\ \ \ \ \ \ \ \ \ listaArea\ =\ auxArea;}
+\DoxyCodeLine{01029\ \ \ \ \ \}}
+\DoxyCodeLine{01030\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{01031\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_afd117d9a92b687df156f4eb97de033fe}\label{veiculos_8h_afd117d9a92b687df156f4eb97de033fe} 
+\index{veiculos.h@{veiculos.h}!MostrarAdjacencias@{MostrarAdjacencias}}
+\index{MostrarAdjacencias@{MostrarAdjacencias}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{MostrarAdjacencias()}{MostrarAdjacencias()}}
+{\footnotesize\ttfamily void Mostrar\+Adjacencias (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_adj}{Adj}} \texorpdfstring{$\ast$}{*}}]{lista\+Adjacentes }\end{DoxyParamCaption})}
+
+Imprime no ecrã a lista de adjacentes de um vértice.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Adjacentes} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00820\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00821\ \ \ \ \ \textcolor{keywordflow}{if}\ (listaAdjacentes\ ==\ NULL)\ \{}
+\DoxyCodeLine{00822\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00823\ \ \ \ \ \}}
+\DoxyCodeLine{00824\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)tAdj:\ \%d\ -\/\ \%d\(\backslash\)n"{}},\ listaAdjacentes-\/>\mbox{\hyperlink{struct_adj_a7441ef0865bcb3db9b8064dd7375c1ea}{id}},\ listaAdjacentes-\/>\mbox{\hyperlink{struct_adj_a42cd64244a918a5ac7790523e97d1181}{peso}});}
+\DoxyCodeLine{00825\ \ \ \ \ \mbox{\hyperlink{veiculos_8c_aee92d11523cb657819e5a4ea604ac318}{MostrarAdjacencias}}(listaAdjacentes-\/>\mbox{\hyperlink{struct_adj_a607bcd352821629daf6137bb3c9f8593}{proxima}});}
+\DoxyCodeLine{00826\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_ab93d78be535e3a86c57132b644060b0f}\label{veiculos_8h_ab93d78be535e3a86c57132b644060b0f} 
+\index{veiculos.h@{veiculos.h}!MostrarGrafo@{MostrarGrafo}}
+\index{MostrarGrafo@{MostrarGrafo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{MostrarGrafo()}{MostrarGrafo()}}
+{\footnotesize\ttfamily void Mostrar\+Grafo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr }\end{DoxyParamCaption})}
+
+Imprime o grafo no ecrã.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00640\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL)\ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00642\ \ \ \ \ \}}
+\DoxyCodeLine{00643\ }
+\DoxyCodeLine{00644\ \ \ \ \ printf(\textcolor{stringliteral}{"{}Vértice:\ \%d\ -\/\ \%s\(\backslash\)n"{}},\ gr-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}},\ gr-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}});}
+\DoxyCodeLine{00645\ \ \ \ \ \mbox{\hyperlink{veiculos_8c_aee92d11523cb657819e5a4ea604ac318}{MostrarAdjacencias}}(gr-\/>\mbox{\hyperlink{struct_vertice_a2aa7ac551f77a84560f24aa6d0519144}{lista\_adjacentes}});}
+\DoxyCodeLine{00646\ \ \ \ \ \mbox{\hyperlink{veiculos_8c_ab93d78be535e3a86c57132b644060b0f}{MostrarGrafo}}(gr-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}});}
+\DoxyCodeLine{00647\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_acfd7671c60887b4be34a2a41764125f9}\label{veiculos_8h_acfd7671c60887b4be34a2a41764125f9} 
+\index{veiculos.h@{veiculos.h}!ProcurarIdVertice@{ProcurarIdVertice}}
+\index{ProcurarIdVertice@{ProcurarIdVertice}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarIdVertice()}{ProcurarIdVertice()}}
+{\footnotesize\ttfamily int Procurar\+Id\+Vertice (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{localizacao }\end{DoxyParamCaption})}
+
+Procura o id de um vértice a partir do nome da localização.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+{\em localizacao} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+gr-\/\texorpdfstring{$>$}{>}id 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00691\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL)\ \{}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{00693\ \ \ \ \ \}}
+\DoxyCodeLine{00694\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}}\ ==\ NULL\ \&\&\ strcmp(gr-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ localizacao)\ >\ 0)\ \{}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/2;}
+\DoxyCodeLine{00696\ \ \ \ \ \}}
+\DoxyCodeLine{00697\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(gr-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ localizacao)\ ==\ 0)\ \{}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gr-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}};}
+\DoxyCodeLine{00699\ \ \ \ \ \}}
+\DoxyCodeLine{00700\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{veiculos_8c_acfd7671c60887b4be34a2a41764125f9}{ProcurarIdVertice}}(gr-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}},\ localizacao));}
+\DoxyCodeLine{00701\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a1a870bcef1b99f5d1bd694c6d7d93799}\label{veiculos_8h_a1a870bcef1b99f5d1bd694c6d7d93799} 
+\index{veiculos.h@{veiculos.h}!ProcurarVerticeId@{ProcurarVerticeId}}
+\index{ProcurarVerticeId@{ProcurarVerticeId}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarVerticeId()}{ProcurarVerticeId()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Procurar\+Vertice\+Id (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{int}]{id }\end{DoxyParamCaption})}
+
+Procura um vértice a partir do seu id.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+gr 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00674\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL)\ \{}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00676\ \ \ \ \ \}}
+\DoxyCodeLine{00677\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr-\/>\mbox{\hyperlink{struct_vertice_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ \textcolor{keywordtype}{id})\ \{}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gr;}
+\DoxyCodeLine{00679\ \ \ \ \ \}}
+\DoxyCodeLine{00680\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{veiculos_8c_a1a870bcef1b99f5d1bd694c6d7d93799}{ProcurarVerticeId}}(gr-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}},\ \textcolor{keywordtype}{id}));}
+\DoxyCodeLine{00681\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a197e70cf0e3b2023cf3f52cbc1e83135}\label{veiculos_8h_a197e70cf0e3b2023cf3f52cbc1e83135} 
+\index{veiculos.h@{veiculos.h}!ProcurarVerticeLocal@{ProcurarVerticeLocal}}
+\index{ProcurarVerticeLocal@{ProcurarVerticeLocal}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{ProcurarVerticeLocal()}{ProcurarVerticeLocal()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*} Procurar\+Vertice\+Local (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_vertice}{Vertice}} \texorpdfstring{$\ast$}{*}}]{gr,  }\item[{char \texorpdfstring{$\ast$}{*}}]{localizacao }\end{DoxyParamCaption})}
+
+Procura um vértice a partir do nome da localização.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em gr} & \\
+\hline
+{\em localizacao} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+gr 
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00657\ \ \ \ \ \textcolor{keywordflow}{if}\ (gr\ ==\ NULL)\ \{}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{00659\ \ \ \ \ \}}
+\DoxyCodeLine{00660\ \ \ \ \ \textcolor{keywordflow}{if}\ (strcmp(gr-\/>\mbox{\hyperlink{struct_vertice_a0f8f1254ec39fa9b2334e80aafed7603}{localizacao}},\ localizacao)\ ==\ 0)\ \{}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gr;}
+\DoxyCodeLine{00662\ \ \ \ \ \}}
+\DoxyCodeLine{00663\ \ \ \ \ \textcolor{keywordflow}{return}(\mbox{\hyperlink{veiculos_8c_a197e70cf0e3b2023cf3f52cbc1e83135}{ProcurarVerticeLocal}}(gr-\/>\mbox{\hyperlink{struct_vertice_ab94e5e1560e431fb019d214377286921}{proxima}},\ localizacao));}
+\DoxyCodeLine{00664\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a2fd5059e30961b098245944565a02c98}\label{veiculos_8h_a2fd5059e30961b098245944565a02c98} 
+\index{veiculos.h@{veiculos.h}!RemoverDadosListaVeiculoBin@{RemoverDadosListaVeiculoBin}}
+\index{RemoverDadosListaVeiculoBin@{RemoverDadosListaVeiculoBin}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{RemoverDadosListaVeiculoBin()}{RemoverDadosListaVeiculoBin()}}
+{\footnotesize\ttfamily bool Remover\+Dados\+Lista\+Veiculo\+Bin (\begin{DoxyParamCaption}\item[{int}]{id }\end{DoxyParamCaption})}
+
+Remove o registo de um veículo do ficheiro binário.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ FILE*\ fp\ =\ fopen(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}rb"{}});\ \textcolor{comment}{//\ Lê ficheiro\ binário}}
+\DoxyCodeLine{00268\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp\ ==\ NULL)}
+\DoxyCodeLine{00269\ \ \ \ \ \{}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00271\ \ \ \ \ \}}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00273\ \ \ \ \ FILE*\ fp2\ =\ fopen(\textcolor{stringliteral}{"{}copiaListaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}wb"{}});\ \textcolor{comment}{//\ Escreve\ ficheiro\ binário}}
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordflow}{if}\ (fp2\ ==\ NULL)}
+\DoxyCodeLine{00275\ \ \ \ \ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00277\ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \mbox{\hyperlink{struct_veiculo}{Veiculo}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}));}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00281\ \ \ \ \ \textcolor{keywordflow}{while}\ (fread(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp))}
+\DoxyCodeLine{00282\ \ \ \ \ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ !=\ \textcolor{keywordtype}{id})}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ fwrite(aux,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_veiculo}{Veiculo}}),\ 1,\ fp2);}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00287\ \ \ \ \ \}}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00289\ \ \ \ \ fclose(fp);}
+\DoxyCodeLine{00290\ \ \ \ \ fclose(fp2);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ remove(\textcolor{stringliteral}{"{}listaVeiculo.bin"{}});}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00294\ \ \ \ \ \textcolor{keywordflow}{if}\ (rename(\textcolor{stringliteral}{"{}copiaListaVeiculo.bin"{}},\ \textcolor{stringliteral}{"{}listaVeiculo.bin"{}})\ !=\ 0)}
+\DoxyCodeLine{00295\ \ \ \ \ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(\textcolor{keyword}{false});}
+\DoxyCodeLine{00297\ \ \ \ \ \}}
+\DoxyCodeLine{00298\ }
+\DoxyCodeLine{00299\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00300\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a35356f3c740ef1ad4146f0546fad88c5}\label{veiculos_8h_a35356f3c740ef1ad4146f0546fad88c5} 
+\index{veiculos.h@{veiculos.h}!SelecionarVeiculosTipo@{SelecionarVeiculosTipo}}
+\index{SelecionarVeiculosTipo@{SelecionarVeiculosTipo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{SelecionarVeiculosTipo()}{SelecionarVeiculosTipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*} Selecionar\+Veiculos\+Tipo (\begin{DoxyParamCaption}\item[{char}]{tipo\+Veiculo\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\Hypertarget{veiculos_8h_aae0e0a540855409db48d3db202ec477f}\label{veiculos_8h_aae0e0a540855409db48d3db202ec477f} 
+\index{veiculos.h@{veiculos.h}!VerificarExisteAresta@{VerificarExisteAresta}}
+\index{VerificarExisteAresta@{VerificarExisteAresta}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{VerificarExisteAresta()}{VerificarExisteAresta()}}
+{\footnotesize\ttfamily bool Verificar\+Existe\+Aresta (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_aresta}{Lista\+Aresta}} \texorpdfstring{$\ast$}{*}}]{lista\+Aresta,  }\item[{\mbox{\hyperlink{struct_aresta}{Aresta}} \texorpdfstring{$\ast$}{*}}]{nova\+Aresta }\end{DoxyParamCaption})}
+
+Verifica se já existe a aresta dentro da lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Aresta} & \\
+\hline
+{\em nova\+Aresta} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00447\ \{}
+\DoxyCodeLine{00448\ \ \ \ \ \mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_aresta}{ListaAresta}}));}
+\DoxyCodeLine{00449\ \ \ \ \ aux\ =\ listaAresta;}
+\DoxyCodeLine{00450\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00451\ \ \ \ \ \{}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(aux-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}})\ ==\ 0)\ ||\ (strcmp(aux-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}})\ ==\ 0))}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((strcmp(aux-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a0f3f654b13359e15d09e3fa2adeddc02}{origem}})==0)\ ||\ (strcmp(aux-\/>\mbox{\hyperlink{struct_lista_aresta_a9bd615f14a658e1fd13c81de5208cbb9}{a}}.\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}},\ novaAresta-\/>\mbox{\hyperlink{struct_aresta_a17097833fefa00c70efdb8c0e243440e}{destino}})\ ==\ 0))}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_aresta_a136562138ef2e4a9db2c73cb56156e47}{proxima}};}
+\DoxyCodeLine{00459\ }
+\DoxyCodeLine{00460\ \ \ \ \ \}}
+\DoxyCodeLine{00461\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00462\ \}}
+
+\end{DoxyCode}
+\Hypertarget{veiculos_8h_a2326e9d5f1a481dad36f7cb9a5493b50}\label{veiculos_8h_a2326e9d5f1a481dad36f7cb9a5493b50} 
+\index{veiculos.h@{veiculos.h}!VerificarExisteVeiculo@{VerificarExisteVeiculo}}
+\index{VerificarExisteVeiculo@{VerificarExisteVeiculo}!veiculos.h@{veiculos.h}}
+\doxysubsubsection{\texorpdfstring{VerificarExisteVeiculo()}{VerificarExisteVeiculo()}}
+{\footnotesize\ttfamily bool Verificar\+Existe\+Veiculo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_lista_veiculo}{Lista\+Veiculo}} \texorpdfstring{$\ast$}{*}}]{lista\+Veiculo,  }\item[{\mbox{\hyperlink{struct_veiculo}{Veiculo}} \texorpdfstring{$\ast$}{*}}]{novo\+Veiculo }\end{DoxyParamCaption})}
+
+Verifica se já existe o veículo dentro da lista.
+
+
+\begin{DoxyParams}{ParÃ¢metros}
+{\em lista\+Veiculo} & \\
+\hline
+{\em novo\+Veiculo} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Retorna}
+
+\end{DoxyReturn}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00067\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}*\ aux\ =\ malloc(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{struct_lista_veiculo}{ListaVeiculo}}));}
+\DoxyCodeLine{00069\ \ \ \ \ aux\ =\ listaVeiculo;}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordflow}{while}\ (aux\ !=\ NULL)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (aux-\/>\mbox{\hyperlink{struct_lista_veiculo_a43ac918fddcf1bcd291fbbedf1bbc33e}{v}}.\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}}\ ==\ novoVeiculo-\/>\mbox{\hyperlink{struct_veiculo_a7441ef0865bcb3db9b8064dd7375c1ea}{id}})}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ aux\ =\ aux-\/>\mbox{\hyperlink{struct_lista_veiculo_aaab7d68ac200e1c5654a070dadbfa861}{proxima}};}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00082\ \}}
+
+\end{DoxyCode}

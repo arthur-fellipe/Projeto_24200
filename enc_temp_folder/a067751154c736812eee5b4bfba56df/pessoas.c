@@ -129,6 +129,7 @@ bool CriarListaPessoaBin(ListaPessoa* listaPessoa)
 	FILE* fp = fopen("listaPessoa.bin", "wb"); // Escreve ficheiro bin�rio
 	if (fp == NULL)
 	{
+		printf("Erro ao abrir o ficheiro\n");
 		return (false);
 	}
 
@@ -156,6 +157,7 @@ bool InserirListaPessoaBin(ListaPessoa* listaPessoa)
 	FILE* fp = fopen("listaPessoa.bin", "ab"); // Insere no ficheiro bin�rio
 	if (fp == NULL)
 	{
+		printf("Erro ao abrir o ficheiro\n");
 		return (false);
 	}
 
@@ -228,6 +230,7 @@ bool AlterarListaPessoaBin(Pessoa novosDados)
 	FILE* fp = fopen("listaPessoa.bin", "rb+"); // Lê e altera ficheiro binário
 	if (fp == NULL)
 	{
+		printf("Erro ao abrir o ficheiro\n");
 		return(false);
 	}
 
@@ -323,6 +326,7 @@ bool ListarPessoaBin()
 	}
 	else
 	{
+		printf("Erro: não foi possível alocar memória.\n");
 		return false;
 	}
 

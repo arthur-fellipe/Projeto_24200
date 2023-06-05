@@ -162,6 +162,7 @@ bool InserirListaViagemBin(ListaViagem* listaViagem)
 	FILE* fp = fopen("listaViagem.bin", "ab"); // Insere no ficheiro binário
 	if (fp == NULL)
 	{
+		printf("Erro ao abrir o ficheiro\n");
 		return (false);
 	}
 
@@ -234,6 +235,7 @@ bool AlterarListaViagemBin(Viagem novosDados)
 	FILE* fp = fopen("listaViagem.bin", "rb+"); // Lê e altera ficheiro binário
 	if (fp == NULL)
 	{
+		printf("Erro ao abrir o ficheiro\n");
 		return(false);
 	}
 
